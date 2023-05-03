@@ -1,0 +1,21 @@
+Arraste-se para uma escada para olhar para cima ou para baixo.
+O excesso de caça pode levar à extinção. Pense em adotar a Pecuária para garantir um fornecimento duradouro de alimentos e couro para sua civilização.
+Você pode cometer canibalismo, mas podem te matar.
+Você pode construir portas trancadas da mesma forma que as portas normais. Você tem que ter uma chave em uma mão e metal ou madeira na outra.
+Você pode usar uma corda para construir nooses, algemas de corda e leashes.
+Todo mundo morre alguma vez, não fique puto por causa disso.
+Se você é um atirador de elite, aponte para a cabeça. Ou se quiser, Aponte para o peito para matar ou pés para aleijar.
+Use Z ao empunhar uma espada ou faca para alternar entre Stab, Slash, ou Bash. O Bash tem maior chance de nocaute, mas faz menos danos. O Slash fará seu inimigo sangrar facilmente. Apunhalar dá uma maior probabilidade de sangramento interno.
+Você pode alternar entre o modo Parry e o modo Dodge no HUD. Parry leva sua habilidade com a arma e as estatísticas da arma em consideração, e aumentará sua habilidade. Dodge leva em conta a destreza e irá aumentá-la.
+As mudanças climáticas e sazonais podem ameaçar a sobrevivência de sua civilização. Certifique-se de ter um abrigo abastecido com suprimentos vitais como comida e água para sobreviver às tempestades que virão.
+O furo de água secou? Encha seus copos com leite de vaca ou de cabra ou faça vinho de seiva extraindo-o de uma palmeira com uma faca.
+No TDM é uma boa idéia despir os inimigos/companheiros mortos e rasgar seus uniformes para fazer bandagens. Para fazer isso, pressione c enquanto segura a roupa e rasga-a em farrapos, e depois apenas faça os farrapos em bandagens.
+Uma maneira rápida de treinar os médicos é realizar cirurgias em um cadáver fresco. Cadáveres de animais também funcionam.
+Se você estiver sangrando, você pode usar o Grab Intent, apontar para a parte do corpo ferida e depois clicar em você mesmo para aplicar pressão e parar o sangramento.
+A ferramenta de trincheira cabe no slot de sua mochila e vale sempre a pena levar para o TDM.
+Ao usar um lmg, o melhor é tender para a mais eficaz precisão, abrigar-se atrás de sacos de areia incompletos para que você ainda possa atirar enquanto estiver atrás da cobertura (os sacos de areia devem estar incompletos).
+Use o numpad para rapidamente trocar a mira em partes corporais.
+Você pode desarmar minas terrestres e tripmines, clicando em uma armadilha com as mãos à mostra ou em um cortador de arame. Tenha cuidado que, quando você consegue você pega a tripmine/mina terrestre, se falhar em desarmar, as minas terrestres/tripminas produz um resultado mortal para você e todos perto de você, inclusive o inimigo. É mais procurar outra rota do que desarmar.
+Multilar um animal com a intenção GRAB ativa produzirá peles em vez de couro.
+Use uma mão vazia com a intenção de agarrar uma fonte de água para beber dela.
+Ferramentas e armas de combate corpo-a-corpo só levam danos duradouros por atacarem pessoas e animais, ações como arremessar, usar para o propósito pretendido (somente ferramentas) e quebrar coisas (que não sejam alvos) não o danifica de forma alguma.

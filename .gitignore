@@ -1,0 +1,34 @@
+# BYOND specific ignores
+# Based on .gitignores from other SS13 codebases
+
+*.dmb
+*.rsc
+*.int
+*.lk
+*.log
+
+data/*
+SQL/*
+serverdata.txt
+
+
+
+.DS_Store
+config/host.txt
+recipes.txt
+.vscode/
+cfg/admin.txt
+nullobj.txt
+*.code-workspace
+tts/amazontts.py
+tools/imglist.txt
+tools/jslist.txt
+tools/unused.txt
+map_saves/
+map_backups/
+maps/test/
+tts/
+config/host.txt
+maps/campaign/campaign8.dmm
+civ13od.dme
+odcomp.bat
