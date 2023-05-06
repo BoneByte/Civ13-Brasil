@@ -48,9 +48,9 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 
 /mob/living/proc/get_speech_ending(verb, var/ending)
 	if (ending=="!")
-		return pick("exclaims","shouts","yells")
+		return pick("exclama","grita","grita")
 	if (ending=="?")
-		return "asks"
+		return "perguntas"
 	return verb
 
 /mob/living/say(var/message, var/datum/language/speaking = null, var/verb="fala", var/alt_name = "", var/alt_message=null, var/animal = FALSE, var/howl = FALSE, var/original_message = "")
@@ -89,7 +89,7 @@ var/list/radio_prefixes = list(";", ":b", ":l", ":r", ":t", ":f",
 	verb = say_quote(message, speaking)
 
 	if (is_muzzled())
-		src << "<span class='danger'>You're muzzled and cannot speak!</span>"
+		src << "<span class='danger'>Você está amordaçado e não pode falar!</span>"
 		return
 	original_message = message
 

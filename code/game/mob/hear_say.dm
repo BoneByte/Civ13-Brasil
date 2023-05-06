@@ -44,15 +44,15 @@
 		for(var/obj/structure/vehicleparts/frame/F1 in speaker.loc)
 			for(var/obj/structure/vehicleparts/frame/F2 in src.loc)
 				if (F1.axis == F2.axis)
-					speaker_name = "<font color='yellow'>[speaker_name] (CREW)</font>"
+					speaker_name = "<font color='yellow'>[speaker_name] (TRIPULANTE)</font>"
 					for (var/obj/structure/bed/chair/commander/D in speaker.loc)
-						speaker_name = "<big><font color='yellow'>[speaker_name] (COMMANDER)</font></big>"
+						speaker_name = "<big><font color='yellow'>[speaker_name] (COMANDANTE)</font></big>"
 					for (var/obj/structure/bed/chair/drivers/D in speaker.loc)
-						speaker_name = "<font color='yellow'>[speaker_name] (DRIVER)</font>"
+						speaker_name = "<font color='yellow'>[speaker_name] (MOTORISTA)</font>"
 					for (var/obj/structure/bed/chair/gunner/D in speaker.loc)
-						speaker_name = "<font color='yellow'>[speaker_name] (GUNNER)</font>"
+						speaker_name = "<font color='yellow'>[speaker_name] (ARTILHEIRO)</font>"
 					for (var/obj/structure/bed/chair/loader/D in speaker.loc)
-						speaker_name = "<font color='yellow'>[speaker_name] (LOADER)</font>"
+						speaker_name = "<font color='yellow'>[speaker_name] (CARREGADOR)</font>"
 	if (italics)
 		message = "<i>[message]</i>"
 	alt_name = speaker_name
@@ -76,9 +76,9 @@
 	if ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf"))
 		if (!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if (speaker == src)
-				src << "<span class='warning'>You cannot hear yourself speak!</span>"
+				src << "<span class='warning'>Você não consegue se ouvir falar!</span>"
 			else
-				src << "<span class='name'>[alt_name]</span> talks but you cannot hear."
+				src << "<span class='name'>[alt_name]</span> fala, mas você não consegue ouvir."
 	else
 		if (language)
 			on_hear_say("<span class='name'>[alt_name] <span class = 'small_message'>([language.name])</span> </span> [track][language.format_message(message, verb)]",speaker, alt_message)
@@ -97,7 +97,7 @@
 			if (H.partial_languages[lname] >= language.difficulty)
 				H.add_language("[lname]", FALSE)
 				H.add_note("Known Languages", "[language.name]")
-				H << "<span class = 'notice'>You've learned how to speak <b>[language.name]</b> from hearing it so much.</span>"
+				H << "<span class = 'notice'>Você aprendeu a falar <b>[language.name]</b> de tanto ouvir isso.</span>"
 
 /mob/proc/on_hear_say(var/message, var/mob/speaker = null, var/message2 = "")
 	src << message
@@ -163,7 +163,7 @@
 		message = reploc(message, speaker)
 	if ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf"))
 		if (prob(20))
-			src << "<span class='warning'>You feel the radio vibrate but can hear nothing from it!</span>"
+			src << "<span class='warning'>Você sente o rádio vibrar, mas não consegue ouvir nada!</span>"
 	else
 		var/fontsize = 2
 		var/full_message = ""
@@ -235,7 +235,7 @@
 
 	if ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf"))
 		if (prob(20))
-			src << "<span class='warning'>You feel the telephone vibrate but can hear nothing from it!</span>"
+			src << "<span class='warning'>Você sente o telefone vibrar, mas não consegue ouvir nada!</span>"
 	else
 		var/fontsize = 2
 		var/contactname = " "
@@ -295,7 +295,7 @@
 	message = replacetext(message,";","")
 	if ((sdisabilities & DEAF) || ear_deaf || find_trait("Deaf"))
 		if (prob(20))
-			src << "<span class='warning'>You feel the voicepipe vibrate but can hear nothing from it!</span>"
+			src << "<span class='warning'>Você sente a vibração do tubo vocal, mas não consegue ouvir nada!</span>"
 	else
 		var/fontsize = 2
 		var/full_message = ""
@@ -346,10 +346,10 @@
 			heardword = copytext(heardword,2)
 		if (copytext(heardword,-1) in punctuation)
 			heardword = copytext(heardword,1,length(heardword))
-		heard = "<span class = 'game_say'>...You hear something about...[heardword]</span>"
+		heard = "<span class = 'game_say'>...Você ouviu algo sobre...[heardword]</span>"
 
 	else
-		heard = "<span class = 'game_say'>...<i>You almost hear someone talking</i>...</span>"
+		heard = "<span class = 'game_say'>...<i>Você quase ouve alguém falando</i>...</span>"
 
 	src << heard
 

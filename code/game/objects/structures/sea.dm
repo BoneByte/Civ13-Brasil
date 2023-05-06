@@ -43,7 +43,7 @@
 /obj/structure/buoy/examine(mob/user)
 	..()
 	if (message != "")
-		user << "It has a sign that says: <b>[message]</b>"
+		user << "Ela tem uma placa que diz: <b>[message]</b>"
 
 /obj/structure/buoy/attackby(obj/item/I as obj, mob/user as mob)
 	if (istype(I, /obj/item/weapon/pen))

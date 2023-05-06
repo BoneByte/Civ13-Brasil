@@ -47,7 +47,7 @@
 			qdel(W)
 		else
 			if (!disable_warning)
-				src << "<span class = 'red'>You are unable to equip that.</span>" //Only print if del_on_fail is false
+				src << "<span class = 'red'>Você não pode equipar isso.</span>" //Only print if del_on_fail is false
 		return FALSE
 
 	equip_to_slot(W, slot, redraw_mob) //This proc should not ever fail.
@@ -193,7 +193,7 @@ var/list/slot_equipment_priority = list( \
 					MD.origin.engine.power_off_connections()
 					MD.origin.engine.currentspeed = 0
 					MD.origin.engine.currentpower = 0
-					src << "You turn off the engine."
+					src << "Você desliga o motor."
 					MD.origin.set_light(0)
 					playsound(loc, MD.origin.engine.ending_snd, 65, FALSE, 2)
 					MD.origin.attackby(MD,src)

@@ -35,7 +35,7 @@ mob/var/obj/effect/decal/typing_indicator
 
 	set_typing_indicator(1)
 	hud_typing = TRUE
-	var/message = input("","say (text)") as text
+	var/message = input("","fala (text)") as text
 	hud_typing = FALSE
 	set_typing_indicator(0)
 	if (message)
@@ -47,7 +47,7 @@ mob/var/obj/effect/decal/typing_indicator
 
 	set_typing_indicator(1)
 	hud_typing = TRUE
-	var/message = input("","me (text)") as text
+	var/message = input("","faz (text)") as text
 	hud_typing = FALSE
 	set_typing_indicator(0)
 	if (message)
@@ -64,9 +64,9 @@ mob/var/obj/effect/decal/typing_indicator
 		if (world.time > last_typed_time + TYPING_INDICATOR_LIFETIME)
 			set_typing_indicator(0)
 			return
-		if (length(temp) > 5 && findtext(temp, "Say \"", TRUE, 7))
+		if (length(temp) > 5 && findtext(temp, "Fala \"", TRUE, 7))
 			set_typing_indicator(1)
-		else if (length(temp) > 3 && findtext(temp, "Me ", TRUE, 5))
+		else if (length(temp) > 3 && findtext(temp, "Faz ", TRUE, 5))
 			set_typing_indicator(1)
 
 		else

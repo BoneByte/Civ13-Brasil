@@ -15,7 +15,7 @@
 
 	set_typing_indicator(0)
 	if (dd_hasprefix(message, "*scream") && isobserver(src))
-		usr << "<span class = 'warning'>You can't scream, because you're dead.</span>"
+		usr << "<span class = 'warning'>Você não pode gritar, pois você morreu</span>"
 		return
 
 	usr.say(message)
@@ -30,7 +30,7 @@
 
 	set_typing_indicator(0)
 	if (dd_hasprefix(message, "*scream") && isobserver(src))
-		usr << "<span class = 'warning'>You can't scream, because you're dead.</span>"
+		usr << "<span class = 'warning'>Você não pode gritar, pois você morreu</span>"
 		return
 
 	if (!wolfman)
@@ -114,9 +114,9 @@
 		var/verb = "fala"
 		var/ending = copytext(message, length(message))
 		if (ending=="!")
-				verb=pick("exclaims","shouts","yells")
+				verb=pick("exclama","aumenta o tom de voz","grita")
 		else if (ending=="?")
-				verb="asks"
+				verb="pergunta"
 
 		return verb
 

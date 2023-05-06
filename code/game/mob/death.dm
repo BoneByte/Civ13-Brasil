@@ -39,7 +39,7 @@
 					var/mob/new_player/M = new /mob/new_player()
 					M.key = key
 					spawn(5)
-						M << "<font size=6>You have died!</font>"
+						M << "<font size=6>VOCÊ MORREU!</font>"
 					if (M.mind)
 						M.mind.reset()
 				else
@@ -90,7 +90,7 @@
 					var/mob/new_player/M = new /mob/new_player()
 					M.key = key
 					spawn(5)
-						M << "<font size=6>You have died!</font>"
+						M << "<font size=6>VOCÊ MORREU!</font>"
 					if (M.mind)
 						M.mind.reset()
 				else
@@ -100,7 +100,7 @@
 /mob/proc/maim()
 	crush()
 
-/mob/proc/death(gibbed,deathmessage="seizes up and falls limp...")
+/mob/proc/death(gibbed,deathmessage="tem uma convulsão e fica mole e frio...")
 
 	if (stat == DEAD)
 		return FALSE
@@ -133,7 +133,7 @@
 			H.look_into_distance(src,FALSE)
 
 	timeofdeath = world.time
-	if (mind) mind.store_memory("Time of death: [stationtime2text()]", FALSE)
+	if (mind) mind.store_memory("Tempo da Morte: [stationtime2text()]", FALSE)
 	living_mob_list -= src
 	dead_mob_list |= src
 
@@ -151,7 +151,7 @@
 			var/mob/new_player/M = new /mob/new_player()
 			M.key = key
 			spawn(5)
-				M << "<font size=6>You have died!</font>"
+				M << "<font size=6>VOCÊ MORREU!</font>"
 			if (M.mind)
 				M.mind.reset()
 		else

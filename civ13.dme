@@ -1093,5 +1093,5 @@
 #include "code\processes\lighting\sources.dm"
 #include "interface\interface.dm"
 #include "interface\skin.dmf"
-#include "maps\1969\bank_robbery.dmm"
+#include "maps\nomads\nomads_wasteland_2.dmm"
 // END_INCLUDE
