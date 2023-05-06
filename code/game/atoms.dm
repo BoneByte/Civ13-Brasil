@@ -173,8 +173,8 @@
 		else
 			f_name += "oil-stained [name][infix]."
 	if (!isobserver(user))
-		user.visible_message("<font size=1>[user.name] looks at [src].</font>")
-	user << "\icon[src] That's [f_name] [suffix]"
+		user.visible_message("<font size=1>[user.name] olha até [src].</font>")
+	user << "\icon[src] Isso é [f_name] [suffix]"
 	user << desc
 
 	return distance == -1 || (get_dist(src, user) <= distance)
@@ -505,10 +505,10 @@
 		if(limbcheck in list("l_hand","r_hand","l_arm","r_arm") || user.werewolf)
 			var/obj/item/organ/external/affecting = target.get_organ(limbcheck)
 			if(!affecting)
-				user << "<span class='notice'>[src] is missing that body part.</span>"
+				user << "<span class='notice'>[src] tá faltando essa parte do corpo.</span>"
 				return FALSE
 			else
-				visible_message("<span class='danger'>[user] bites the [src]'s [affecting.name]!</span>","<span class='danger'>You bite the [src]'s [affecting.name]!</span>")
+				visible_message("<span class='danger'>[user] morde [src] [affecting.name]!</span>","<span class='danger'>Você morde [src] [affecting.name]!</span>")
 				if (ishuman(src) && ishuman(user))
 					if (user.werewolf && user.body_build.name != "Default")
 						affecting.createwound(BRUISE, rand(15,21)*user.getStatCoeff("strength"))
@@ -524,15 +524,15 @@
 						if (target.l_hand)
 							// Disarm left hand
 							//Urist McAssistant dropped the macguffin with a scream just sounds odd. Plus it doesn't work with NO_PAIN
-							target.visible_message("<span class='danger'>[target] drops \the [target.l_hand]!</span>")
+							target.visible_message("<span class='danger'>[target] dropa o [target.l_hand]!</span>")
 							target.drop_l_hand()
 					if (limbcheck == "r_hand")
 						if (target.r_hand)
 							// Disarm right hand
-							target.visible_message("<span class='danger'>[target] drops \the [target.r_hand]!</span>")
+							target.visible_message("<span class='danger'>[target] dropa o [target.r_hand]!</span>")
 							target.drop_r_hand()
 		else
-			user << "<span class='notice'>You cannot bite that part of the body, it's too far away!</span>"
+			user << "<span class='notice'>Você não pode morder essa parte do corpo, ela está muito longe!</span>"
 			return FALSE
 
 		user.setClickCooldown(25)
@@ -563,7 +563,7 @@
 		return
 	for (var/obj/O in get_turf(target))
 		if (O.density)
-			user << "<span class='danger'>You hit the [O]!</span>"
+			user << "<span class='danger'>Você bate em [O]!</span>"
 			user.adjustBruteLoss(rand(2,7))
 			user.Weaken(2)
 			user.setClickCooldown(22)
@@ -574,7 +574,7 @@
 		var/dir_to_tgt = get_dir(user,target)
 		for(var/obj/O in range(1,user))
 			if ((get_dir(user,O) in nearbydirections(dir_to_tgt)) && (O.density == TRUE || istype(O, /obj/structure/window/barrier/railing)))
-				user << "<span class='danger'>You hit the [O]!</span>"
+				user << "<span class='danger'>Você bate em [O]!</span>"
 				user.adjustBruteLoss(rand(2,7))
 				user.Weaken(2)
 				user.setClickCooldown(22)
@@ -582,7 +582,7 @@
 			if (istype(O, /obj/structure/vehicleparts/frame))
 				var/obj/structure/vehicleparts/frame/F = O
 				if (!F.CanPass())
-					user << "<span class='danger'>You hit the [F.axis]!</span>"
+					user << "<span class='danger'>Você bate em [F.axis]!</span>"
 					user.adjustBruteLoss(rand(2,7))
 					user.Weaken(2)
 					user.setClickCooldown(22)
@@ -590,7 +590,7 @@
 
 		for(var/turf/T in range(1,user))
 			if ((get_dir(user,T) in nearbydirections(dir_to_tgt)) && T.density == TRUE)
-				user << "<span class='danger'>You hit the [T]!</span>"
+				user << "<span class='danger'>Você bate em [T]!</span>"
 				user.adjustBruteLoss(rand(2,7))
 				user.Weaken(2)
 				user.setClickCooldown(22)
@@ -599,21 +599,21 @@
 		var/dir_to_tgt = get_dir(user,target)
 		for(var/obj/O in range(2,user))
 			if ((get_dir(user,O) in nearbydirections(dir_to_tgt)) && (O.density == TRUE || istype(O, /obj/structure/window/barrier/railing)))
-				user << "<span class='danger'>You hit the [O]!</span>"
+				user << "<span class='danger'>Você bate em [O]!</span>"
 				user.adjustBruteLoss(rand(2,7))
 				user.Weaken(2)
 				user.setClickCooldown(22)
 				return
 		for(var/turf/T in range(2,user))
 			if ((get_dir(user,T) in nearbydirections(dir_to_tgt)) && T.density == TRUE)
-				user << "<span class='danger'>You hit the [T]!</span>"
+				user << "<span class='danger'>Você bate em [T]!</span>"
 				user.adjustBruteLoss(rand(2,7))
 				user.Weaken(2)
 				user.setClickCooldown(22)
 				return
 	//Nice, we can jump, let's do that then.
 	playsound(user, user.gender == MALE ? 'sound/effects/jump_male.ogg' : 'sound/effects/jump_female.ogg', 25)
-	user.visible_message("[user] jumps.")
+	user.visible_message("[user] pula.")
 	user.stats["stamina"][1] = max(user.stats["stamina"][1] - rand(20,40), 0)
 	user.throw_at(target, 5, 0.5, user)
 	user.setClickCooldown(22)

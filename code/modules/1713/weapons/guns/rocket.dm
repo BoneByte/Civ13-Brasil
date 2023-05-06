@@ -54,10 +54,10 @@
 
 /obj/item/weapon/gun/launcher/special_check(mob/user)
 	if (!user.has_empty_hand(both = FALSE))
-		user << SPAN_WARNING("You need both hands to fire \the [src]!")
+		user << SPAN_WARNING("Você precisa de duas mãos para atirar com o [src]!")
 		return FALSE
 	if (gun_safety && safetyon)
-		user << SPAN_WARNING("You can't fire \the [src] while the safety is on!")
+		user << SPAN_WARNING("Você não pode atirar com o [src] enquanto o modo de segurança está ativado")
 		return FALSE
 	return TRUE
 

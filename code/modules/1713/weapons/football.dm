@@ -1,6 +1,6 @@
 /obj/item/clothing/under/football
 	name = "Unga Bunga jersey"
-	desc = "A football jersey of the Unga Bunga United, U.B.U."
+	desc = "Uma camisa de futebol do Unga Bunga United, U.B.U."
 	icon_state = "football_red"
 	item_state = "football_red"
 	worn_state = "football_red"
@@ -10,7 +10,7 @@
 
 /obj/item/clothing/under/football/flamengo
 	name = "flamengo shirt with yellow shorts"
-	desc = "A C.R. Flamengo football shirt, with yellow swimming trunks."
+	desc = "Uma camisa de futebol do C.R. Flamengo, com calção de banho amarelo."
 	icon_state = "flamengo"
 	item_state = "flamengo"
 	worn_state = "flamengo"
@@ -18,7 +18,7 @@
 
 /obj/item/clothing/under/football/corinthians
 	name = "corinthians shirt with black shorts"
-	desc = "A S.C. Corinthians football shirt, with black swimming trunks."
+	desc = "Uma camisa de futebol do S.C. Corinthians, com calção de banho preto."
 	icon_state = "corinthians"
 	item_state = "corinthians"
 	worn_state = "corinthians"

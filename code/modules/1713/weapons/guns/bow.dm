@@ -1,7 +1,7 @@
 /obj/item/weapon/gun/projectile/bow
-	name = "primitive bow"
+	name = "primitive arco"
 	icon = 'icons/obj/guns/bows.dmi'
-	desc = "A simple and crude bow."
+	desc = "Um arco simples e rudimentar."
 	icon_state = "bow0"
 	item_state = "bow0"
 	w_class = ITEM_SIZE_LARGE
@@ -33,7 +33,7 @@
 	value = 10
 	flammable = TRUE
 	var/projtype = "arrow"
-	var/icotype = "bow"
+	var/icotype = "arco"
 	equiptimer = 20
 	gtype = "none"
 	accuracy_list = list(
@@ -85,11 +85,11 @@
 	aim_miss_chance_divider = 3.00
 
 /obj/item/weapon/gun/projectile/bow/shortbow
-	name = "shortbow"
-	desc = "A short bow with a light draw weight."
+	name = "shortarco"
+	desc = "Um arco curto com um peso de tração leve."
 	icon_state = "shortbow0"
 	item_state = "shortbow0"
-	icotype = "shortbow"
+	icotype = "shortarco"
 	throw_range = 6
 	throw_speed = 2
 	force = 6
@@ -103,7 +103,7 @@
 	attachment_slots = null
 	accuracy_increase_mod = 1.00
 	accuracy_decrease_mod = 1.00
-	stat = "bow"
+	stat = "arco"
 	move_delay = 5
 	fire_delay = 8
 	muzzle_flash = FALSE
@@ -115,11 +115,11 @@
 
 
 /obj/item/weapon/gun/projectile/bow/longbow
-	name = "longbow"
-	desc = "A long bow with a heavy draw weight."
+	name = "longarco"
+	desc = "Um arco longo com um peso de tração pesado."
 	icon_state = "longbow0"
 	item_state = "longbow0"
-	icotype = "longbow"
+	icotype = "longarco"
 	throw_range = 6
 	throw_speed = 2
 	force = 8
@@ -133,7 +133,7 @@
 	attachment_slots = null
 	accuracy_increase_mod = 1.25
 	accuracy_decrease_mod = 1.00
-	stat = "bow"
+	stat = "arco"
 	move_delay = 7
 	fire_delay = 10
 	muzzle_flash = FALSE
@@ -143,8 +143,8 @@
 	projtype = "arrow"
 
 /obj/item/weapon/gun/projectile/bow/compoundbow
-	name = "compound bow"
-	desc = "A compound bow with a decent draw weight."
+	name = "compound arco"
+	desc = "Um arco composto com um peso de tração decente."
 	icon_state = "compoundbow0"
 	item_state = "compoundbow0"
 	icotype = "compoundbow"
@@ -161,7 +161,7 @@
 	attachment_slots = null
 	accuracy_increase_mod = 1.35
 	accuracy_decrease_mod = 0.85
-	stat = "bow"
+	stat = "arco"
 	move_delay = 5
 	fire_delay = 7
 	muzzle_flash = FALSE
@@ -184,8 +184,8 @@ obj/item/weapon/gun/projectile/bow/Fire()
 	remove_arrow_overlay()
 
 /obj/item/weapon/gun/projectile/bow/sling
-	name = "sling"
-	desc = "A simple leather sling."
+	name = "Estilingue"
+	desc = "Um simples estilingue de couro."
 	icon_state = "sling0"
 	item_state = "sling0"
 	icotype = "sling"
@@ -255,13 +255,13 @@ obj/item/weapon/gun/projectile/bow/Fire()
 		if (caliber != C.caliber)
 			return //incompatible
 		if (loaded.len >= max_shells)
-			user << "<span class='warning'>the [src] already has \a [projtype] ready!</span>"
+			user << "<span class='warning'>[src] Já tem [projtype] pronto!</span>"
 			return
 
 		user.remove_from_mob(C)
 		C.loc = src
 		loaded.Insert(1, C) //add to the head of the list
-		user.visible_message("[user] inserts \a [C] into the [src].", "<span class='notice'>You insert \a [C] into the [src].</span>")
+		user.visible_message("[user] insere [C] em [src].", "<span class='notice'>Você insere [C] em [src].</span>")
 		icon_state = "[icotype]1"
 		load_arrow_overlay(C)
 		if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
@@ -278,12 +278,12 @@ obj/item/weapon/gun/projectile/bow/Fire()
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
-			user.visible_message("[user] removes \a [C] from the [src].", "<span class='notice'>You remove \a [C] from the [src].</span>")
+			user.visible_message("[user] remove [C] do [src].", "<span class='notice'>Você remove [C] do [src].</span>")
 			icon_state = "[icotype]0"
 			remove_arrow_overlay()
 			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		user << "<span class='warning'>[src] está vázio.</span>"
 	update_icon()
 
 /obj/item/weapon/gun/projectile/bow/update_icon()
@@ -299,7 +299,7 @@ obj/item/weapon/gun/projectile/bow/Fire()
 
 /obj/item/weapon/gun/projectile/bow/handle_click_empty(mob/user)
 	if (user)
-		user.visible_message("", "<span class='danger'>You don't have \a [projtype] here!</span>")
+		user.visible_message("", "<span class='danger'>Você não tem um [projtype] aqui!</span>")
 	else
 		visible_message("")
 	return
@@ -308,13 +308,13 @@ obj/item/weapon/gun/projectile/bow/Fire()
 /obj/item/weapon/gun/projectile/bow/special_check(mob/user)
 	if (!istype(src, /obj/item/weapon/gun/projectile/bow/sling))
 		if (!(user.has_empty_hand(both = FALSE)))
-			user << "<span class='warning'>You need both hands to fire the [src]!</span>"
+			user << "<span class='warning'>Você precisa das duas mãos para atirar com o [src]!</span>"
 			return FALSE
 	return ..()
 
 /obj/item/weapon/gun/projectile/bow/attackby(obj/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/attachment/bayonet))
-		user << "<span class = 'danger'>That won't fit on there.</span>"
+		user << "<span class = 'danger'>Isso não se encaixa aqui</span>"
 		return FALSE
 	else
 		return ..()

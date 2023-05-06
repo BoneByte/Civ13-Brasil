@@ -137,7 +137,7 @@
 				if ("6.5x50mm small rifle")
 					P.caliber = "a65x50"
 					P.ammo_type = /obj/item/ammo_casing/a65x50
-					
+
 				if (".45 Colt")
 					P.caliber = "a45"
 					P.ammo_type = /obj/item/ammo_casing/a45
@@ -205,7 +205,7 @@
 	if (!found)
 		user << "You don't have enough money to make a new blueprint! You need 50 gold or equivalent in one of your hands."
 		return FALSE
-		
+
 ////////////////STOCK///////////////////////////////
 	var/list/display = list("Cancel")
 	if (map.ordinal_age == 5)
@@ -308,7 +308,7 @@
 	if (choice_receiver == "Open-Bolt (large)" && map.ordinal_age >= 6)
 		display3 = list("Internal Magazine", "External Magazine","Large External Magazine","Open (Belt-Fed)")
 	if (choice_receiver == "Bolt-Action" || choice_receiver =="Semi-Auto (large)" && map.ordinal_age >= 6)
-		display3 = list("Internal Magazine", "Tubular", "External Magazine","Large External Magazine")	
+		display3 = list("Internal Magazine", "Tubular", "External Magazine","Large External Magazine")
 	display3 += "Cancel"
 	var/choice_feeding = WWinput(user, "Choose the feeding system:", "Gunsmith - [using_steel]/[steel_amt] steel, [using_wood]/[wood_amt] wood", "Cancel", display3)
 	switch (choice_feeding)
@@ -396,7 +396,7 @@
 
 			if ("Open-Bolt (small)","Revolver","Semi-Auto (small)")
 				caliberlist = list("9x19 Parabellum","9x18 Makarov","8x22mmB nambu","9x22mm nambu","7.62x38mmR",".45 Colt","Cancel")
-			
+
 			if ("Open-Bolt (large)")
 				caliberlist = list("7.7x58mm arisaka","6.5x50mm arisaka","7.62x54mmR","Cancel")
 
@@ -415,7 +415,7 @@
 
 			if ("Open-Bolt (small)","Revolver","Semi-Auto (small)")
 				caliberlist = list("9x19 Parabellum","9x18 Makarov",".45 Colt","Cancel")
-			
+
 			if ("Open-Bolt (large)")
 				caliberlist = list("7.62x39mm intermediate rifle","5.56x45mm intermediate rifle","Cancel")
 
@@ -1511,16 +1511,16 @@
 
 /obj/item/weapon/gun/projectile/custom/special_check(mob/user)
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto o modo de segurança está ativado</span>"
 		return FALSE
 	if (!user.has_empty_hand(both = FALSE) && (receiver_type != "Revolver" && receiver_type != "Semi-Auto (small)"))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		user << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return FALSE
 	if (bolt_open && receiver_type == "Bolt-Action")
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return FALSE
 	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
+		user << "<span class = 'danger'>O [src] emperrou! Você não pode atirar enquanto tiver assim.</span>"
 		return FALSE
 	update_icon()
 	return TRUE
@@ -1765,21 +1765,21 @@
 			load_ammo(W, user)
 
 /obj/item/weapon/gun/projectile/custom/verb/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar Estoque"
 	set category = null
 	set src in usr
 
 	if (stock_type == "Folding Stock")
 		if (folded)
 			folded = FALSE
-			usr << "You extend the stock on \the [src]."
+			usr << "Você amplia o stock em [src]."
 			equiptimer +=5
 			set_stock()
 			update_icon()
 		else
 			folded = TRUE
 			base_icon = "akms_folded"
-			usr << "You collapse the stock on \the [src]."
+			usr << "Você derruba o stock em [src]."
 			equiptimer -= 5
 			set_stock()
 			update_icon()

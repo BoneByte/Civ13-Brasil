@@ -90,8 +90,8 @@
 	set category = null
 
 	chamber_offset = FALSE
-	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
-	"<span class='notice'>You hear something metallic spin and click.</span>")
+	visible_message("<span class='warning'>[usr] gira o cilindro da [src]!</span>", \
+	"<span class='notice'>Você ouve algo metálico girar e fazer um clique.</span>")
 	playsound(loc, 'sound/weapons/guns/interact/revolver_spin.ogg', 100, TRUE)
 	loaded = shuffle(loaded)
 	if (rand(1,max_shells) > loaded.len)
@@ -117,22 +117,22 @@
 	if (single_action)
 		if (!cocked)
 			playsound(loc, cocked_sound, 50, TRUE)
-			visible_message("<span class='warning'>[user] cocks the [src]!</span>","<span class='warning'>You cock the [src]!</span>")
+			visible_message("<span class='warning'>[user] engatilha o [src]!</span>","<span class='warning'>Você engatilha o [src]!</span>")
 			cocked = TRUE
 			update_icon()
 		else
 			playsound(loc, cocked_sound, 50, TRUE)
-			visible_message("<span class='notice'>[user] uncocks the [src].</span>","<span class='notice'>You uncock the [src].</span>")
+			visible_message("<span class='notice'>[user] destrava o [src].</span>","<span class='notice'>Você destrava o [src].</span>")
 			cocked = FALSE
 			update_icon()
 
 /obj/item/weapon/gun/projectile/revolver/special_check(mob/user)
 //	var/mob/living/human/H = user
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'> Você não pode atirar enquanto \o [src] está no modo de segurança!</span>"
 		return FALSE
 	if (!cocked && single_action)
-		user << "<span class='warning'>You can't fire \the [src] while the weapon is uncocked!</span>"
+		user << "<span class='warning'>Você não pode atirar enquanto \o [src] está destravado!</span>"
 		return FALSE
 	return TRUE
 
@@ -158,26 +158,26 @@
 					count++
 				loaded.Cut()
 			if (count)
-				visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
+				visible_message("[user] descarrega \o [src].", "<span class='notice'>Você descarrega [count] balas do [src].</span>")
 				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
-			visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			visible_message("[user] remove [C] do [src].", "<span class='notice'>Você remove \a [C] do [src].</span>")
 			if (istype(src, /obj/item/weapon/gun/projectile/boltaction))
 				var/obj/item/weapon/gun/projectile/boltaction/B = src
 				if (B.bolt_safety && !B.loaded.len)
 					B.check_bolt_lock++
 			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		user << "<span class='warning'>[src] está vázio.</span>"
 	update_icon()
 
 
 /obj/item/weapon/gun/projectile/revolver/nagant_revolver
 	name = "M1895 Nagant"
-	desc = "Russian officer's revolver."
+	desc = "Revólver de um oficial russo."
 	icon_state = "nagant"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a762x38"
@@ -200,7 +200,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/m1892
 	name = "Modèle 1892 Revolver"
-	desc = "French officer's revolver."
+	desc = "Revólver de um oficial francês."
 	icon_state = "m1892"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a8x27"
@@ -217,7 +217,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/peacemaker
 	name = "Colt Peacemaker"
-	desc = "Officialy the M1873 Colt Single Action Army Revolver."
+	desc = "Oficialmente, o revólver Colt Single Action Army M1873."
 	icon_state = "coltsaa"
 	base_icon = "peacemaker"
 	w_class = ITEM_SIZE_SMALL
@@ -234,7 +234,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/peacemaker/ivory
 	name = "Colt Peacemaker Ivory"
-	desc = "Officialy the M1873 Colt Single Action Army Revolver with an Ivory grip."
+	desc = "Oficialmente, o revólver Colt Single Action Army M1873 com empunhadura em marfim."
 	icon_state = "coltsaa_ivory"
 	base_icon = "peacemaker"
 	w_class = ITEM_SIZE_SMALL
@@ -251,7 +251,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/peacemaker/storekeeper
 	name = "Colt Storekeeper"
-	desc = "Officialy a variant of M1873 Colt Single Action Army Revolver."
+	desc = "Oficialmente uma variante do M1873 Colt Single Action Army Revolver."
 	icon_state = "coltsaa_storekeeper"
 	base_icon = "peacemaker"
 	w_class = ITEM_SIZE_SMALL
@@ -268,7 +268,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/peacemaker/ivory
 	name = "Colt Storekeeper Ivory"
-	desc = "Officialy a variant of M1873 Colt Single Action Army Revolver with an Ivory grip."
+	desc = "Oficialmente uma variante do revólver Colt Single Action Army M1873 com empunhadura em marfim."
 	icon_state = "coltsaa_bankerspecial"
 	base_icon = "peacemaker"
 	w_class = ITEM_SIZE_SMALL
@@ -302,7 +302,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/colt1892
 	name = "Colt M1892"
-	desc = "Officialy the M1892 Colt Single Action Army Revolver."
+	desc = "Oficialmente, o revólver Colt Single Action Army M1892."
 	icon_state = "colt1892"
 	base_icon = "colt1892"
 	w_class = ITEM_SIZE_SMALL
@@ -319,7 +319,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/makeshift
 	name = "Makeshift Revolver"
-	desc = "A cheap makeshift revolver."
+	desc = "Um revólver improvisado e mal-feito"
 	icon_state = "makeshiftrevolver"
 	base_icon = "makeshiftrevolver"
 	w_class = ITEM_SIZE_SMALL
@@ -337,7 +337,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/coltpolicepositive
 	name = "Colt Police Positive"
-	desc = "Common revolver used by police."
+	desc = "Revólver comum usado pela polícia."
 	icon_state = "coltnewpolice"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a32"
@@ -365,7 +365,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/enfieldno2
 	name = "Enfield No. 2"
-	desc = "British revolver made with love."
+	desc = "Revólver Britanico feito com amor"
 	icon_state = "enfield02"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a41"
@@ -380,7 +380,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/webley4
 	name = "Webley Mk IV"
-	desc = "British revolver chambered in (.455)."
+	desc = "Revólver britânico com câmara em (.455)."
 	icon_state = "webley4"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a455"
@@ -396,7 +396,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/frontier
 	name = "Colt Frontier"
-	desc = "Officialy the M1873 Colt Single Action Army Revolver. This one uses .44 Winchester ammuniton."
+	desc = "Oficialmente o revólver de ação simples do exército M1873 Colt. Esse revólver usa munição .44 Winchester."
 	icon_state = "peacemaker2"
 	base_icon = "peacemaker2"
 	w_class = ITEM_SIZE_SMALL
@@ -413,7 +413,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/graysonfito12
 	name = "Mckellen M12"
-	desc = "A expensive revolver made by Mckellen."
+	desc = "Um revólver caro fabricado pela Mckellen."
 	icon_state = "graysonfito"
 	base_icon = "graysonfito"
 	w_class = ITEM_SIZE_SMALL
@@ -429,7 +429,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/taurus
 	name = "Taurus Judge Revolver"
-	desc = "The Taurus Judge is a five shot revolver designed and produced by Taurus International, chambered for (.45 Colt)."
+	desc = "O Taurus Judge é um revólver de cinco tiros projetado e produzido pela Taurus International, com câmara para (.45 Colt)."
 	icon_state = "judge"
 	base_icon = "judge"
 	w_class = ITEM_SIZE_SMALL
@@ -444,7 +444,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/magnum44
 	name = "Magnum 44"
-	desc = "A heavy revolver chambered in (magnum .44)."
+	desc = "Um revólver pesado com câmara em (magnum .44)."
 	icon_state = "magnum58"
 	base_icon = "magnum58"
 	w_class = ITEM_SIZE_SMALL
@@ -467,7 +467,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/smithwesson
 	name = "Smith & Wesson Model 30"
-	desc = "A smith 'n Wesson revolver, chambered in .32 S&W."
+	desc = "Um revólver Smith 'n Wesson, com câmara em .32 S&W."
 	icon_state = "smithwesson32"
 	base_icon = "smithwesson32"
 	w_class = ITEM_SIZE_TINY
@@ -487,7 +487,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/sw3
 	name = "Orbea Hermanos"
-	desc = "A smith 'n Wesson revolver, chambered in .32 S&W. This being the spanish copy cat."
+	desc = "Um revólver Smith 'n Wesson, com câmara em .32 S&W. Essa é a cópia espanhola."
 	icon_state = "snw3"
 	base_icon = "snw3"
 	w_class = ITEM_SIZE_TINY
@@ -506,7 +506,7 @@
 	effectiveness_mod = 0.9
 /obj/item/weapon/gun/projectile/revolver/snw10
 	name = "Smith & Wesson M.10"
-	desc = "A Smith 'n Wesson revolver model 10, chambered in .38 S&W."
+	desc = "Um revólver Smith 'n Wesson modelo 10, com câmara em .38 S&W."
 	icon_state = "snw10"
 	base_icon = "snw10"
 	w_class = ITEM_SIZE_TINY
@@ -526,7 +526,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/t26_revolver
 	name = "Type 26 revolver"
-	desc = "Japanese officer's revolver."
+	desc = "Um revólver de um oficial japonês"
 	icon_state = "t26revolver"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c9mm_jap_revolver"
@@ -543,7 +543,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/panther
 	name = "Panther revolver"
-	desc = "a .44 caliber revolver."
+	desc = "Um revólver de calibre .44"
 	icon_state = "panther"
 	item_state = "panther"
 	w_class = ITEM_SIZE_SMALL
@@ -560,7 +560,7 @@
 
 /obj/item/weapon/gun/projectile/revolver/derringer
 	name = "Derringer M95 pistol"
-	desc = "Officialy the Remington Model 95, this small pistol has two barrels."
+	desc = "Oficialmente chamada de Remington Modelo 95, essa pequena pistola tem dois canos."
 	icon_state = "derringer"
 	item_state = "pistol"
 	w_class = ITEM_SIZE_TINY
@@ -642,7 +642,7 @@
 	if (world.time >= recentpump + 10)
 		if (open)
 			open = FALSE
-			user << "<span class='notice'>You close \the [src].</span>"
+			user << "<span class='notice'>Você fecha \o [src].</span>"
 			icon_state = "derringer"
 			if (loaded.len)
 				var/obj/item/ammo_casing/AC = loaded[1] //load next casing.
@@ -650,25 +650,25 @@
 				chambered = AC
 		else
 			open = TRUE
-			user << "<span class='notice'>You break open \the [src].</span>"
+			user << "<span class='notice'>Você quebra e abre \o [src].</span>"
 			icon_state = "derringer_open"
 		recentpump = world.time
 
 /obj/item/weapon/gun/projectile/revolver/derringer/load_ammo(var/obj/item/A, mob/user)
 	if (!open)
-		user << "<span class='notice'>You need to open \the [src] first!</span>"
+		user << "<span class='notice'>Você precisa abrir \o [src] primeiro!</span>"
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/revolver/derringer/unload_ammo(mob/user, var/allow_dump=1)
 	if (!open)
-		user << "<span class='notice'>You need to open \the [src] first!</span>"
+		user << "<span class='notice'>Você precisa abrir \o [src] primeiro!</span>"
 		return
 	..()
 
 /obj/item/weapon/gun/projectile/revolver/derringer/special_check(mob/user)
 	if (open)
-		user << "<span class='warning'>You can't fire \the [src] while it is break open!</span>"
+		user << "<span class='warning'>Você não pode atirar enquanto \o [src] estiver com o cano quebrado e aberto!</span>"
 		return FALSE
 	return ..()
 
@@ -689,7 +689,7 @@
 	fire_delay = 3
 	icon = 'icons/obj/guns/rifles.dmi'
 	name = "revolving rifle"
-	desc = "A simple revolving rifle."
+	desc = "Um simples rifle giratório."
 	icon_state = "revolver"
 	item_state = "revolver"
 	caliber = "a45"
@@ -762,12 +762,12 @@
 
 /obj/item/weapon/gun/projectile/revolving/verb/spin_cylinder()
 	set name = "Spin cylinder"
-	set desc = "Fun when you're bored out of your skull."
+	set desc = "Divertido quando você está entediado demais."
 	set category = null
 
 	chamber_offset = FALSE
-	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
-	"<span class='notice'>You hear something metallic spin and click.</span>")
+	visible_message("<span class='warning'>\[usr] gira o cilindro do [src]!</span>", \
+	"<span class='notice'>Você ouve alguma coisa metalica girar e clickar.</span>")
 	playsound(loc, 'sound/weapons/guns/interact/revolver_spin.ogg', 100, TRUE)
 	loaded = shuffle(loaded)
 	if (rand(1,max_shells) > loaded.len)
@@ -793,20 +793,20 @@
 	if (single_action)
 		if (!cocked)
 			playsound(loc, cocked_sound, 50, TRUE)
-			visible_message("<span class='warning'>[user] cocks the [src]!</span>","<span class='warning'>You cock the [src]!</span>")
+			visible_message("<span class='warning'>[user] engatilha o [src]!</span>","<span class='warning'>Você engatilha o [src]!</span>")
 			cocked = TRUE
 		else
 			playsound(loc, cocked_sound, 50, TRUE)
-			visible_message("<span class='notice'>[user] uncocks the [src].</span>","<span class='notice'>You uncock the [src].</span>")
+			visible_message("<span class='notice'>[user] destrava o [src].</span>","<span class='notice'>Você destrava o [src].</span>")
 			cocked = FALSE
 
 /obj/item/weapon/gun/projectile/revolving/special_check(mob/user)
 //	var/mob/living/human/H = user
 	if (!cocked && single_action)
-		user << "<span class='warning'>You can't fire \the [src] while the weapon is uncocked!</span>"
+		user << "<span class='warning'>Você não pode atirar enquanto o [src] está destravado!</span>"
 		return FALSE
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'>Você não pode atirar enquanto [src] está com o modo de segurança ativado!</span>"
 		return FALSE
 	return TRUE
 
@@ -832,13 +832,13 @@
 					count++
 				loaded.Cut()
 			if (count)
-				visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
+				visible_message("[user] descarrega [src].", "<span class='notice'>Você descarrega [count] balas do [src].</span>")
 				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
-			visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			visible_message("[user] remove [C] do [src].", "<span class='notice'>Você remove \o [C] do [src].</span>")
 			if (istype(src, /obj/item/weapon/gun/projectile/boltaction))
 				var/obj/item/weapon/gun/projectile/boltaction/B = src
 				if (B.bolt_safety && !B.loaded.len)
@@ -850,7 +850,7 @@
 
 /obj/item/weapon/gun/projectile/revolving/colt
 	name = "Colt Revolving Rifle"
-	desc = "Officialy the M1855 Colt Single Action Revolving Carbine."
+	desc = "Oficialmente, a carabina giratória de ação única M1855 Colt."
 	icon_state = "revolving"
 	item_state = "revolving"
 	w_class = ITEM_SIZE_SMALL
@@ -870,7 +870,7 @@
 	move_delay = 1
 	fire_delay = 3
 	name = "revolver"
-	desc = "A simple revolver."
+	desc = "Um revólver simples"
 	icon_state = "revolver"
 	item_state = "revolver"
 	caliber = "musketball_pistol"
@@ -949,12 +949,12 @@
 			icon_state = base_icon
 /obj/item/weapon/gun/projectile/capnball/verb/spin_cylinder()
 	set name = "Spin cylinder"
-	set desc = "Fun when you're bored out of your skull."
+	set desc = "Divertido quando você está entediado"
 	set category = null
 
 	chamber_offset = FALSE
-	visible_message("<span class='warning'>\The [usr] spins the cylinder of \the [src]!</span>", \
-	"<span class='notice'>You hear something metallic spin and click.</span>")
+	visible_message("<span class='warning'>[usr] Gira o cilindro do [src]!</span>", \
+	"<span class='notice'>Você ouve algo metalico girando e clickando.</span>")
 	playsound(loc, 'sound/weapons/guns/interact/revolver_spin.ogg', 100, TRUE)
 	loaded = shuffle(loaded)
 	if (rand(1,max_shells) > loaded.len)
@@ -980,19 +980,19 @@
 	if (single_action)
 		if (!cocked)
 			playsound(loc, cocked_sound, 50, TRUE)
-			visible_message("<span class='warning'>[user] cocks the [src]!</span>","<span class='warning'>You cock the [src]!</span>")
+			visible_message("<span class='warning'>[user] engatilha o [src]!</span>","<span class='warning'>Você engatilha o [src]!</span>")
 			cocked = TRUE
 			update_icon()
 		else
 			playsound(loc, cocked_sound, 50, TRUE)
-			visible_message("<span class='notice'>[user] uncocks the [src].</span>","<span class='notice'>You uncock the [src].</span>")
+			visible_message("<span class='notice'>[user] destrava o [src].</span>","<span class='notice'>Você destrava o [src].</span>")
 			cocked = FALSE
 			update_icon()
 
 /obj/item/weapon/gun/projectile/capnball/special_check(mob/user)
 //	var/mob/living/human/H = user
 	if (!cocked && single_action)
-		user << "<span class='warning'>You can't fire \the [src] while the weapon is uncocked!</span>"
+		user << "<span class='warning'>Você não pode atirar enquanto [src] está destravado!</span>"
 		return FALSE
 	return ..()
 
@@ -1018,13 +1018,13 @@
 					count++
 				loaded.Cut()
 			if (count)
-				visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
+				visible_message("[user] unloads [src].", "<span class='notice'>Você descarrega [count] balas\s do [src].</span>")
 				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
-			visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			visible_message("[user] removes \a [C] from [src].", "<span class='notice'>Você remove \o [C] do [src].</span>")
 			if (istype(src, /obj/item/weapon/gun/projectile/boltaction))
 				var/obj/item/weapon/gun/projectile/boltaction/B = src
 				if (B.bolt_safety && !B.loaded.len)
@@ -1036,7 +1036,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/dragoon
 	name = "Colt Dragoon M1848"
-	desc = "Officialy the M1848 Colt Percussion Cap Revolver."
+	desc = "Oficialmente, o revólver de percussão M1848 Colt."
 	icon_state = "colt_dragoon1848"
 	base_icon = "dragoon"
 	w_class = ITEM_SIZE_SMALL
@@ -1053,7 +1053,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/babydragoon
 	name = "Colt Baby Dragoon M1848"
-	desc = "Officialy the Baby M1848 Colt Percussion Cap Revolver."
+	desc = "Oficialmente, o revólver Baby M1848 Colt Percussion Cap Revolver."
 	icon_state = "dragoon"
 	base_icon = "colt_babydragoon1848"
 	w_class = ITEM_SIZE_SMALL
@@ -1070,7 +1070,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/pocketpistol
 	name = "Colt Pocket-Pistol M1849"
-	desc = "Officialy the M1849 Colt Percussion Cap Pocket-Pistol."
+	desc = "Oficialmente, o revólver Baby M1848 Colt Percussion Cap Revolver."
 	icon_state = "dragoon"
 	base_icon = "colt_pocketmodel1849"
 	w_class = ITEM_SIZE_SMALL
@@ -1087,7 +1087,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/walker
 	name = "Colt Walker M1846"
-	desc = "Officialy the M1846 Colt Percussion Cap Walker."
+	desc = "Oficialmente, o Colt Percussion Cap Walker M1846."
 	icon_state = "peacemaker2"
 	base_icon = "colt_walker1846"
 	w_class = ITEM_SIZE_SMALL
@@ -1104,7 +1104,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/pocketm1849
 	name = "Colt Police Pocket-Pistol M1849"
-	desc = "Officialy the M1849 Colt Percussion Cap Pocket-Pistol used by police."
+	desc = "Oficialmente, a pistola de bolso com tampa de percussão Colt M1849 usada pela polícia."
 	icon_state = "peacemaker2"
 	base_icon = "colt_pocketpolice1849"
 	w_class = ITEM_SIZE_SMALL
@@ -1121,7 +1121,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/navym1851
 	name = "Colt Navy Revolver M1851"
-	desc = "Officialy the M1851 Colt Navy Percussion Cap Revolver."
+	desc = "Oficialmente, o revólver de percussão M1851 Colt Navy."
 	icon_state = "peacemaker2"
 	base_icon = "colt_navy1851"
 	w_class = ITEM_SIZE_SMALL
@@ -1138,7 +1138,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/navym1861
 	name = "Colt Navy Revolver M1861"
-	desc = "Officialy the M1861 Colt Navy Percussion Cap Revolver."
+	desc = "Oficialmente o revólver de percussão M1861 Colt Navy."
 	icon_state = "peacemaker2"
 	base_icon = "colt_navy1861"
 	w_class = ITEM_SIZE_SMALL
@@ -1155,7 +1155,7 @@
 
 /obj/item/weapon/gun/projectile/capnball/
 	name = "Colt Army Revolver M1860"
-	desc = "Officialy the M1860 Colt Army Percussion Cap Revolver."
+	desc = "Oficialmente o revólver de percussão M1860 Colt Army."
 	icon_state = "peacemaker2"
 	base_icon = "colt_army1860"
 	w_class = ITEM_SIZE_SMALL

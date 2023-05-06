@@ -44,7 +44,7 @@
 	if (world.time<=lastfire)
 		return
 	if (!H.has_empty_hand(both = FALSE))
-		H << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		H << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return
 	if (!cdir)
 		cdir = H.dir

@@ -51,7 +51,7 @@ LINEN BINS
 	icon_state = "sheetpurple"
 
 /obj/item/weapon/bedsheet/rainbow
-	icon_state = "sheetrainbow"
+	icon_state = "sheetrainarco"
 
 /obj/item/weapon/bedsheet/red
 	icon_state = "sheetred"

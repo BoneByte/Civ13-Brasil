@@ -91,18 +91,18 @@
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak101/verb/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar Estoque"
 	set category = null
 	set src in usr
 	if (folded)
 		folded = FALSE
-		usr << "You extend the stock on \the [src]."
+		usr << "Você amplia o stock em [src]."
 		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
-		usr << "You collapse the stock on \the [src]."
+		usr << "Você derruba o stock em [src]."
 		equiptimer = 7
 		set_stock()
 		update_icon()

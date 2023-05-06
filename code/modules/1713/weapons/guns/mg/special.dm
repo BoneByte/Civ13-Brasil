@@ -69,13 +69,13 @@
 
 /obj/item/weapon/gun/projectile/special/special_check(mob/user)
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto o modo de segurança está ativado</span>"
 		return FALSE
 	if (!user.has_empty_hand(both = FALSE))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		user << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return FALSE
 	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
+		user << "<span class = 'danger'>O [src] emperrou! Você não pode atirar enquanto tiver assim.</span>"
 		return FALSE
 	return TRUE
 

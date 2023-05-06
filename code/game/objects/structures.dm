@@ -204,14 +204,14 @@
 
 			var/obj/item/organ/external/affecting
 
-			switch(pick(list("ankle","wrist","head","knee","elbow")))
+			switch(pick(list("ankle","wrist","head","knee","elarco")))
 				if ("ankle")
 					affecting = H.get_organ(pick("l_foot", "r_foot"))
 				if ("knee")
 					affecting = H.get_organ(pick("l_leg", "r_leg"))
 				if ("wrist")
 					affecting = H.get_organ(pick("l_hand", "r_hand"))
-				if ("elbow")
+				if ("elarco")
 					affecting = H.get_organ(pick("l_arm", "r_arm"))
 				if ("head")
 					affecting = H.get_organ("head")

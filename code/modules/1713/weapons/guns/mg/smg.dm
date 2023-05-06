@@ -73,19 +73,19 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/special_check(mob/user)
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto o modo de segurança está ativado</span>"
 		return FALSE
 	if (!user.has_empty_hand(both = FALSE) && one_handed == FALSE)
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		user << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return FALSE
 	if (jammed_until > world.time)
-		user << "<span class = 'danger'>\The [src] has jammed! You can't fire it until it has unjammed.</span>"
+		user << "<span class = 'danger'>O [src] emperrou! Você não pode atirar enquanto tiver assim.</span>"
 		return FALSE
 	return TRUE
 
 /obj/item/weapon/gun/projectile/submachinegun/stg
 	name = "StG-44"
-	desc = "German assault rifle chambered in 7.92x33mm Kurz, 30 round magazine."
+	desc = "Fuzil de assalto alemão com câmara de 7,92x33mm Kurz, carregador de 30 cartuchos."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "stg"
 	item_state = "stg"
@@ -146,7 +146,7 @@
 	icon_state = "spas12"
 	item_state = "spas12"
 	base_icon = "spas12"
-	desc = "A dual mode shotgun designed in Italy by the Franchi Firearms Company with an 8 round capacity."
+	desc = "Uma espingarda de modo duplo projetada na Itália pela Franchi Firearms Company com capacidade para 8 cartuchos."
 	max_shells = 8 //match the ammo box capacity, also it can hold a round in the chamber anyways, for a total of 8.
 	caliber = "12gauge"
 	handle_casings = EJECT_CASINGS
@@ -169,7 +169,7 @@
 	icon_state = "saiga12"
 	item_state = "saiga12"
 	base_icon = "saiga12"
-	desc = "A 12 gauge semi-automatic, gas-operated combat shotgun used by Russian Armed Forces."
+	desc = "Uma espingarda de combate semiautomática de calibre 12, operada a gás, usada pelas Forças Armadas russas."
 	magazine_type = /obj/item/ammo_magazine/saiga12
 	weight = 3.5
 	equiptimer = 11
@@ -194,7 +194,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40
 	name = "MP40"
-	desc = "Iconic German submachinegun with an underfolding stock, chambered in 9mm Luger."
+	desc = "Icônica submetralhadora alemã com coronha dobrável, com câmara de 9 mm Luger."
 	icon_state = "mp40"
 	item_state = "mp40"
 	base_icon = "mp40"
@@ -214,7 +214,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/mp38
 	name = "MP38"
-	desc = "Early German submachinegun with an underfolding stock, chambered in 9mm Luger."
+	desc = "Submetralhadora alemã antiga com coronha dobrável, com câmara de 9 mm Luger."
 	weight = 4.10
 	full_auto = TRUE
 	equiptimer = 13
@@ -227,7 +227,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ermaemp
 	name = "Erma-Emp"
-	desc = "A very early German submachinegun produced by the ERMA factory with an wooden stock, chambered in 9mm Luger."
+	desc = "Uma submetralhadora alemã muito antiga produzida pela fábrica ERMA com coronha de madeira, com câmara de 9 mm Luger."
 	icon_state = "ermaemp"
 	item_state = "ermaemp"
 	base_icon = "ermaemp"
@@ -247,7 +247,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/blyskawica
 	name = "Blyskawica"
-	desc = "Polish Underground State submachine gun, chambered in 9mm Luger."
+	desc = "Submetralhadora polonesa Underground State, com câmara de 9 mm Luger."
 	icon_state = "blyskawica"
 	item_state = "blyskawica"
 	base_icon = "blyskawica"
@@ -261,7 +261,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/mp40/mp5
 	name = "H&K MP5"
-	desc = "German submachinegun chambered in 9mm Parabellum."
+	desc = "Submetralhadora alemã com câmara de 9 mm Parabellu"
 	icon_state = "mp5"
 	item_state = "mp5"
 	base_icon = "mp5"
@@ -279,7 +279,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/fg42
 	name = "FG42"
-	desc = "A German automatic rifle that was developed specifically for the use of the Fallschirmjäger airborne infantry, it is chambered in 7.92x57 Mauser."
+	desc = "Um fuzil automático alemão desenvolvido especificamente para o uso da infantaria aerotransportada Fallschirmjäger, com câmara de 7,92x57 Mauser."
 	icon_state = "fg42"
 	item_state = "fg42"
 	base_icon = "fg42"
@@ -305,7 +305,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/uzi
 	name = "Uzi"
-	desc = "An Israeli submachinegun chambered in 9mm Parabellum."
+	desc = "Uma submetralhadora israelense com câmara de 9 mm Parabellum."
 	icon_state = "uzi"
 	item_state = "uzi"
 	base_icon = "uzi"
@@ -325,7 +325,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/mac10
 	name = "MAC-10"
-	desc = "An American compact blowback operated submachinegun chambered in 9mm Parabellum."
+	desc = "Uma submetralhadora americana compacta operada por blowback com câmara de 9 mm Parabellum."
 	icon_state = "mac10"
 	item_state = "mac10"
 	base_icon = "mac10"
@@ -345,7 +345,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/tec9
 	name = "TEC-9"
-	desc = "A blowback-operated semi-automatic pistol."
+	desc = "Uma pistola semiautomática operada por sopro."
 	icon = 'icons/obj/guns/automatic.dmi'
 	icon_state = "tec-9"
 	item_state = "tec-9"
@@ -368,7 +368,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/skorpion
 	name = "Skorpion"
-	desc = "An Czechoslovak machinepistol chambered in 9mm Parabellum."
+	desc = "Uma pistola-metralhadora da Tchecoslováquia com câmara de 9 mm Parabellum."
 	icon_state = "skorpion"
 	item_state = "skorpion"
 	base_icon = "skorpion"
@@ -388,7 +388,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/greasegun
 	name = "M3A1 SMG"
-	desc = "A simplistic American submachinegun, chambered in .45 ACP."
+	desc = "Uma submetralhadora americana simplista, com câmara em .45 ACP."
 	icon_state = "greasegun"
 	item_state = "greasegun"
 	base_icon = "greasegun"
@@ -409,7 +409,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/thompson
 	name = "Thompson M1A1"
-	desc = "An American submachinegun, chambered in .45 ACP."
+	desc = "Uma submetralhadora americana, com câmara em .45 ACP."
 	icon_state = "thompson"
 	item_state = "thompson"
 	base_icon = "thompson"
@@ -430,7 +430,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/tommy
 	name = "Thompson M1928"
-	desc = "An American submachinegun, chambered in .45 ACP."
+	desc = "Uma submetralhadora americana, com câmara em .45 ACP."
 	icon_state = "tommygun"
 	item_state = "thompson"
 	base_icon = "tommygun"
@@ -451,7 +451,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/type100
 	name = "Type-100"
-	desc = "A Japanese submachinegun, chambered in 8x22mm Nambu."
+	desc = "Uma submetralhadora japonesa, com câmara de 8x22 mm Nambu."
 	icon_state = "type100"
 	item_state = "type100"
 	base_icon = "type100"
@@ -473,7 +473,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/sten
 	name = "Sten MK II"
-	desc = "A British submachinegun, chambered in 9x19 Parabellum."
+	desc = "Uma submetralhadora britânica, com câmara 9x19 Parabellum."
 	icon_state = "sten2"
 	item_state = "sten2"
 	base_icon = "sten2"
@@ -495,7 +495,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ppsh
 	name = "PPSh-41"
-	desc = "Soviet submachinegun typically equipped with drum magazines. Chambered in 7.62x25mm Tokarev."
+	desc = "Submetralhadora soviética normalmente equipada com carregadores de tambor. Com câmara em Tokarev 7,62x25mm."
 	icon_state = "ppsh"
 	item_state = "ppsh"
 	base_icon = "ppsh"
@@ -515,13 +515,13 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ppsh/chinese
 	name = "Type 50"
-	desc = "Chinese Variant of the Iconic Soviet submachinegun. Chambered in 7.62x25mm Tokarev."
+	desc = "Variante chinesa da icônica submetralhadora soviética. Com câmara em Tokarev 7,62x25mm."
 	weight = 3.61
 	equiptimer = 11
 
 /obj/item/weapon/gun/projectile/submachinegun/pps
 	name = "PPS-43"
-	desc = "A simplistic Soviet submachinegun. Chambered in 7.62x25mm Tokarev."
+	desc = "Uma submetralhadora soviética simplista. Com câmara em Tokarev 7,62x25mm."
 	icon_state = "pps"
 	item_state = "pps"
 	base_icon = "pps"
@@ -540,7 +540,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ppd
 	name = "PPD-40"
-	desc = "Early Soviet submachinegun. Chambered in 7.62x25mm Tokarev."
+	desc = "Submetralhadora soviética antiga. Com câmara em Tokarev 7,62x25mm."
 	icon_state = "ppd"
 	item_state = "ppd"
 	base_icon = "ppd"
@@ -576,7 +576,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47
 	name = "AKM"
-	desc = "Iconic Soviet assault rifle, chambered in 7.62x39mm."
+	desc = "Icônico fuzil de assalto soviético, com câmara de 7,62x39 mm."
 	icon_state = "ak47"
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	item_state = "ak47"
@@ -643,17 +643,17 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/gold
 	name = "gold-plated AKM"
-	desc = "Iconic Soviet assault rifle, chambered in 7.62x39mm. This one is plated in gold. It looks very expensive."
+	desc = "Icônico fuzil de assalto soviético, com câmara de 7,62x39 mm. Este é banhado a ouro. Parece muito caro."
 	icon_state = "ak47gold"
 	item_state = "ak47gold"
 	base_icon = "ak47gold"
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/chinese
 	name = "Type 56 Assault Rifle"
-	desc = "Chinese 7.62x39mm rifle. It is a variant of the Soviet-designed AK-47."
+	desc = "Fuzil chinês de 7,62x39 mm. É uma variante do AK-47 projetado pelos soviéticos."
 /obj/item/weapon/gun/projectile/submachinegun/ak47/akms
 	name = "AKMS"
-	desc = "Iconic Soviet assault rifle, chambered in 7.62x39mm. This one has a wire underfolding stock."
+	desc = "Icônico fuzil de assalto soviético, com câmara de 7,62x39 mm. Este tem uma coronha dobrável de arame."
 	slot_flags = SLOT_SHOULDER
 	icon_state = "akms"
 	item_state = "akms"
@@ -677,20 +677,20 @@
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak47/akms/verb/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar estoque"
 	set category = null
 	set src in usr
 	if (folded)
 		folded = FALSE
 		base_icon = "akms"
-		usr << "You extend the stock on \the [src]."
+		usr << "Você amplia o estoque em [src]."
 		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
 		base_icon = "akms_folded"
-		usr << "You collapse the stock on \the [src]."
+		usr << "O estoque é derrubado em [src]."
 		equiptimer = 7
 		set_stock()
 		update_icon()
@@ -705,7 +705,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74
 	name = "AK-74"
-	desc = "Soviet assault rifle, chambered in 5.45x39mm."
+	desc = "Fuzil de assalto soviético, com câmara de 5,45x39 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "ak74"
 	item_state = "ak74"
@@ -776,7 +776,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74
 	name = "AKS-74"
-	desc = "Soviet assault rifle chambered in 5.45x39mm, with a folding stock."
+	desc = "Fuzil de assalto soviético com câmara de 5,45x39 mm e coronha dobrável."
 	slot_flags = SLOT_SHOULDER
 	icon_state = "aks74"
 	item_state = "aks74"
@@ -809,20 +809,20 @@
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/verb/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar Estoque"
 	set category = null
 	set src in usr
 	if (folded)
 		folded = FALSE
 		base_icon = "aks74"
-		usr << "You extend the stock on \the [src]."
+		usr << "Você amplia o stock em [src]."
 		equiptimer = 15
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
 		base_icon = "aks74_folded"
-		usr << "You collapse the stock on \the [src]."
+		usr << "Você derruba o stock em [src]."
 		equiptimer = 7
 		set_stock()
 		update_icon()
@@ -837,7 +837,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u
 	name = "AKS-74U"
-	desc = "Soviet compact assault rifle, chambered in 5.45x39mm, with a folding stock."
+	desc = "Fuzil de assalto compacto soviético, com câmara de 5,45x39 mm e coronha dobrável."
 	slot_flags = SLOT_SHOULDER
 	icon_state = "aks74u"
 	item_state = "aks74u"
@@ -872,20 +872,20 @@
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar Estoque"
 	set category = null
 	set src in usr
 	if (folded)
 		folded = FALSE
 		base_icon = "aks74u"
-		usr << "You extend the stock on \the [src]."
+		usr << "Você amplia o stock em [src]."
 		equiptimer = 12
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
 		base_icon = "aks74u_folded"
-		usr << "You collapse the stock on \the [src]."
+		usr << "Você derruba o stock em [src]."
 		equiptimer = 6
 		set_stock()
 		update_icon()
@@ -900,7 +900,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso
 	name = "AKS-74U SpecOps"
-	desc = "Soviet assault carbine version of the AK-74, chambered in 5.45x39mm, with a folding stock. This one has picatinny rails for attachments."
+	desc = "Versão soviética da carabina de assalto do AK-74, com câmara de 5,45x39 mm e coronha dobrável. Esse modelo tem trilhos picatinny para acessórios."
 	slot_flags = SLOT_SHOULDER
 	icon_state = "aks74uso"
 	item_state = "aks74uso"
@@ -958,20 +958,20 @@
 
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74/aks74/aks74u/aks74uso/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar Estoque"
 	set category = null
 	set src in usr
 	if (folded)
 		folded = FALSE
 		base_icon = "aks74uso"
-		usr << "You extend the stock on \the [src]."
+		usr << "Você amplia o stock em [src]."
 		equiptimer = 12
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
 		base_icon = "aks74uso_folded"
-		usr << "You collapse the stock on \the [src]."
+		usr << "Você derruba o stock em [src]."
 		equiptimer = 5
 		set_stock()
 		update_icon()
@@ -979,7 +979,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74m
 	name = "AK-74M"
-	desc = "Russian assault rifle, chambered in 5.45x39mm."
+	desc = "Fuzil de assalto russo, com câmara de 5,45x39 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "ak74m"
 	item_state = "ak74m"
@@ -1045,7 +1045,7 @@
 	)
 /obj/item/weapon/gun/projectile/submachinegun/ak74m/ak12
 	name = "AK-12"
-	desc = "A fifth generation Modern AK variant, chambered in 5.45x39mm."
+	desc = "Uma variante do AK moderno de quinta geração, com câmara em 5,45x39mm."
 	icon_state = "ak12"
 	item_state = "ak12"
 	base_icon = "ak12"
@@ -1061,7 +1061,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/ak74m/ak12/ak15
 	name = "AK-15"
-	desc = "A fifth generation Modern AK variant, chambered in 7.62×39mm."
+	desc = "Uma variante do AK moderno de quinta geração, com câmara de 7,62×39 mm."
 	icon_state = "ak12"
 	item_state = "ak12"
 	base_icon = "ak12"
@@ -1078,7 +1078,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/m16
 	name = "M16A1"
-	desc = "An American assault rifle, chambered in 5.56x45mm."
+	desc = "Um fuzil de assalto americano, com câmara de 5,56x45 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "m16"
 	item_state = "m16"
@@ -1144,7 +1144,7 @@
 /obj/item/weapon/gun/projectile/submachinegun/m16/ar15
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_BARREL|ATTACH_ADV_SCOPE|ATTACH_UNDER
 	name = "AR-15"
-	desc = "A civilian market version of ArmaLite's AR-15, single-fire only. Has railings for several attachments."
+	desc = "Uma versão para o mercado civil do AR-15 da ArmaLite, somente de disparo único. Possui trilhos para vários acessórios."
 	base_icon = "ar15"
 	icon_state = "ar15"
 	item_state = "ar15"
@@ -1154,7 +1154,7 @@
 		)
 /obj/item/weapon/gun/projectile/submachinegun/ar10
 	name = "AR-10"
-	desc = "An ArmaLite battle rifle, chambered in 7.62x51mm."
+	desc = "Um fuzil de combate ArmaLite, com câmara de 7,62x51 mm."
 	icon_state = "ar10"
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	item_state = "m16"
@@ -1221,7 +1221,7 @@
 	)
 /obj/item/weapon/gun/projectile/submachinegun/m16/commando
 	name = "XM177E2"
-	desc = "A carbine version of the AR-15/M16, chambered in 5.56x45mm."
+	desc = "Uma versão de carabina do AR-15/M16, com câmara de 5,56x45 mm."
 	icon_state = "m4"
 	item_state = "m4"
 	base_icon = "m4"
@@ -1245,7 +1245,7 @@
 	name = "M16A2"
 	base_icon = "m16"
 	icon_state = "m16"
-	desc = "A modernized version of the M16, with burst fire instead of full auto."
+	desc = "Uma versão modernizada do M16, com disparo contínuo em vez de totalmente automático."
 	full_auto = FALSE
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.1, 0.3, 0.2, 0.1, 0.1)),
@@ -1257,7 +1257,7 @@
 	name = "M16A4"
 	base_icon = "m16a4"
 	icon_state = "m16a4"
-	desc = "A modernized version of the M16, with a railed upper receiver and handguard."
+	desc = "Uma versão modernizada do M16, com um receptor superior e guarda-mão com trilhos."
 	full_auto = FALSE
 	firemodes = list(
 		list(name = "semi auto",	burst=1, burst_delay=0.3, recoil=0, move_delay=2, dispersion = list(0.1, 0.2, 0.1, 0, 0.1)),
@@ -1284,7 +1284,7 @@
 	name = "M4 MWS"
 	base_icon = "m4mws"
 	icon_state = "m4mws"
-	desc = "A version of the M4 carbine made to fit the Modular Weapon System."
+	desc = "Uma versão da carabina M4 feita para se adequar ao Sistema de Armas Modulares."
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_ADV_SCOPE|ATTACH_UNDER|ATTACH_BARREL
 
 
@@ -1313,7 +1313,7 @@
 	SL.attached(null,src,TRUE)
 /obj/item/weapon/gun/projectile/submachinegun/m14
 	name = "M14"
-	desc = "An American battle rifle, chambered in 7.62x51mm."
+	desc = "Um rifle de batalha americano, com câmara de 7,62x51 mm."
 	icon = 'icons/obj/guns/rifles.dmi'
 	icon_state = "m14"
 	item_state = "m14"
@@ -1387,7 +1387,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/m14/sniper/m21
 	name = "M21 SWS"
-	desc = "An American sniper rifle, chambered in 7.62x51mm."
+	desc = "Um rifle sniper americano, com câmara de 7,62x51 mm."
 	effectiveness_mod = 1.12
 	sel_mode = 0
 	firemodes = list(
@@ -1396,7 +1396,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/g3
 	name = "H&K G3"
-	desc = "A German battle rifle, chambered in 7.62x51mm."
+	desc = "Um fuzil de combate alemão, com câmara de 7,62x51 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "g3"
 	item_state = "g3"
@@ -1461,7 +1461,7 @@
 	)
 /obj/item/weapon/gun/projectile/submachinegun/fal
 	name = "FN Fal"
-	desc = "A Belgian battle rifle, chambered in 7.62×51mm."
+	desc = "Um fuzil de combate belga, com câmara de 7,62×51 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "fal"
 	item_state = "fal"
@@ -1526,7 +1526,7 @@
 	)
 /obj/item/weapon/gun/projectile/submachinegun/scarl
 	name = "FN SCAR-L"
-	desc = "A Belgian assault rifle, chambered in 5.56x45mm."
+	desc = "Um fuzil de assalto belga, com câmara de 5,56x45 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "scarl"
 	item_state = "scarl"
@@ -1596,7 +1596,7 @@
 	icon_state = "scarh"
 	item_state = "scarh"
 	base_icon = "scarh"
-	desc = "A Belgian-designed automatic rifle, chambered in 7.62x51mm."
+	desc = "Um rifle automático projetado na Bélgica, com câmara de 7,62x51 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	caliber = "a762x51"
 	fire_sound = 'sound/weapons/guns/fire/M14.ogg'
@@ -1664,7 +1664,7 @@
 	icon_state = "ar12"
 	item_state = "ar12"
 	base_icon = "ar12"
-	desc = "An AR-15 style magazine fed shotgun in 12 gauge."
+	desc = "Uma espingarda de calibre 12 alimentada por carregador no estilo AR-15."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	caliber = "12gauge"
 	fire_sound = 'sound/weapons/guns/fire/assault_rifle.ogg'
@@ -1728,7 +1728,7 @@
 	)
 /obj/item/weapon/gun/projectile/submachinegun/hk417
 	name = "HK417"
-	desc = "A modern German battle rifle, chambered in 7.62x51mm."
+	desc = "Um moderno rifle de combate alemão, com câmara de 7,62x51 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "hk417"
 	item_state = "hk417"
@@ -1794,7 +1794,7 @@
 	)
 /obj/item/weapon/gun/projectile/submachinegun/p90
 	name = "P90"
-	desc = "A compact, rapid-fire defensive weapon, chambered in 5.7x28mm."
+	desc = "Uma arma defensiva compacta, de disparo rápido, com câmara em 5,7x28 mm."
 	icon_state = "p90"
 	item_state = "p90"
 	base_icon = "p90"
@@ -1815,7 +1815,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/victor
 	name = "Kriss Vector"
-	desc = "A compact gun using an unconventional delayed blowback system combined with in-line design to reduce perceived recoil and muzzle climb. It's chambered in 9mm"
+	desc = "Uma pistola compacta que usa um sistema de blowback retardado não convencional combinado com um design em linha para reduzir o recuo percebido e a subida do cano. Tem câmara de 9 mm"
 	icon_state = "victor"
 	item_state = "victor"
 	base_icon = "victor"
@@ -1840,7 +1840,7 @@
 	icon_state = "qbz95"
 	item_state = "qbz95"
 	base_icon = "qbz95"
-	desc = "A Chinese-designed bullup assault rifle, chambered in 5.8x42mm."
+	desc = "Um fuzil de assalto bullup projetado na China, com câmara de 5,8x42 mm."
 	icon = 'icons/obj/guns/wip.dmi'
 	caliber = "a58x42"
 	fire_sound = 'sound/weapons/guns/fire/M14.ogg'
@@ -1905,7 +1905,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/makeshiftak47
 	name = "Makeshift AK-47"
-	desc = "Looks like someone did a really bad job at \"UpGRaDinG\" their AK."
+	desc = "Parece que alguém fez um trabalho muito ruim ao \"mElHoRaR\" seu AK."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "makeshiftak"
 	item_state = "makeshiftak"
@@ -1926,7 +1926,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/vz58
 	name = "VZ-58"
-	desc = "Czechoslovakian assault rifle chambered in 7.62x39mm."
+	desc = "Fuzil de assalto da Tchecoslováquia com câmara de 7,62x39 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "vz58"
 	item_state = "vz58"
@@ -1950,7 +1950,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/vz58/white
 	name = "White VZ-58"
-	desc = "Czechoslovakian assault rifle chambered in 7.62x39mm. This model has a birch stock and handguard."
+	desc = "Fuzil de assalto da Tchecoslováquia com câmara de 7,62x39 mm. Esse modelo tem coronha e guarda-mão de bétula."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "white_vz58"
 	item_state = "white_vz58"
@@ -1958,7 +1958,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/vz58/black
 	name = "Black VZ-58"
-	desc = "Czechoslovakian assault rifle chambered in 7.62x39mm. This model has a black stock and handguard."
+	desc = "Fuzil de assalto da Tchecoslováquia com câmara de 7,62x39 mm. Esse modelo tem coronha e guarda-mão pretos."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "black_vz58"
 	item_state = "black_vz58"
@@ -1966,7 +1966,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/c7
 	name = "C7"
-	desc = "A Canadian Colt C7 assault rifle, chambered in 5.56x45mm."
+	desc = "Um fuzil de assalto Colt C7 canadense, com câmara de 5,56x45 mm."
 	icon = 'icons/obj/guns/assault_rifles.dmi'
 	icon_state = "c7"
 	item_state = "c7"
@@ -1998,13 +1998,13 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/c7/c8
 	name = "C8"
-	desc = "A Canadian Colt C8 assault rifle, chambered in 5.56x45mm."
+	desc = "Um fuzil de assalto Colt C8 canadense, com câmara de 5,5"
 	equiptimer = 11
 	effectiveness_mod = 1.23
 
 /obj/item/weapon/gun/projectile/submachinegun/m2carbine
 	name = "M2 carbine"
-	desc = "An American Selective fire carbine using 7.62×33mm (Rimless.30 Carbine) ammunition in a external magazine."
+	desc = "Uma carabina americana de tiro seletivo que usa munição 7,62×33mm (Rimless.30 Carbine) em um carregador externo."
 	icon = 'icons/obj/guns/rifles.dmi'
 	icon_state = "mcar"
 	item_state = "mcar"
@@ -2027,7 +2027,7 @@
 
 /obj/item/weapon/gun/projectile/submachinegun/srm
 	name = "SR-3"
-	desc = "Russian Compact Carbine chambered in 9x39mm,comes with a compact stock."
+	desc = "Carabina compacta russa com câmara em 9x39mm, vem com uma coronha compacta."
 	slot_flags = SLOT_SHOULDER
 	icon_state = "srm"
 	item_state = "srm"
@@ -2063,20 +2063,20 @@
 	return
 
 /obj/item/weapon/gun/projectile/submachinegun/srm/verb/fold()
-	set name = "Toggle Stock"
+	set name = "Alternar Estoque"
 	set category = null
 	set src in usr
 	if (folded)
 		folded = FALSE
 		base_icon = "srm"
-		usr << "You extend the stock on \the [src]."
+		usr << "Você amplia o stock em [src]."
 		equiptimer = 12
 		set_stock()
 		update_icon()
 	else
 		folded = TRUE
 		base_icon = "srm_folded"
-		usr << "You collapse the stock on \the [src]."
+		usr << "Você derruba o stock em [src]."
 		equiptimer = 5
 		set_stock()
 		update_icon()

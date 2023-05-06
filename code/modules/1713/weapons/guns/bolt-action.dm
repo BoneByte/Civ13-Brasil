@@ -104,14 +104,14 @@
 			return
 	else return
 	if (check_bolt_lock)
-		user << "<span class='notice'>The bolt won't move, the gun is empty!</span>"
+		user << "<span class='notice'>O ferrolho não se move, a arma está vazia!</span>"
 		check_bolt--
 		return
 	bolt_open = !bolt_open
 	if (bolt_open)
 		if (chambered)
 			playsound(loc, bolt_open_sound, 50, TRUE)
-			user << "<span class='notice'>You work the bolt open, ejecting [chambered]!</span>"
+			user << "<span class='notice'>O ferrolho não se move, a arma está vazia! Você abre o ferrolho, ejetando [chambered]!</span>"
 			chambered.loc = get_turf(src)
 			chambered.randomrotation()
 			loaded -= chambered
@@ -119,10 +119,10 @@
 			if (bolt_safety)
 				if (!loaded.len)
 					check_bolt_lock++
-					user << "<span class='notice'>The bolt is locked!</span>"
+					user << "<span class='notice'>O ferrolho está fechado!</span>"
 		else
 			playsound(loc, bolt_open_sound, 50, TRUE)
-			user << "<span class='notice'>You work the bolt open.</span>"
+			user << "<span class='notice'>Você abre o ferrolho</span>"
 	else
 		playsound(loc, bolt_close_sound, 50, TRUE)
 		user << "<span class='notice'>You work the bolt closed.</span>"
@@ -133,13 +133,13 @@
 
 /obj/item/weapon/gun/projectile/boltaction/special_check(mob/user)
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto o modo de segurança está ativado</span>"
 		return FALSE
 	if (bolt_open)
 		user << "<span class='warning'>You can't fire [src] while the bolt is open!</span>"
 		return FALSE
 	if (!user.has_empty_hand(both = FALSE) && !istype(src,/obj/item/weapon/gun/projectile/boltaction/mosin/obrez))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		user << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return FALSE
 	return TRUE
 
@@ -202,7 +202,7 @@
 	return
 /obj/item/weapon/gun/projectile/boltaction/singleshot
 	name = "Sharps Rifle"
-	desc = "A single-shot, falling block rifle, with a long range. Uses .45-70 cartridges."
+	desc = "Um rifle de tiro único, de bloco descendente, com longo alcance. Usa cartuchos .45-70."
 	icon_state ="sharps"
 	item_state ="shotgun"
 	base_icon = "sharps"
@@ -227,7 +227,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/martini_henry
 	name = "Martini-Henry Rifle"
-	desc = "A single-shot, falling block rifle, with a long range. Uses .577/450 cartridges."
+	desc = "Um rifle de tiro único, de bloco descendente, com longo alcance. Usa cartuchos .577/450."
 	icon_state ="martini_henry"
 	item_state ="shotgun"
 	base_icon = "martini_henry"
@@ -250,7 +250,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock
 	name = "Rolling-Block Rifle"
-	desc = "A single-shot, rolling block rifle, with a long range. Uses .45-70 Gov cartridges."
+	desc = "Um rifle de tiro único, de bloco rolante, com longo alcance. Usa cartuchos .45-70 Gov."
 	icon_state ="rollingblock"
 	item_state ="rollingblock"
 	base_icon = "rollingblock"
@@ -273,7 +273,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/rollingblock/spanish
 	name = "Rolling-Block Rifle"
-	desc = "A single-shot, rolling block rifle, with a long range. This Spanish one uses .43 cartridges."
+	desc = "Um rifle de tiro único, de bloco rolante, com longo alcance. Esse espanhol usa cartuchos .43."
 	caliber = "a43"
 	effectiveness_mod = 0.98
 	ammo_type = /obj/item/ammo_casing/a43
@@ -281,7 +281,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/makeshiftbolt
 	name = "Makeshift Bolt"
-	desc = "A single-shot, makeshift bolt rifle."
+	desc = "Um rifle de ferrolho improvisado de tiro único."
 	icon_state ="makeshiftbolt"
 	item_state ="shotgun"
 	base_icon = "makeshiftbolt"
@@ -305,7 +305,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/barrett
 	name = "Barrett M99"
-	desc = "A single-shot anti-material rifle designed by the Barrett Firearms Company."
+	desc = "Um rifle antimaterial de tiro único projetado pela Barrett Firearms Company."
 	icon_state = "m99"
 	item_state = "m99"
 	base_icon = "m99"
@@ -345,7 +345,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/ptrd
 	name = "PTRD-41"
-	desc = "A soviet anti-material rifle chambered in 14.5x114mm designed to take out tanks."
+	desc = "Um fuzil antimaterial soviético com câmara de 14,5x114 mm projetado para derrubar tanques."
 	icon_state = "ptrd"
 	item_state = "ptrd"
 	base_icon = "ptrd"
@@ -379,7 +379,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/pzb39
 	name = "PzB 39"
-	desc = "A German anti-tank rifle chambered in 7.92x94mm."
+	desc = "Um fuzil antitanque alemão com câmara de 7,92x94 mm."
 	icon_state = "pzb39"
 	item_state = "pzb39"
 	base_icon = "pzb39"
@@ -411,7 +411,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/singleshot/special_check(mob/user)
 	if (bolt_open)
-		user << "<span class='warning'>You can't fire [src] while the breech is open!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto a culatra estiver aberta!</span>"
 		return FALSE
 	return TRUE
 
@@ -426,17 +426,17 @@
 	if (bolt_open)
 		if (chambered)
 			playsound(loc, bolt_open_sound, 50, TRUE)
-			user << "<span class='notice'>You open the breech lever, ejecting [chambered]!</span>"
+			user << "<span class='notice'>Você abre a alavanca da culatra, ejetando [chambered]!</span>"
 			chambered.loc = get_turf(src)
 			chambered.randomrotation()
 			loaded -= chambered
 			chambered = null
 		else
 			playsound(loc, bolt_open_sound, 50, TRUE)
-			user << "<span class='notice'>You open the breech lever.</span>"
+			user << "<span class='notice'>Você abre a alavanca da culatra</span>"
 	else
 		playsound(loc, bolt_close_sound, 50, TRUE)
-		user << "<span class='notice'>You close the breech lever.</span>"
+		user << "<span class='notice'>Você fecha a alavanca da culatra</span>"
 		bolt_open = FALSE
 	add_fingerprint(user)
 	update_icon()
@@ -444,7 +444,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/mosin
 	name = "Mosin M1891"
-	desc = "Russian bolt-action rifle chambered in 7.62x54mmR cartridges."
+	desc = "Fuzil de ferrolho russo com câmara para cartuchos 7,62x54mmR."
 	icon_state ="mosin"
 	item_state ="mosin"
 	base_icon = "mosin"
@@ -468,7 +468,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/mosin/m30
 	name = "Mosin 91/30"
-	desc = "A modernized version of the original M1891. Bolt-action rifle chambered in 7.62x54mmR cartridges."
+	desc = "Uma versão modernizada do M1891 original. Fuzil de ação por ferrolho com câmara para cartuchos 7,62x54mmR."
 	icon_state ="mosin30"
 	item_state ="mosin30"
 	base_icon = "mosin30"
@@ -482,7 +482,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka30
 	name = "Arisaka Type 30"
-	desc = "Japanese bolt-action rifle chambered in 6.50x50mm Arisaka ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisak"
 	icon_state = "arisaka30"
 	item_state = "arisaka30"
 	base_icon = "arisaka30"
@@ -507,7 +507,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38
 	name = "Arisaka Type 38"
-	desc = "Japanese bolt-action rifle chambered in 6.50x50mm Arisaka ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisaka 6.50x50mm."
 	icon_state = "arisaka38"
 	item_state = "arisaka38"
 	base_icon = "arisaka38"
@@ -532,7 +532,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper
 	name = "Arisaka Type 97"
-	desc = "Japanese bolt-action rifle chambered in 6.5x50mm Arisaka ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisaka de 6,5x50 mm."
 /obj/item/weapon/gun/projectile/boltaction/arisaka38/sniper/New()
 	..()
 	var/obj/item/weapon/attachment/scope/adjustable/sniper_scope/SP = new/obj/item/weapon/attachment/scope/adjustable/sniper_scope(src)
@@ -540,7 +540,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99
 	name = "Arisaka Type 99"
-	desc = "Japanese bolt-action rifle chambered in 7.7x58mm Arisaka ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisaka de 7,7x58 mm."
 	icon_state = "arisaka99"
 	item_state = "arisaka99"
 	base_icon = "arisaka99"
@@ -566,7 +566,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper
 	name = "Arisaka Type 99"
-	desc = "Japanese bolt-action rifle chambered in 7.7x58mm Arisaka ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisaka de 7,7x58 mm."
 	effectiveness_mod = 1.06
 	attachment_slots = ATTACH_SILENCER|ATTACH_IRONSIGHTS|ATTACH_SCOPE|ATTACH_BARREL|ATTACH_UNDER
 /obj/item/weapon/gun/projectile/boltaction/arisaka99/sniper/New()
@@ -583,7 +583,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka99_training
 	name = "Training Arisaka Type 99"
-	desc = "Japanese bolt-action rifle chambered in 7.7x58mm Arisaka ammunition. This one is a training rifle that shoots wooden bullets."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisaka de 7,7x58 mm. Este é um rifle de treinamento que dispara balas de madeira."
 	icon_state = "arisaka99"
 	item_state = "arisaka99"
 	base_icon = "arisaka99"
@@ -609,7 +609,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr71
 	name = "Gewehr 71"
-	desc = "A german bolt-action rifle chambered in 7.65x53mm Mauser ammunition."
+	desc = "Um rifle de ferrolho alemão com câmara para munição Mauser de 7,65x53 mm."
 	icon_state = "gewehr71"
 	item_state = "gewehr71"
 	base_icon = "gewehr71"
@@ -632,7 +632,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/madsenm47
 	name = "Madsen M47"
-	desc = "A Danish bolt action."
+	desc = "Uma action bolt dinamarques."
 	icon_state = "madsenm47"
 	item_state = "gewehr71"
 	base_icon = "madsenm47"
@@ -656,7 +656,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1890
 	name = "Mauser M1890"
-	desc = "A german bolt-action rifle commonly known as the \"Ottoman Mauser\", chambered in 7.65x53mm Mauser ammunition."
+	desc = "Um rifle alemão de ferrolho comumente conhecido como \"Ottoman Mauser\", com câmara para munição Mauser de 7,65x53 mm."
 	icon_state = "mauser90"
 	item_state = "gewehr98"
 	base_icon = "mauser90"
@@ -680,7 +680,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893
 	name = "Mauser M1893"
-	desc = "A german bolt-action rifle commonly known as the \"Spanish Mauser\", chambered in 7x57mm Mauser ammunition."
+	desc = "Um rifle alemão de ferrolho comumente conhecido como \"Spanish Mauser\", com câmara para munição Mauser 7x57mm."
 	icon_state = "mauser93"
 	item_state = "mauser93"
 	base_icon = "mauser93"
@@ -704,7 +704,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/mauser1893/mauser1893o
 	name = "Mauser M1893 (Ottoman)"
-	desc = "An Ottoman version of the \"Spanish Mauser\", chambered in 7.65x53mm Mauser ammunition."
+	desc = "Uma versão otomana do \"Mauser espanhol\", com câmara para munição Mauser de 7,65x53 mm."
 	caliber = "a765x53"
 	weight = 3.8
 	ammo_type = /obj/item/ammo_casing/a765x53
@@ -713,7 +713,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98
 	name = "Gewehr 98"
-	desc = "A german bolt-action rifle chambered in 7.92x57mm Mauser ammunition."
+	desc = "Um rifle alemão de ferrolho com câmara para munição Mauser de 7,92x57 mm."
 	icon_state = "gewehr98"
 	item_state = "gewehr98"
 	base_icon = "gewehr98"
@@ -737,7 +737,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/vg //for balance reasons this gun wont use the STG mags instead it will use just clips also i dont know how to code in mag usage by bolties
 	name = "Volkssturmgewehr"
-	desc = "A very primitive german bolt action rifle chambered in 7.92x33mm Kurz."
+	desc = "Um rifle de ação com ferrolho alemão muito primitivo com câmara de 7,92x33mm Kurz."
 	icon_state = "vg1"
 	item_state = "vg1"
 	base_icon = "vg1"
@@ -762,7 +762,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/mauser1903
 	name = "Mauser M1903"
-	desc = "The ottoman version of the Mauser M1898, chambered in 7.65x53mm Mauser ammunition."
+	desc = "A versão otomana do Mauser M1898, com câmara de munição Mauser de 7,65x53 mm."
 	caliber = "a765x53"
 	weight = 3.7
 	ammo_type = /obj/item/ammo_casing/a765x53
@@ -773,7 +773,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98a
 	name = "Karabiner 98a"
-	desc = "A shortened carabine version of the Gewehr 98, chambered in 7.92x57mm Mauser ammunition."
+	desc = "Uma versão reduzida da carabina do Gewehr 98, com câmara para munição Mauser de 7,92x57 mm."
 	icon_state = "kar98a"
 	item_state = "kar98k"
 	base_icon = "kar98a"
@@ -783,7 +783,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k
 	name = "Karabiner 98k"
-	desc = "A shortened, modernized carabine version of the Gewehr 98, chambered in 7.92x57mm Mauser ammunition."
+	desc = "Uma versão encurtada e modernizada da carabina do Gewehr 98, com câmara para munição Mauser de 7,92x57 mm."
 	icon_state = "kar98k"
 	item_state = "kar98k"
 	base_icon = "kar98k"
@@ -799,11 +799,11 @@
 
 /obj/item/weapon/gun/projectile/boltaction/gewehr98/karabiner98k/chinese
 	name = "Chiang Kai-Shek"
-	desc = "A shortened, modernized carabine version of the Gewehr 98, chambered in 7.92x57mm Mauser ammunition. This one being adopted by the Chinese."
+	desc = "Uma versão encurtada e modernizada da carabina do Gewehr 98, com câmara para munição Mauser de 7,92x57 mm. Este está sendo adotado pelos chineses."
 
 /obj/item/weapon/gun/projectile/boltaction/p14enfield
 	name = "Pattern 1914 Enfield"
-	desc = "A british bolt-action rifle based on the Mauser line, chambered in .303 Enfield ammunition."
+	desc = "Um rifle britânico de ação por ferrolho baseado na linha Mauser, com câmara para munição Enfield .303."
 	icon_state = "p14enfield"
 	item_state = "p14enfield"
 	base_icon = "p14enfield"
@@ -825,7 +825,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/carcano
 	name = "carcano 1891"
-	desc = "An italian bolt-action rifle chambered in 6.50x52mm ammunition."
+	desc = "Um rifle italiano de ferrolho com câmara para munição de 6,50x52 mm."
 	icon_state = "carcano"
 	item_state = "carcano"
 	base_icon = "carcano"
@@ -848,7 +848,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/arisaka35
 	name = "Arisaka Type 35"
-	desc = "Japanese bolt-action rifle chambered in 6.50x50mm Arisaka ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Arisaka 6.50x50mm."
 	icon_state = "arisaka35"
 	item_state = "arisaka35"
 	base_icon = "arisaka35"
@@ -871,7 +871,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/murata
 	name = "Type-22 Murata"
-	desc = "Japanese bolt-action rifle chambered in 8x53mm Murata ammunition."
+	desc = "Fuzil japonês de ferrolho com câmara para munição Murata de 8x53 mm."
 	icon_state = "murata"
 	item_state = "murata"
 	base_icon = "murata"
@@ -905,7 +905,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/berdan
 	name = "Berdan M1870"
-	desc = "Russian bolt-action rifle chambered in 7.62x54mmR cartridges."
+	desc = "Fuzil de ferrolho russo com câmara para cartuchos 7,62x54mmR."
 	icon_state ="berdan"
 	item_state ="berdan"
 	base_icon = "berdan"
@@ -939,7 +939,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/enfield
 	name = "Lee-Enfield Mk. III"
-	desc = "A 10-shot, bolt-action rifle, standard issue for british military, chambered in .303 british."
+	desc = "Um rifle de 10 tiros, de ferrolho, padrão para os militares britânicos, com câmara em .303 britânico."
 	icon_state ="enfield"
 	item_state ="enfield"
 	base_icon = "enfield"
@@ -963,7 +963,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/lebel
 	name = "Lebel 1886/M93"
-	desc = "A 8 round, bolt-action rifle, standard issue for french military, chambered in 8x50mmR Lebel."
+	desc = "Um rifle de ação com ferrolho de 8 cartuchos, equipamento padrão para os militares franceses, com câmara de 8x50mmR Lebel."
 	icon_state ="lebel"
 	item_state ="lebel"
 	base_icon = "lebel"
@@ -987,7 +987,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/berthier
 	name = "Berthier M1907/15"
-	desc = "A 3 round, bolt-action carbine, chambered in 8x50mmR Lebel."
+	desc = "Uma carabina de ação de parafuso com 3 cartuchos, com câmara de 8x50mmR Lebel."
 	icon_state ="berthier"
 	item_state ="berthier"
 	base_icon = "berthier"
@@ -1011,7 +1011,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/berthier/m16
 	name = "Berthier M1907/16"
-	desc = "A 5 round, bolt-action carbine, chambered in 8x50mmR Lebel."
+	desc = "Uma carabina de 5 cartuchos, com câmara de 8x50mmR Lebel."
 	magazine_type = /obj/item/ammo_magazine/c8x50_5clip
 	good_mags = list(/obj/item/ammo_magazine/c8x50_3clip)
 	max_shells = 5
@@ -1019,7 +1019,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/mosin/obrez
 	name = "Mosin-Nagant \"Obrez\""
-	desc = "A makeshift sawn-off Mosin \"pistol\", chambered in 7.62x54mmR cartridges."
+	desc = "Um Mosin \"pistola\" serrado improvisado, com câmara para cartuchos 7,62x54mmR."
 	icon_state ="obrez"
 	item_state ="pistol"
 	base_icon = "obrez"
@@ -1037,7 +1037,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/m24
 	name = "M24 SWS"
-	desc = "A military version of the Remington 700 rifle."
+	desc = "Uma versão militar do rifle Remington 700."
 	icon_state = "m24"
 	item_state = "m24"
 	base_icon = "m24"
@@ -1066,7 +1066,7 @@
 
 /obj/item/weapon/gun/projectile/boltaction/springfield
 	name = "M1903 Springfield"
-	desc = "A bolt-action rifle made in 1903, chambered in .30-06 with a 5 round internal magazine."
+	desc = "Um rifle de ação por ferrolho fabricado em 1903, com câmara em .30-06 e um carregador interno de 5 cartuchos."
 	icon_state ="springfield_ww2"
 	item_state ="springfield_ww2"
 	base_icon = "springfield_ww2"

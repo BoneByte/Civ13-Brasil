@@ -1,6 +1,6 @@
 /obj/item/weapon/gun/projectile/bow/crossbow
 	name = "crossbow"
-	desc = "A heavy and powerful bow."
+	desc = "Um arco pesado e poderoso."
 	icon_state = "crossbow0"
 	item_state = "crossbow0"
 	w_class = ITEM_SIZE_LARGE
@@ -32,7 +32,7 @@
 	value = 10
 	flammable = TRUE
 	projtype = "bolt"
-	icotype = "crossbow"
+	icotype = "crossarco"
 	equiptimer = 25
 	accuracy_list = list(
 

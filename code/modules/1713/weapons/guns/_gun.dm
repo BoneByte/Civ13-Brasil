@@ -113,16 +113,16 @@
 	if (gun_safety)
 		if (safetyon)
 			safetyon = FALSE
-			user << "<span class='notice'>You toggle \the [src]'s safety <b>OFF</b>.</span>"
+			user << "<span class='notice'>Você meche no modo de segurança do [src] <b>ESTÁ DESATIVADO</b>.</span>"
 			return
 		else
 			safetyon = TRUE
-			user << "<span class='notice'>You toggle \the [src]'s safety <b>ON</b>.</span>"
+			user << "<span class='notice'>Você meche no modo de segurança do [src] <b>ESTÁ ATIVADO</b>.</span>"
 			return
 
 /obj/item/weapon/gun/projectile/special_check(var/mob/user)
 	if (gun_safety && safetyon)
-		user << "<span class='warning'>You can't fire \the [src] while the safety is on!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto o modo de segurança está ativado</span>"
 		return FALSE
 	return ..()
 /obj/item/weapon/gun/projectile/proc/calculate_miss_chance(zone, var/mob/target)

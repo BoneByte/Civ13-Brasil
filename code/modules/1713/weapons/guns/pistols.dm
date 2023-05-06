@@ -65,14 +65,14 @@
 
 /obj/item/weapon/gun/projectile/pistol/attackby(obj/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/weapon/attachment/bayonet))
-		user << "<span class = 'danger'>That won't fit on there.</span>"
+		user << "<span class = 'danger'>Isso não vai caber aqui.</span>"
 		return FALSE
 	else
 		return ..()
 
 /obj/item/weapon/gun/projectile/pistol/nambu
 	name = "Type A Nambu"
-	desc = "Standard issue Japanese pistol. Chambered in 8x22mm Nambu."
+	desc = "Pistola japonesa padrão. Com munição em 8x22mm Nambu."
 	icon_state = "nambu"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c8mmnambu"
@@ -95,7 +95,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/ww2/nambu
 	name = "Type 14 Nambu"
-	desc = "Standard issue Japanese pistol. Chambered in 8x22mm Nambu."
+	desc = "Pistola japonesa padrão. Com munição em 8x22mm Nambu"
 	icon_state = "nambu_ww2"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c8mmnambu"
@@ -118,7 +118,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/luger
 	name = "Luger P08"
-	desc = "A Luger P08 chambered in 9x19mm parabellum, german design."
+	desc = "Uma Luger P08 com câmara em 9x19mm parabellum, design alemão."
 	icon_state = "luger"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
@@ -141,7 +141,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/waltherp38
 	name = "Walther P38"
-	desc = "A Walther P38 chambered in 9x19mm parabellum, german design."
+	desc = "Uma Luger P08 com câmara em 9x19mm parabellum, design alemão."
 	icon_state = "waltherp38"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
@@ -171,7 +171,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/glock17
 	name = "Glock 17"
-	desc = "A modern pistol, loaded on 9x19mm, reliable and fast."
+	desc = "Uma pistola moderna, carregada com 9x19mm, confiável e rápida."
 	icon_state = "glock17"
 	fire_delay = 2.3
 	w_class = ITEM_SIZE_SMALL
@@ -206,7 +206,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/sig250
 	name = "SIG 250"
-	desc = "A modern pistol, loaded on 9x19mm, reliable and fast."
+	desc = "Uma pistola moderna, carregada com 9x19mm, confiável e rápida."
 	icon_state = "sig250"
 	item_state = "sig250"
 	fire_delay = 2.3
@@ -231,7 +231,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/pl14
 	name = "PL-14"
-	desc = "A modern experimental pistol made by Kalashnikov (chambered in 9x19mm)."
+	desc = "Uma pistola experimental moderna fabricada pela Kalashnikov (com câmara de 9x19 mm)."
 	icon_state = "pl14"
 	fire_delay = 1.8
 	w_class = ITEM_SIZE_SMALL
@@ -256,7 +256,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/mp443
 	name = "MP-443 Grach"
-	desc = "A Russian made pistol firing loaded on 9x19mm."
+	desc = "Uma pistola de fabricação russa com calibre 9x19mm."
 	icon_state = "mp443"
 	fire_delay = 3.15
 	w_class = ITEM_SIZE_SMALL
@@ -280,7 +280,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/tarus
 	name = "Tarus G3"
-	desc = "A modern pistol, loaded on 9x19mm, reliable and fast."
+	desc = "Uma pistola moderna, carregada com 9x19mm, confiável e rápida."
 	icon_state = "tarusg3"
 	fire_delay = 2.3
 	w_class = ITEM_SIZE_SMALL
@@ -304,7 +304,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/p220
 	name = "SIG Sauer P220"
-	desc = "The SIG Sauer P220 is a semi-automatic pistol. Designed in 1975."
+	desc = "A SIG Sauer P220 é uma pistola semiautomática. Projetada em 1975."
 	icon_state = "p220"
 	fire_delay = 3.7
 	w_class = ITEM_SIZE_SMALL
@@ -335,7 +335,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/iogb7
 	name = "IOQ B-72"
-	desc = "Some fake shit invented by Re1taz."
+	desc = "Uma arma de merda e falsa criada por Re1taz."
 	icon_state = "iogb7"
 	fire_delay = 1.1
 	w_class = ITEM_SIZE_SMALL
@@ -359,7 +359,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/mauser
 	name = "Mauser C96"
-	desc = "An early German pistol that can chamber 7.62x25mm TT."
+	desc = "Uma pistola alemã antiga que pode armazenar 7,62x25mm TT."
 	icon_state = "mauser"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a762x25"
@@ -383,7 +383,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/borchardt
 	name = "Borchardt C93"
-	desc = "A German semi-automatic pistol chambered in 7.65x25mm Borchardt."
+	desc = "Uma pistola alemã antiga que pode armazenar 7,62x25mm Borchardt."
 	icon_state = "borchardt"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a765x25"
@@ -405,7 +405,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/colthammerless
 	name = "Colt M1903 Pocket Hammerless"
-	desc = "An early, compact Colt pistol chambered in .32 ACP."
+	desc = "Uma pistola Colt compacta e antiga, com câmara em .32 ACP."
 	icon_state = "coltpockethammerless"
 	w_class = ITEM_SIZE_SMALL
 	equiptimer = 4
@@ -430,7 +430,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/colthammerless/m1908
 	name = "Colt M1908 Pocket Hammerless"
-	desc = "A later version of the compact Colt pistol, chambered in .380 ACP."
+	desc = "Uma versão posterior da pistola Colt compacta, com câmara em .380 ACP."
 	icon_state = "coltpockethammerless"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a380acp"
@@ -445,7 +445,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/bergmann
 	name = "Bergmann No.2"
-	desc = "A particularly unique-in-appearance early German semi-automatic pistol."
+	desc = "Uma pistola semiautomática alemã antiga de aparência particularmente única."
 	icon_state = "bergmann"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "c8mmnambu"
@@ -469,7 +469,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/m1911
 	name = "M1911A1"
-	desc = "The standard issue pistol of the US Armed forces from 1911 to 1985. Chambered in .45 ACP."
+	desc = "A pistola padrão das forças armadas dos EUA de 1911 a 1985. Com câmara em .45 ACP."
 	icon_state = "colt"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45acp"
@@ -493,7 +493,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/blackm1911
 	name = "Colt Mark IV"
-	desc = "A slightly upgraded model of the M1911A1. Chambered in .45 ACP."
+	desc = "Um modelo ligeiramente atualizado do M1911A1. Com câmara em .45 ACP."
 	icon_state = "colt"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45acp"
@@ -523,7 +523,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/tt30
 	name = "TT-33"
-	desc = "The standard issue pistol of the Soviet Union before the 1950's. Chambered in 7.62x25mm Tokarev."
+	desc = "A pistola padrão da União Soviética antes da década de 1950. Com câmara em 7,62x25mm Tokarev."
 	icon_state = "tt30"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a762x25"
@@ -559,7 +559,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/makarov
 	name = "Makarov PM"
-	desc = "The standard issue pistol of the Soviet Union and Russian Federation after the 1950's. Chambered in 9x18mm Makarov."
+	desc = "A pistola padrão da União Soviética e da Federação Russa após a década de 1950. Com câmara em Makarov 9x18mm."
 	icon_state = "makarov"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x18"
@@ -589,7 +589,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta
 	name = "Beretta M9"
-	desc = "The standard issue pistol of US Armed Forces from 1985 to 2017. Chambered in 9mm Luger."
+	desc = "A pistola padrão das Forças Armadas dos EUA de 1985 a 2017. Com câmara em Luger de 9 mm."
 	icon_state = "m9beretta"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
@@ -618,7 +618,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/m9beretta/tan
 	name = "Beretta M9"
-	desc = "The standard issue pistol of US Armed Forces from 1985 to 2017. Chambered in 9mm Luger. This one blends in with the desert"
+	desc = "A pistola padrão das Forças Armadas dos EUA de 1985 a 2017. Com câmara em Luger de 9 mm. Esta se mistura com o deserto devido a camuflagem"
 	icon_state = "tanm9"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
@@ -640,7 +640,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/jericho941
 	name = "Jericho 941"
-	desc = "The standard issue pistol of the IDF of the late 20th century. Chambered in 9mm Parabellum."
+	desc = "A pistola padrão das forças de israel do final do século XX. Com câmara em 9 mm Parabellum."
 	icon_state = "jericho941"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
@@ -662,7 +662,7 @@
 	return
 /obj/item/weapon/gun/projectile/pistol/deagle
 	name = "Desert Eagle"
-	desc = "Designed and developed by Magnum Research Inc. Chambered in 50cal."
+	desc = "Projetado e desenvolvido pela Magnum Research Inc. Com câmara em 50cal."
 	icon_state = "deagle"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a50cal"
@@ -686,7 +686,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/deaglemagnum
 	name = "Desert Eagle (44.magnum)"
-	desc = "Designed and developed by Magnum Research Inc. Chambered in 44.magnum."
+	desc = "Projetado e desenvolvido pela Magnum Research Inc. Com câmara em 44.magnum."
 	icon_state = "deagle"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a44magnum"
@@ -710,7 +710,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/browninghp
 	name = "Browning hi-power"
-	desc = "Produced by Fabrique Nationale of Belgium, This old handgun is chambered in 9mm Parabellum."
+	desc = "Produzida pela Fabrique Nationale da Bélgica, essa antiga pistola tem câmara de 9 mm Parabellum."
 	icon_state = "browning_hp"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a9x19"
@@ -734,7 +734,7 @@
 
 /obj/item/weapon/gun/projectile/pistol/sti2011
 	name = "STI 2011"
-	desc = "A high end specialized version of a m1911 made by the request of the US marshal service chambered .45 S&W."
+	desc = "Uma versão especializada de alta qualidade de uma m1911 fabricada a pedido do serviço de marechal dos EUA com câmara .45 S&W."
 	icon_state = "sti2011"
 	w_class = ITEM_SIZE_SMALL
 	caliber = "a45acp"

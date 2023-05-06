@@ -90,7 +90,7 @@ var/list/vocal_emotes = list(
 				message = "blinks rapidly."
 				m_type = 1
 
-			if ("bow")
+			if ("arco")
 				if (!buckled)
 					var/M = null
 					if (param)

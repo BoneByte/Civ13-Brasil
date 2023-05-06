@@ -4,7 +4,7 @@
 
 /mob/living/human/verb/bow()
 	set category = "Emote"
-	emote("bow")
+	emote("arco")
 
 /mob/living/human/verb/burp()
 	set category = "Emote"

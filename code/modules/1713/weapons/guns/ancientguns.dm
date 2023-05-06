@@ -1,8 +1,8 @@
 ///for fire lances, hand cannons, arquebuses
 
 obj/item/weapon/gun/projectile/ancient
-	name = "ancient handgun"
-	desc = "An ancient handheld blackpowder gun"
+	name = "Antiga arma portátil"
+	desc = "Uma antiga arma portátil de pólvora negra"
 	icon = 'icons/obj/guns/ancient.dmi'
 	icon_state = "handcannon"
 	item_state = "musket"
@@ -82,8 +82,8 @@ obj/item/weapon/gun/projectile/ancient
 	aim_miss_chance_divider = 3.00
 
 obj/item/weapon/gun/projectile/ancient/firelance
-	name = "fire lance"
-	desc = "A spear with a gunpowder container near the tip, that can be filled with gunpowder and projectiles."
+	name = "Lança de Fogo"
+	desc = "Uma lança com um recipiente de pólvora próximo à ponta, que pode ser preenchido com pólvora e projéteis."
 	icon_state = "firelance0"
 	item_state = "firelance"
 	recoil = 4
@@ -142,14 +142,14 @@ obj/item/weapon/gun/projectile/ancient/firelance
 	load_delay = 150
 	aim_miss_chance_divider = 1.50
 obj/item/weapon/gun/projectile/ancient/handcannon
-	name = "handcannon"
-	desc = "A crude handcannon, consisting on a iron barrel with a wood stock attached."
+	name = "Canhão de Mão"
+	desc = "Um canhão de mão rudimentar, que consiste em um cano de ferro com uma coronha de madeira acoplada."
 	icon_state = "handcannon"
 	item_state = "handcannon"
 
 obj/item/weapon/gun/projectile/ancient/arquebus
-	name = "arquebus"
-	desc = "A iron barrel attached to a wood stock, with a piece of metal in the middle to hold the arquebus still, increasing accuracy."
+	name = "arcabuz"
+	desc = "Um cano de ferro preso a uma coronha de madeira, com um pedaço de metal no meio para manter o arcabuz imóvel, aumentando a precisão."
 	icon_state = "arquebus"
 	item_state = "arquebus"
 	attachment_slots = ATTACH_IRONSIGHTS
@@ -202,8 +202,8 @@ obj/item/weapon/gun/projectile/ancient/arquebus
 	)
 
 obj/item/weapon/gun/projectile/ancient/matchlock
-	name = "matchlock musket"
-	desc = "A musket using the matchlock system, where lighted match acts as the fuse, activated by a trigger."
+	name = "mosquete matchlock"
+	desc = "Um mosquete que usa o sistema matchlock, no qual um fósforo aceso atua como espoleta, ativado por um gatilho."
 	icon_state = "matchlock"
 	item_state = "matchlock"
 	attachment_slots = ATTACH_IRONSIGHTS
@@ -256,8 +256,8 @@ obj/item/weapon/gun/projectile/ancient/matchlock
 	)
 
 obj/item/weapon/gun/projectile/ancient/jezailmatchlock
-	name = "Jezail matchlock musket"
-	desc = "A Arabic musket using the matchlock system, where lighted match acts as the fuse, activated by a trigger."
+	name = "Mosquete Jezail Matchlock"
+	desc = "Um mosquete árabe que usa o sistema matchlock, no qual um fósforo aceso atua como espoleta, ativado por um gatilho."
 	icon_state = "matchlock"
 	item_state = "matchlock_jezail"
 	attachment_slots = ATTACH_IRONSIGHTS
@@ -311,7 +311,7 @@ obj/item/weapon/gun/projectile/ancient/jezailmatchlock
 
 obj/item/weapon/gun/projectile/ancient/tanegashima
 	name = "tanegashima"
-	desc = "A musket using the matchlock system, where lighted match acts as the fuse, activated by a trigger. This one being Japanese, introduced to them via the Portuguese."
+	desc = "Um mosquete que usa o sistema de trava de fósforo, no qual um fósforo aceso atua como espoleta, ativado por um gatilho. Este é japonês, apresentado a eles pelos portugueses."
 	icon_state = "tanegashima"
 	item_state = "tanegashima"
 	attachment_slots = ATTACH_IRONSIGHTS
@@ -388,10 +388,10 @@ obj/item/weapon/gun/projectile/ancient/tanegashima
 	else if (istype(W, /obj/item/stack/ammopart/stoneball))
 		var/obj/item/stack/ammopart/stoneball/ST = W
 		if (!bullet && gunpowder)
-			user << "<span class='notice'>You begin loading \the [src] with \the [W]...</span>"
+			user << "<span class='notice'>Você começa a recarregar o [src] com [W]...</span>"
 			if (do_after(user, 100, src, can_move = TRUE))
 				if (bullet == FALSE)
-					user << "<span class='notice'>You load \the [src].</span>"
+					user << "<span class='notice'>Você recarrega o [src].</span>"
 					bullet = TRUE
 					var/obj/item/ammo_casing/stoneball/SBL = new/obj/item/ammo_casing/stoneball
 					loaded += SBL
@@ -410,28 +410,28 @@ obj/item/weapon/gun/projectile/ancient/tanegashima
 			else
 				return
 		else if (bullet)
-			user << "<span class='notice'>There is already a projectile inside.</span>"
+			user << "<span class='notice'>Já existe um projétil em seu interior.</span>"
 			return
 		else if (!gunpowder)
-			user << "<span class='notice'>You need to put in the gunpowder first.</span>"
+			user << "<span class='notice'>Você precisa colocar a pólvora primeiro.</span>"
 	else if (istype(W, /obj/item/weapon/reagent_containers))
 		if (gunpowder)
-			user << "<span class='notice'>The [src] is already packed with gunpowder.</span>"
+			user << "<span class='notice'>[src] já está carregada com pólvora</span>"
 			return
 		else if (!W.reagents.has_reagent("gunpowder",1))
-			user << "<span class = 'notice'>You need enough gunpowder in a gunpowder container in your hands to fill \the [src].</span>"
+			user << "<span class = 'notice'>Você precisa de pólvora suficiente em um recipiente de pólvora em suas mãos para encher [src].</span>"
 			return
 		else
-			user << "<span class='notice'>You begin packing \the [src] with gunpowder...</span>"
+			user << "<span class='notice'>Você começa a colocar pólvora no [src]...</span>"
 			if (do_after(user, 100, src, can_move = TRUE))
 				if (gunpowder == FALSE)
 					if (W.reagents.has_reagent("gunpowder",1))
-						user << "<span class='notice'>You finish packing \the [src] with gunpowder.</span>"
+						user << "<span class='notice'>Você termina de colocar pólvora no [src].</span>"
 						W.reagents.remove_reagent("gunpowder",1)
 						gunpowder = TRUE
 						return
 					else
-						user << "<span class = 'notice'>You need enough gunpowder in a gunpowder container in your hands to fill \the [src].</span>"
+						user << "<span class = 'notice'>Você precisa de pólvora suficiente em um recipiente de pólvora em suas mãos para encher o [src].</span>"
 						return
 	else
 		..()
@@ -440,19 +440,19 @@ obj/item/weapon/gun/projectile/ancient/tanegashima
 	if (ishuman(user))
 		var/mob/living/human/H = user
 		if (H.faction_text == INDIANS)
-			user << "<span class='warning'>You don't know how to use this.</span>"
+			user << "<span class='warning'>Você não sabe como usar isso.</span>"
 			return FALSE
 	if (!gunpowder)
-		user << "<span class='warning'>You can't fire \the [src] without gunpowder!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] sem pólvora!</span>"
 		return FALSE
 	if (!bullet)
-		user << "<span class='warning'>You can't fire \the [src] without a projectile!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] sem munição!</span>"
 		return FALSE
 	if (!lighted && !istype(src, /obj/item/weapon/gun/projectile/ancient/matchlock) && (/obj/item/weapon/gun/projectile/ancient/tanegashima))
-		user << "<span class='warning'>You can't fire \the [src] without lighting it!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] sem ascender!</span>"
 		return FALSE
 	if (!(user.has_empty_hand(both = FALSE)) && istype(src, /obj/item/weapon/gun/projectile/ancient/matchlock) && (/obj/item/weapon/gun/projectile/ancient/tanegashima))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		user << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return FALSE
 	return ..()
 

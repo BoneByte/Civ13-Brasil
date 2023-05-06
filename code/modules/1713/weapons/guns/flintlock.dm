@@ -2,7 +2,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock
 	name = "flintlock musket"
-	desc = "A simple flintlock musket of the early XVIII century."
+	desc = "Um mosquete simples de pederneira do início do século XVIII."
 	icon = 'icons/obj/guns/ancient.dmi'
 	icon_state = "musket"
 	item_state = "musket"
@@ -99,11 +99,11 @@
 	else return
 	if (!cocked)
 		playsound(loc, 'sound/weapons/guns/interact/bolt_open.ogg', 50, TRUE)
-		user << "<span class='notice'>You cock the [src]!</span>"
+		user << "<span class='notice'>Você engatilha o [src]!</span>"
 		cocked = TRUE
 	else
 		playsound(loc, 'sound/weapons/guns/interact/bolt_close.ogg', 50, TRUE)
-		user << "<span class='notice'>You uncock the [src].</span>"
+		user << "<span class='notice'>Você destrava o [src].</span>"
 		cocked = FALSE
 	add_fingerprint(user)
 	update_icon()
@@ -112,10 +112,10 @@
 /obj/item/weapon/gun/projectile/flintlock/special_check(mob/user)
 //	var/mob/living/human/H = user
 	if (!cocked)
-		user << "<span class='warning'>You can't fire \the [src] while the weapon is uncocked!</span>"
+		user << "<span class='warning'>Você não pode atirar com o [src] enquanto a arma estiver destravada!</span>"
 		return FALSE
 	if (!(user.has_empty_hand(both = FALSE)) && !istype(src, /obj/item/weapon/gun/projectile/flintlock/pistol) && !istype(src, /obj/item/weapon/gun/projectile/flintlock/blunderbuss/pistol) && !istype(src, /obj/item/weapon/gun/projectile/flintlock/pistoletmodelean1733) && !istype(src, /obj/item/weapon/gun/projectile/flintlock/duellingpistol) && !istype(src, /obj/item/weapon/gun/projectile/flintlock/pistoletmodeleanxiii))
-		user << "<span class='warning'>You need both hands to fire \the [src]!</span>"
+		user << "<span class='warning'>Você precisa de duas mãos para atirar com o [src]!</span>"
 		return FALSE
 	return ..()
 
@@ -145,7 +145,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/musket
 	name = "flintlock musket"
-	desc = "A simple flintlock musket of the early XVIII century."
+	desc = "Um mosquete simples de pederneira do início do século XVIII."
 	force = 12
 	caliber = "musketball"
 	weight = 6.0
@@ -155,7 +155,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/m1752
 	name = "M1752 mosquete"
-	desc = "A simple spanish musket of the early XVIII century."
+	desc = "Um mosquete espanhol simples do início do século XVIII."
 	force = 11.5
 	caliber = "musketball"
 	weight = 6.0
@@ -167,7 +167,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/jezail
 	name = "Jezail musket"
-	desc = "A very simple Arabic musket of the early XVIII century."
+	desc = "Um mosquete árabe muito simples do início do século XVIII."
 	force = 10
 	caliber = "musketball"
 	weight = 5.0
@@ -179,7 +179,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/kabyle
 	name = "Kabyle musket"
-	desc = "A very simple North-African musket of the early XVIII century."
+	desc = "Um mosquete norte-africano muito simples do início do século XVIII."
 	force = 10.2
 	caliber = "musketball"
 	weight = 4.7
@@ -191,7 +191,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/brownbess
 	name = "Brownbess musket"
-	desc = "A simple english musket of the early XVIII century."
+	desc = "Um mosquete inglês simples do início do século XVIII."
 	force = 11
 	caliber = "musketball"
 	weight = 5.9
@@ -203,7 +203,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/charleville
 	name = "Charleville mousquet"
-	desc = "A simple french musket of the early XVIII century."
+	desc = "Um mosquete francês simples do início do século XVIII."
 	force = 11.3
 	caliber = "musketball"
 	weight = 5.6
@@ -215,7 +215,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/plexico
 	name = "flintlock musket"
-	desc = "A finer flintlock musket, this one seems to be made out of ebony and steel."
+	desc = "Um mosquete de pederneira mais fino, este parece ser feito de ébano e aço."
 	force = 12
 	caliber = "musketball"
 	weight = 6.0
@@ -227,7 +227,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/springfield
 	name = "Springfield M1861 Musket"
-	desc = "A simple flintlock musket of the 1860's used commonly in the civil war."
+	desc = "Um mosquete de pederneira simples da década de 1860, usado comumente na guerra civil."
 	force = 12
 	caliber = "musketball"
 	weight = 6.0
@@ -240,7 +240,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/springfield1795
 	name = "Springfield 1795 Musket"
-	desc = "The Model 1795 was the first musket to be produced in the United States."
+	desc = "O Modelo 1795 foi o primeiro mosquete a ser produzido nos Estados Unidos."
 	force = 12
 	caliber = "musketball"
 	weight = 5.0
@@ -253,7 +253,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/musketoon
 	name = "flintlock musketoon"
-	desc = "A smaller version of the flintlock musket, this gun is favored by seamen due to being compact, albeit less accurate."
+	desc = "Uma versão menor do mosquete de pederneira, essa arma é preferida pelos marinheiros por ser compacta, embora menos precisa."
 	icon_state = "compactmusket"
 	item_state = "musketoon"
 	force = 8
@@ -266,7 +266,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/crude
 	name = "crude musket"
-	desc = "A crude, homemade version of a musket. Not very reliable and accurate."
+	desc = "Uma versão rudimentar e caseira de um mosquete. Não é muito confiável e preciso."
 	icon_state = "crude"
 	item_state = "musketoon"
 	force = 8
@@ -323,7 +323,7 @@
 	// less accurate than rifles against still targets, but better against moving targets
 	// less accurate than semiautos but with the same ratios
 	name = "flintlock pistol"
-	desc = "A typical flintlock pistol. Good for short ranges, useless otherwise."
+	desc = "Uma típica pistola de pederneira. Boa para curtas distâncias, mas inútil em outros casos."
 	icon_state = "flintpistol"
 	item_state = "pistol"
 	recoil = 2
@@ -400,7 +400,7 @@
 /obj/item/weapon/gun/projectile/flintlock/blunderbuss
 	stat = "heavy"
 	name = "Blunderbuss"
-	desc = "A enlarged version of the musketoon, it can fire bigger bullets. Useless at long range."
+	desc = "Uma versão ampliada do mosquetão, que pode disparar balas maiores. Inútil a longa distância."
 	icon_state = "blunderbuss"
 	item_state = "blunderbuss"
 	recoil = 4
@@ -468,7 +468,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/pistoletmodelean1733
 	name = "Pistolet modèle An 1733"
-	desc = "A typical French pistol. Used by Calvary units."
+	desc = "Uma típica pistola francesa. Usada por unidades da Calvária."
 	icon_state = "pistolet_modele1733"
 	item_state = "pistol"
 	recoil = 2.1
@@ -542,7 +542,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/duellingpistol
 	name = "Duelling Flintlock "
-	desc = "A typical Duelling Pistol. Used by gentlemen who take part in duels."
+	desc = "Uma típica pistola de duelo. Usada por cavalheiros que participam de duelos."
 	icon_state = "flintlock_duelingpistol"
 	item_state = "pistol"
 	recoil = 2.5
@@ -611,7 +611,7 @@
 
 /obj/item/weapon/gun/projectile/flintlock/pistoletmodeleanxiii
 	name = "Pistolet modèle An XIII"
-	desc = "A typical French pistol. Used by Calvary units."
+	desc = "Uma típica pistola francesa. Usada por unidades da Caváleria"
 	icon_state = "pistolet_modele13"
 	item_state = "pistol"
 	recoil = 2.1
@@ -685,7 +685,7 @@
 /obj/item/weapon/gun/projectile/flintlock/blunderbuss/pistol
 	stat = "heavy"
 	name = "Blunderbuss Pistol"
-	desc = "A enlarged version of the musketoon, it can fire bigger bullets. This one has been designed so it can be used with one hand. Useless at medium range."
+	desc = "Uma versão ampliada do mosquetão, que pode disparar balas maiores. Este foi projetado para que possa ser usado com uma mão. Inútil a médio alcance."
 	icon_state = "flintlock_blunderbusspistol"
 	item_state = "pistol"
 	recoil = 5

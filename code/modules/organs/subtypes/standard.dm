@@ -36,7 +36,7 @@
 	w_class = ITEM_SIZE_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = "chest"
-	joint = "left elbow"
+	joint = "left elarco"
 	amputation_point = "left shoulder"
 	can_grasp = TRUE
 
@@ -45,7 +45,7 @@
 	name = "right arm"
 	icon_name = "r_arm"
 	body_part = ARM_RIGHT
-	joint = "right elbow"
+	joint = "right elarco"
 	amputation_point = "right shoulder"
 
 /obj/item/organ/external/leg

@@ -125,12 +125,12 @@
 /obj/item/weapon/gun/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if (default_parry_check(user, attacker, damage_source) && w_class >= 4) // Only big guns can stop attacks.
 		if (bayonet && prob(40)) // If they have a bayonet they get a higher chance to stop the attack.
-			user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+			user.visible_message("<span class='danger'>[user] bloqueia [attack_text] com o [src]!</span>")
 			playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, TRUE)
 			return TRUE
 		else
 			if (prob(10))// Much smaller chance to block it due to no bayonet.
-				user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+				user.visible_message("<span class='danger'>[user] bloqueia [attack_text] com o [src]!</span>")
 				playsound(user.loc, 'sound/weapons/punchmiss.ogg', 50, TRUE)
 				return TRUE
 	return FALSE
@@ -194,16 +194,16 @@
 	else
 		if (bayonet && isliving(A) && !istype(bayonet, /obj/item/weapon/attachment/bayonet/flag))
 			var/mob/living/L = A
-			
+
 			var/obj/item/weapon/attachment/bayonet/a = bayonet
-			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN) 
-			
+			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+
 			if (L)
 				if (user != L)
 					if(L.attempt_dodge()) //Trying to dodge it before they even have the chance to miss us.
 						return
 					else
-						visible_message("<span class = 'danger'>[user] impales [L] with their gun's bayonet!</span>")
+						visible_message("<span class = 'danger'>[user] impala [L] com a bayoneta!</span>")
 						playsound(get_turf(src), a.attack_sound, rand(90,100))
 						L.apply_damage(a.force, BRUTE, def_zone)
 						if (ishuman(L))
@@ -232,7 +232,7 @@
 		var/mob/living/human/H = user
 		if ((H.client && istype(H, /mob/living/human/dummy)) || !H.original_job || !H.original_job_title)
 			if (clients.len > 1)
-				user << "<span class = 'danger'>Hey you fucking dumbass, don't send immortal dummies into combat.</span>"
+				user << "<span class = 'danger'>Ei seu fudido, você <b> ENVIOU UM IMORTAL <b> no combate, jogue que nem homem.</span>"
 				return
 
 	add_fingerprint(user)
@@ -243,7 +243,7 @@
 
 		if (world.time < next_fire_time)
 			if (world.time % 3) //to prevent spam
-				user << "<span class='warning'>[src] is not ready to fire again!</span>"
+				user << "<span class='warning'>[src] não está preparada pra atirar de novo!</span>"
 			return
 
 	//unpack firemode data
@@ -445,31 +445,31 @@
 	mouthshoot = TRUE
 	M.visible_message("<span class = 'red'>[user] sticks [M.gender == FEMALE ? "her" : "his"] [src] in [M.gender == FEMALE ? "her" : "his"] mouth.</span>")
 	if (!do_after(user, 3))
-		visible_message("<span class = 'notice'>[user] failed to commit suicide.</span>")
+		visible_message("<span class = 'notice'>[user] falhou em cometer suicidio.</span>")
 		mouthshoot = FALSE
 		return
 	var/obj/item/projectile/in_chamber = consume_next_projectile()
 	if (in_chamber && istype(in_chamber))
-		user.visible_message("<span class = 'warning'>[user] pulls the trigger.</span>")
+		user.visible_message("<span class = 'warning'>[user] puxa o gatilho.</span>")
 		if (silencer)
 			playsound(user, silencer_fire_sound, 50-(silencer.reduction/2), TRUE,50-(silencer.reduction/2))
 		else
 			playsound(user, fire_sound, 50, TRUE,50)
 
-		M.attack_log += "\[[time_stamp()]\] [M]/[M.ckey]</b> shot themselves in the mouth (tried to commit suicide)"
+		M.attack_log += "\[[time_stamp()]\] [M]/[M.ckey]</b> atira em sua boca (tentando cometer suicidio)"
 
 		in_chamber.on_hit(M)
 		if (in_chamber.damage_type != HALLOSS)
 
 			if (M.wear_mask && istype(M.wear_mask, /obj/item/weapon/grenade))
-				visible_message("<span class = 'danger'>The grenade in [M]'s mouth goes off!</span>")
+				visible_message("<span class = 'danger'>A granada na boca de [M] sai!</span>")
 				var/obj/item/weapon/grenade/G = M.wear_mask
 				G.active = TRUE
 				G.prime()
 
-			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, "head", used_weapon = "Point blank shot in the mouth with \a [in_chamber]", sharp=1)
+			user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, "head", used_weapon = "Tiro à queima-roupa na boca com [in_chamber]", sharp=1)
 			user.death()
-			M.attack_log += "\[[time_stamp()]\] [M]/[M.ckey]</b> shot themselves in the mouth (committed suicide)"
+			M.attack_log += "\[[time_stamp()]\] [M]/[M.ckey]</b> atira em si mesmo, em sua boca (cometendo suicidio)"
 		else
 			user << "<span class = 'notice'>Ow...</span>"
 			user.apply_effect(110,AGONY,0)
@@ -518,17 +518,17 @@
 				if ("chest")
 					damage_multiplier = 3.0
 
-			user.visible_message("<span class = 'red'>[user] shoots \himself in \the [organ_name]!</span>")
+			user.visible_message("<span class = 'red'>[user] atira em si mesmo no [organ_name]!</span>")
 			if (silencer)
 				playsound(user, silencer_fire_sound, 100-silencer.reduction, TRUE,100-silencer.reduction)
 			else
 				playsound(user, fire_sound, 100, TRUE,100)
 
-			user.attack_log += "\[[time_stamp()]\] [user]/[user.ckey]</b> shot themselves in the [organ_name]"
+			user.attack_log += "\[[time_stamp()]\] [user]/[user.ckey]</b> atira em si mesmo no [organ_name]"
 
 			in_chamber.on_hit(user)
 			if (in_chamber.damage_type != HALLOSS)
-				user.apply_damage(in_chamber.damage*damage_multiplier, in_chamber.damage_type, tgt, used_weapon = "Point blank shot in the [user.targeted_organ] with \a [in_chamber]", sharp=1)
+				user.apply_damage(in_chamber.damage*damage_multiplier, in_chamber.damage_type, tgt, used_weapon = "Tiro à queima-roupa no [user.targeted_organ] com [in_chamber]", sharp=1)
 			else
 				user << "<span class = 'notice'>Ow...</span>"
 				user.apply_effect(110,AGONY,0)
@@ -552,28 +552,28 @@
 		var/health_percentage = (health/maxhealth)*100
 		switch (health_percentage)
 			if (-100 to 21)
-				user << "<font color='#7f0000'>Is pratically falling apart!</font>"
+				user << "<font color='#7f0000'>Está praticamente caindo aos pedaços!</font>"
 			if (22 to 49)
-				user << "<font color='#a74510'>Seems to be in very bad condition.</font>"
+				user << "<font color='#a74510'>Parece estar em condições muito ruins.</font>"
 			if (50 to 69)
-				user << "<font color='#cccc00'>Seems to be in a rough condition.</font>"
+				user << "<font color='#cccc00'>Parece estar em uma condição ruim.</font>"
 			if (70 to 84)
-				user << "<font color='#4d5319'>Seems to be in a somewhat decent condition.</font>"
+				user << "<font color='#4d5319'>Parece estar em condições razoavelmente decentes.</font>"
 			if (85 to 200)
-				user << "<font color='#326327'>Seems to be in very good condition.</font>"
+				user << "<font color='#326327'>Parece estar em muito boas condições.</font>"
 
 	if (firemodes.len > 1)
 		var/datum/firemode/current_mode = firemodes[sel_mode]
-		user.visible_message("The fire selector is set to [current_mode.name].")
+		user.visible_message("O seletor de fogo está ajustado para [current_mode.name].")
 	if (safetyon)
-		user << "<span class='notice'><b>The safety is on.</b></span>"
+		user << "<span class='notice'><b>A segurança está ativada.</b></span>"
 
 /obj/item/weapon/gun/proc/switch_firemodes(mob/user=null)
 	sel_mode++
 	if (sel_mode > firemodes.len)
 		sel_mode = TRUE
 	var/datum/firemode/new_mode = firemodes[sel_mode]
-	user << "<span class='notice'>\The [src] is now set to [new_mode.name].</span>"
+	user << "<span class='notice'>[src] está agora em [new_mode.name].</span>"
 	if (new_mode.name == "full auto")
 		full_auto = TRUE
 	else
@@ -647,17 +647,17 @@
 	if (!G || !istype(G))
 		G = get_inactive_hand()
 		if (!G || !istype(G))
-			src << "<span class = 'red'>You can't unload magazine from anything in your hands.</span>"
+			src << "<span class = 'red'>Você não pode descarregar o carregador de nada em suas mãos.</span>"
 			return
 
 	if (G.load_method == MAGAZINE && G.ammo_magazine == null)
-		src << "<span class = 'red'>The [G.name] is already unloaded.</span>"
+		src << "<span class = 'red'>[G.name] Já está descarregada</span>"
 		return
 	if (G && G.ammo_magazine)
 		G.ammo_magazine.loc = get_turf(loc)
 	visible_message(
-		"[G.ammo_magazine] falls out and clatters on the floor!",
-		"<span class='notice'>[G.ammo_magazine] falls out and clatters on the floor!</span>"
+		"[G.ammo_magazine] cai e se espatifa no chão!",
+		"<span class='notice'>[G.ammo_magazine] cai e se espatifa no chão!</span>"
 		)
 	G.ammo_magazine.update_icon()
 	G.ammo_magazine = null
@@ -676,7 +676,7 @@
 /obj/item/weapon/gun/proc/health_check(mob/living/human/H)
 	if(health <= 0 || maxhealth <= 0)
 		playsound(src, "shatter", 70, TRUE)
-		visible_message("<span class='danger'>\The [src.name] shatters!</span>")
+		visible_message("<span class='danger'>[src.name] estilhaça no chão!</span>")
 		var/hurthand = "r_hand"
 		if (src.loc == H.l_hand)
 			hurthand = "l_hand"
