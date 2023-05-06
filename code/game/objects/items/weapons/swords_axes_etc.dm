@@ -27,8 +27,8 @@
 	force = initial(force)
 
 /obj/item/weapon/melee/mace
-	name = "iron mace"
-	desc = "A iron mace, good for breaking bones and armor."
+	name = "maça de ferro"
+	desc = "Uma maça de ferro, boa para quebrar ossos e armaduras."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "mace"
 	item_state = "mace"
@@ -39,8 +39,8 @@
 	flammable = FALSE
 
 /obj/item/weapon/melee/mace/kanabo
-	name = "iron kanabo"
-	desc = "A iron kanabo, this large blunt weapon of japanese origin pulps its victims under its weight & form."
+	name = "kanabo de ferro"
+	desc = uma kanabo de ferro, esta grande arma contundente de origem japonesa destrói suas vítimas sob seu peso e forma"
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "kanabo"
 	item_state = "kanabo"
@@ -51,8 +51,8 @@
 	flammable = FALSE
 
 /obj/item/weapon/melee/mace/mauler
-	name = "heavy mauler"
-	desc = "A intimidatingly large morningstar, could easily pulverize any person; let alone one head to toe in armor."
+	name = "malhador pesado"
+	desc = "Uma estrela da manhã intimidantemente grande poderia facilmente pulverizar qualquer pessoa; muito menos uma armadura da cabeça aos pés."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "maul"
 	item_state = "mauler1"
@@ -63,8 +63,8 @@
 	flammable = FALSE
 
 /obj/item/weapon/melee/classic_baton
-	name = "wood baton"
-	desc = "A wooden truncheon for beating criminal scum."
+	name = "cassetete de madeira"
+	desc = "Um cassetete de madeira para espancar a escória criminosa."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "baton"
 	item_state = "classic_baton"
@@ -75,8 +75,8 @@
 	flags = FALSE
 
 /obj/item/weapon/melee/classic_baton/guard
-	name = "heavy baton"
-	desc = "A heavy wooden truncheon for beating criminal scum."
+	name = "cassetete pesado"
+	desc = "um pesado cassetete de madeira para espancar a escória criminosa."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "baton"
 	item_state = "classic_baton"
@@ -86,8 +86,8 @@
 	flammable = TRUE
 
 /obj/item/weapon/melee/nightbaton
-	name = "police baton"
-	desc = "A stick used by police officers."
+	name = "cassetete da policia"
+	desc = "um pau usado pelos oficiais da policia."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "nightbaton"
 	item_state = "nightbaton"
@@ -98,8 +98,8 @@
 	flags = FALSE
 
 /obj/item/weapon/melee/nightbaton/sandman
-    name = "Heavy duty"
-    desc = "A baton held by the camp commander nicknamed the sandman by prisoners because of how hard it hits."
+    name = "Heavy Duty"
+    desc = "Um cassetete segurado pelo comandante do campo apelidado sandman pelos prisioneiros por causa da força que bate.."
     icon = 'icons/obj/weapons.dmi'
     icon_state = "kombaton"
     item_state = "nightbaton"
@@ -116,12 +116,12 @@
         spawn(100)
             src.cooldown = FALSE
     else
-        user << "<span class='notice'>You have used this batton not long ago. Chill out!</span>"
+        user << "<span class='notice'você usou este bastão não faz muito tempo. relaxa!</span>"
     ..()
 
 /obj/item/weapon/melee/classic_baton/club
-	name = "wood club"
-	desc = "One of the oldest weapons in the world. Good for when you need to knock people down."
+	name = "Club de madeira"
+	desc = "Uma das armas mais antigas do mundo. Boa para quando você quiser derrubar pessoas."
 	icon_state = "club"
 	item_state = "club"
 	slot_flags = SLOT_BACK
@@ -153,8 +153,8 @@
 */
 
 /obj/item/weapon/melee/classic_baton/whip
-	name = "whip"
-	desc = "A leather whip. To keep your slaves in order."
+	name = "Chicote"
+	desc = "Um chicote de couro, para manter os escravos em ordem."
 	icon = 'icons/obj/items.dmi'
 	hitsound = 'sound/weapons/whipcrack.ogg'
 	icon_state = "whip"
@@ -164,8 +164,8 @@
 	flammable = TRUE
 
 /obj/item/weapon/melee/knuckle_duster
-	name = "knuckle duster"
-	desc = "A peice of metal that fits around your hand. Could break some teeth."
+	name = "Soco inglês"
+	desc = "Um pedaço de ferro que cabe ao redor da sua mão. Pode quebrar alguns dentes."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "knuckle_duster"
 	item_state = "knuckle_duster"
@@ -175,8 +175,8 @@
 	weakens = FALSE
 
 /obj/item/weapon/melee/baseball_bat
-	name = "wooden baseball bat"
-	desc = "A smooth wooden club used in the sport of baseball. Useful for damaging skulls."
+	name = "bastão de baseball de madeira"
+	desc = "Um liso club de madeira usado no esporte de baseball. Bom para quebrar crânios."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "woodbat"
 	item_state = "woodbat"
@@ -187,8 +187,8 @@
 	weakens = 1
 
 /obj/item/weapon/melee/baseball_bat/aluminium
-	name = "aluminium baseball bat"
-	desc = "A smooth metal club used in the sport of baseball. This one's stronger than a wooden one."
+	name = "Bastão de baseball de alumínio"
+	desc = "Um liso club de alumínio usado no esporte de baseball. esse é mais forte que o de madeira."
 	icon_state = "metalbat"
 	item_state = "metalbat"
 	slot_flags = SLOT_BACK
@@ -197,8 +197,8 @@
 	flags = CONDUCT
 
 /obj/item/weapon/melee/classic_baton/big_club
-	name = "big wood club"
-	desc = "This looks huge!"
+	name = "Grande club de madeira"
+	desc = "Esse é grosso!"
 	icon_state = "big_club"
 	item_state = "big_club"
 	force = WEAPON_FORCE_PAINFUL
@@ -231,7 +231,7 @@
 
 /obj/item/weapon/macuahuitl
 	name = "macuahuitl"
-	desc = "A Mesoamerican wooden club with obsidian blades."
+	desc = "Um club masoamericano com pontas de obsidiana."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "macuahuitl"
 	item_state = "macuahuitl"
@@ -247,7 +247,7 @@
 ////////////////GARROTE/////////////////////
 /obj/item/garrote
 	name = "garrote"
-	desc = "A handheld ligature of rope, used to strangle a person."
+	desc = "Uma ligadura portátil de corda, usada para estrangular pessoas."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "garrote"
 	item_state = "zippo"
@@ -346,8 +346,8 @@
 		return FALSE
 
 /obj/item/weapon/melee/telebaton
-	name = "telescopic baton"
-	desc = "A compact yet rebalanced personal defense weapon. Can be concealed when folded."
+	name = "Bastão telescópico"
+	desc = "Uma compacta e rebalanceada arma de defesa pessol. Pode ser escondido quando dobrado."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "telebaton_0"
 	item_state = "telebaton_0"
@@ -360,13 +360,13 @@
 	on = !on
 	if(on)
 		user.visible_message("<span class='warning'>With a flick of their wrist, [user] extends their telescopic baton.</span>",\
-		"<span class='warning'>You extend the baton.</span>",\
+		"<span class='warning'>você extendeu o bastão</span>",\
 		"You hear an ominous click.")
 		force = 15//quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
 		user.visible_message("<span class='notice'>\The [user] collapses their telescopic baton.</span>",\
-		"<span class='notice'>You collapse the baton.</span>",\
+		"<span class='notice'>você colapsou o bastão.</span>",\
 		"You hear a click.")
 		force = 3//not so robust now
 		attack_verb = list("hit", "punched")
