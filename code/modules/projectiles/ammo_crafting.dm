@@ -3,7 +3,7 @@
 	if (istype(W, /obj/item/weapon/reagent_containers) && gunpowder < gunpowder_max*amount)
 		if (istype(user.l_hand, /obj/item/weapon/reagent_containers))
 			if (!user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
 				user.l_hand.reagents.remove_reagent("gunpowder",gunpowder_max*amount)
@@ -12,14 +12,14 @@
 				return
 		else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 			if (!user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
 				user.r_hand.reagents.remove_reagent("gunpowder",gunpowder_max)
-				user << "You fill the casings with gunpowder."
+				user << "Você enche os invólucros com pólvora"
 				gunpowder = gunpowder_max*amount
 				return
-	
+
 	if (istype(W, /obj/item/stack/material/iron))	//If the grenade casing is hit with iron, continue
 		if (!(gunpowder >= gunpowder_max*amount))
 			user << "<span class = 'notice'>You need to fill the casings with gunpowder before filling the charge.</span>"
@@ -29,7 +29,7 @@
 		else if (W.amount >= amount)
 			var/list/listing = list("Cancel")
 			listing = list(/*"Explosive"*/, "Anti-Tank", "Shrapnel", "Cancel")
-			var/input = WWinput(user, "What grenade do you want to make?", "Grenade Making", "Cancel", listing)
+			var/input = WWinput(user, "Que granada você quer fazer?", "Fazer Granada", "Cancelar", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -51,7 +51,7 @@
 				return
 			else
 				return
-	
+
 	if (gunpowder >= gunpowder_max*amount && finished)
 		attack_self(user)
 		return
@@ -92,7 +92,7 @@
 	if (istype(W, /obj/item/weapon/reagent_containers) && gunpowder < gunpowder_max*amount)
 		if (istype(user.l_hand, /obj/item/weapon/reagent_containers))
 			if (!user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the booster.</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no contêiner para encher o booster.</span>"
 				return
 			else if (user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
 				user.l_hand.reagents.remove_reagent("gunpowder",gunpowder_max*amount)
@@ -101,7 +101,7 @@
 				return
 		else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 			if (!user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the booster.</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no contêiner para encher o booster.</span>"
 				return
 			else if (user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
 				user.r_hand.reagents.remove_reagent("gunpowder",gunpowder_max)
@@ -110,15 +110,15 @@
 				return
 	if (istype(W, /obj/item/stack/ammopart/warhead))
 		if (!(gunpowder >= gunpowder_max*amount))
-			user << "<span class = 'notice'>You need to fill the booster with gunpowder before attaching the charge.</span>"
+			user << "<span class = 'notice'>Você precisa encher o booster com pólvora antes de colocar a carga.</span>"
 			return
 		else if (W.amount < amount)
-			user << "<span class = 'notice'>Not enough warheads. Add more warheads to the stack.</span>"
+			user << "<span class = 'notice'>Ogivas insuficientes. Adicione mais ogivas à pilha.</span>"
 		else if (W.amount >= amount)
 			var/list/listing = list("Cancel")
 			listing = list("HEAT", "Fragmentation", "Cancel")
 
-			var/input = WWinput(user, "What warhead do you want to make?", "Rocket Propeled Grenade Making", "Cancel", listing)
+			var/input = WWinput(user, "Que ogiva você quer fazer?", "Fabricação de granadas propelidas por foguetes", "Cancelar", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -142,7 +142,7 @@
 	if (istype(W, /obj/item/weapon/reagent_containers) && gunpowder < gunpowder_max*amount)
 		if (istype(user.l_hand, /obj/item/weapon/reagent_containers))
 			if (!user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
 				user.l_hand.reagents.remove_reagent("gunpowder",gunpowder_max*amount)
@@ -151,7 +151,7 @@
 				return
 		else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 			if (!user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
 				user.r_hand.reagents.remove_reagent("gunpowder",gunpowder_max)
@@ -160,10 +160,10 @@
 				return
 	if (istype(W, /obj/item/stack/ammopart/bullet))
 		if (!(gunpowder >= gunpowder_max*amount))
-			user << "<span class = 'notice'>You need to fill the casing(s) with gunpowder before putting the bullet on the casing.</span>"
+			user << "<span class = 'notice'>Você precisa encher o(s) invólucro(s) com pólvora antes de colocar a bala no invólucro.</span>"
 			return
 		else if (W.amount < amount)
-			user << "<span class = 'notice'>Not enough bullets. Reduce the casings stack or add more bullets.</span>"
+			user << "<span class = 'notice'>Balas insuficientes. Reduza os invólucros ou adicione mais balas.</span>"
 		else if (W.amount >= amount)
 			bulletn = amount
 			W.amount -= amount
@@ -195,7 +195,7 @@
 		if (CH.reagents.has_reagent(reg, 20))
 			CH.reagents.remove_reagent(reg, 20)
 			var/turf/T = get_turf(user)
-			user << "You craft a chemical warhead."
+			user << "Você cria uma ogiva química."
 			reg = replacetext(reg,"_gas","")
 			var/resultp = text2path("/obj/item/cannon_ball/shell/gas/[reg]")
 			new resultp(T)
@@ -210,10 +210,10 @@
 	if (!istype(W)) return
 	if (istype(W, /obj/item/stack/material/electronics))
 		if(W.amount < 8)
-			user << "<span class='notice'>You need more electronics to do this.</span>"
+			user << "<span class='notice'>Você precisa de mais componentes eletrônicos para fazer isso.</span>"
 		else if(W.amount == 8)
 			playsound(loc, 'sound/machines/click.ogg', 75, TRUE)
-			user << "<span class='notice'>You attach electronics to the wires.</span>"
+			user << "<span class='notice'>Você conecta os componentes eletrônicos aos fios.</span>"
 			qdel(src)
 			qdel(W)
 			new/obj/item/stack/ammopart/casing/artillery/wired/advanced(user.loc)
@@ -226,10 +226,10 @@
 	if (!istype(W)) return
 	if (istype(W, /obj/item/stack/ore/uranium))
 		if(W.amount < 5)
-			user << "<span class='notice'>You need more uranium to do this.</span>"
+			user << "<span class='notice'>Você precisa de mais urânio para fazer isso.</span>"
 		else if(W.amount == 5)
 			playsound(loc, 'sound/machines/click.ogg', 75, TRUE)
-			user << "<span class='notice'>You attach uranium to the electronics and stuff it in the casing.</span>"
+			user << "<span class='notice'>Você anexa urânio aos componentes eletrônicos e os coloca no invólucro.</span>"
 			qdel(src)
 			qdel(W)
 			new/obj/item/stack/ammopart/casing/artillery/wired/advanced/filled(user.loc)
@@ -242,7 +242,7 @@
 	if (istype(W, /obj/item/weapon/reagent_containers) && gunpowder < gunpowder_max*amount)
 		if (istype(user.l_hand, /obj/item/weapon/reagent_containers))
 			if (!user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
 				user.l_hand.reagents.remove_reagent("gunpowder",gunpowder_max*amount)
@@ -251,7 +251,7 @@
 				return
 		else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 			if (!user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
 				user.r_hand.reagents.remove_reagent("gunpowder",gunpowder_max)
@@ -260,7 +260,7 @@
 				return
 	if (istype(W, /obj/item/stack/ammopart/bullet))
 		if (!(gunpowder >= gunpowder_max*amount))
-			user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+			user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 			return
 		else if (W.amount < amount)
 			user << "<span class = 'notice'>Not enough bullets. Reduce the casings stack or add more bullets.</span>"
@@ -276,11 +276,11 @@
 		return
 
 /obj/item/stack/ammopart/casing/artillery/wired/attack_self(mob/user)
-		user << "<span class = 'notice'>You cannot do this yet.</span>"
+		user << "<span class = 'notice'>Você ainda não pode fazer isso.</span>"
 		return
 
 /obj/item/stack/ammopart/casing/artillery/wired/advanced/attack_self(mob/user)
-		user << "<span class = 'notice'>You cannot do this yet.</span>"
+		user << "<span class = 'notice'>Você ainda não pode fazer isso.</span>"
 		return
 
 /obj/item/stack/ammopart/casing/artillery/wired/advanced/filled/attack_self(mob/user)
@@ -290,12 +290,12 @@
 		qdel(src)
 		return
 	else
-		user << "<span class = 'notice'>The casing is not complete yet.</span>"
+		user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 		return
 
 /obj/item/stack/ammopart/bullet
 	name = "iron bullet"
-	desc = "A molded iron bullet, made to fit in a casing."
+	desc = "Uma bala de ferro moldada, feita para caber em um invólucro."
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "ironbullet"
 	force = WEAPON_FORCE_HARMLESS
@@ -309,7 +309,7 @@
 	if (istype(W, /obj/item/weapon/reagent_containers) && gunpowder < gunpowder_max*amount)
 		if (istype(user.l_hand, /obj/item/weapon/reagent_containers))
 			if (!user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
 				user.l_hand.reagents.remove_reagent("gunpowder",gunpowder_max*amount)
@@ -318,7 +318,7 @@
 				return
 		else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 			if (!user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
 				user.r_hand.reagents.remove_reagent("gunpowder",gunpowder_max)
@@ -327,10 +327,10 @@
 				return
 	if (istype(W, /obj/item/stack/ammopart/bullet))
 		if (!(gunpowder >= gunpowder_max*amount))
-			user << "<span class = 'notice'>You need to fill the casing(s) with gunpowder before putting the bullet on the casing.</span>"
+			user << "<span class = 'notice'>Você precisa encher o(s) invólucro(s) com pólvora antes de colocar a bala no invólucro.</span>"
 			return
 		else if (W.amount < amount)
-			user << "<span class = 'notice'>Not enough bullets. Reduce the casings stack or add more bullets.</span>"
+			user << "<span class = 'notice'>Não há balas suficientes. Reduza a pilha de cartuchos ou adicione mais balas.</span>"
 		else if (W.amount >= amount)
 			bulletn = amount
 			W.amount -= amount
@@ -346,11 +346,11 @@
 	if (gunpowder >= gunpowder_max && bulletn >= amount)
 		for(var/i=1;i<=amount;i++)
 			new/obj/item/cannon_ball/shell(user.loc)
-		user << "You produce HE artillery shells."
+		user << "Você produz projéteis de artilharia HE."
 		qdel(src)
 		return
 	else
-		user << "<span class = 'notice'>The casing is not complete yet.</span>"
+		user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 		return
 /obj/item/stack/ammopart/casing/pistol/attack_self(mob/user)
 	if (map.ID == MAP_OCCUPATION)
@@ -364,7 +364,7 @@
 				listing = list("9x19 Parabellum", "7.62x25mm", "7.62x38mmR", "Cancel")
 			else if (map.ordinal_age >= 7)
 				listing = list("9x19 Parabellum", "9x18 Makarov", "7.62x25mm", "7.62x38mmR", "Cancel")
-			var/input = WWinput(user, "What caliber do you want to make?", "Bullet Making", "Cancel", listing)
+			var/input = WWinput(user, "Que calibre você deseja fabricar?", "Fazendo Bala(s)", "Cancel", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -391,7 +391,7 @@
 			else
 				return
 		else
-			user << "<span class = 'notice'>The casing is not complete yet.</span>"
+			user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 			return
 	else if (map.ID == MAP_NOMADS_KARAFUTO)
 		if (gunpowder >= gunpowder_max && bulletn >= amount)
@@ -404,7 +404,7 @@
 				listing = list("9x19 Parabellum", "8x22mmB nambu", "9x22mm nambu", "7.62x38mmR", ".45 Colt", "Cancel")
 			else if (map.ordinal_age >= 7)
 				listing = list("9x19 Parabellum", "9x18 Makarov", ".45 Colt", "8x22mmB nambu", "9x22mm nambu", "7.62x38mmR", "Cancel")
-			var/input = WWinput(user, "What caliber do you want to make?", "Bullet Making", "Cancel", listing)
+			var/input = WWinput(user, "Que calibre você deseja fabricar?", "Fazendo Bala(s)", "Cancel", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -433,7 +433,7 @@
 			else
 				return
 		else
-			user << "<span class = 'notice'>The casing is not complete yet.</span>"
+			user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 			return
 	else
 		if (gunpowder >= gunpowder_max && bulletn >= amount)
@@ -446,7 +446,7 @@
 				listing = list("9x19 Parabellum",".45 Colt", "Cancel")
 			else if (map.ordinal_age >= 7)
 				listing = list("9x19 Parabellum","9x18 Makarov",".45 Colt", "Cancel")
-			var/input = WWinput(user, "What caliber do you want to make?", "Bullet Making", "Cancel", listing)
+			var/input = WWinput(user, "Que calibre você deseja fabricar?", "Fazendo Bala(s)", "Cancel", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -469,7 +469,7 @@
 			else
 				return
 		else
-			user << "<span class = 'notice'>The casing is not complete yet.</span>"
+			user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 			return
 
 /obj/item/stack/ammopart/casing/rifle/attack_self(mob/user)
@@ -479,7 +479,7 @@
 			if (map.ordinal_age >= 6)
 				listing = list("7.92x57mm Mauser","7.62x54mmR", "12 Gauge (Buckshot)", "12 Gauge (Slugshot)", "12 Gauge (Beanbag)","12 Gauge (Rubbershot)","Cancel")
 
-			var/input = WWinput(user, "What caliber do you want to make?", "Bullet Making", "Cancel", listing)
+			var/input = WWinput(user, "Que calibre você deseja fabricar?", "Fazendo Bala(s)", "Cancel", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -506,7 +506,7 @@
 			else
 				return
 		else
-			user << "<span class = 'notice'>The casing is not complete yet.</span>"
+			user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 			return
 	else if (map.ID == MAP_NOMADS_KARAFUTO)
 		if (gunpowder >= gunpowder_max && bulletn >= amount)
@@ -518,7 +518,7 @@
 			if (map.ordinal_age >= 6)
 				listing = list("7.7x58mm arisaka","7.62x54mmR","6.5x50mm arisaka", "12 Gauge (Buckshot)", "12 Gauge (Slugshot)", "12 Gauge (Beanbag)","12 Gauge (Rubbershot)","Cancel")
 
-			var/input = WWinput(user, "What caliber do you want to make?", "Bullet Making", "Cancel", listing)
+			var/input = WWinput(user, "Que calibre você deseja fabricar?", "Fazendo Bala(s)", "Cancel", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -538,7 +538,7 @@
 					resultpath = /obj/item/ammo_casing/a65x50
 				if ("7.7x58mm arisaka")
 					resultpath = /obj/item/ammo_casing/a77x58
-				
+
 			if (resultpath != null && gunpowder >= gunpowder_max && bulletn >= amount)
 				for(var/i=1;i<=amount;i++)
 					var/obj/item/ammo_casing/NC = new resultpath(user.loc)
@@ -549,7 +549,7 @@
 			else
 				return
 		else
-			user << "<span class = 'notice'>The casing is not complete yet.</span>"
+			user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 			return
 	else
 		if (gunpowder >= gunpowder_max && bulletn >= amount)
@@ -561,7 +561,7 @@
 			else if (map.ordinal_age >= 6)
 				listing = list("7.92x57mm Mauser","6.5x50mm small rifle","7.62x39mm intermediate rifle","5.56x45mm intermediate rifle", "12 Gauge (Buckshot)", "12 Gauge (Slugshot)", "12 Gauge (Beanbag)", "12 Gauge (Rubbershot)", "Cancel")
 
-			var/input = WWinput(user, "What caliber do you want to make?", "Bullet Making", "Cancel", listing)
+			var/input = WWinput(user, "Que calibre você deseja fabricar?", "Fazendo Bala(s)", "Cancel", listing)
 			switch (input)
 				if ("Cancel")
 					return
@@ -579,19 +579,19 @@
 					resultpath = /obj/item/ammo_casing/shotgun/rubber
 				if ("7.65x53 Mauser")
 					resultpath = /obj/item/ammo_casing/a765x53
-					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Bullet Making", "Normal", list("normal","AP","HP"))
+					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Fazendo Bala(s)", "Normal", list("normal","AP","HP"))
 				if ("7.92x57mm Mauser")
 					resultpath = /obj/item/ammo_casing/a792x57
-					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Bullet Making", "Normal", list("normal","AP","HP"))
+					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Fazendo Bala(s)", "Normal", list("normal","AP","HP"))
 				if ("6.5x50mm small rifle")
 					resultpath = /obj/item/ammo_casing/a65x50
-					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Bullet Making", "Normal", list("normal","AP","HP"))
+					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Fazendo Bala(s)", "Normal", list("normal","AP","HP"))
 				if ("7.62x39mm intermediate rifle")
 					resultpath = /obj/item/ammo_casing/a762x39
-					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Bullet Making", "Normal", list("normal","AP","HP"))
+					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Fazendo Bala(s)", "Normal", list("normal","AP","HP"))
 				if ("5.56x45mm intermediate rifle")
 					resultpath = /obj/item/ammo_casing/a556x45
-					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Bullet Making", "Normal", list("normal","AP","HP"))
+					inputbtype = WWinput(user, "Normal, Hollow Point or Armor Piercing?", "Fazendo Bala(s)", "Normal", list("normal","AP","HP"))
 
 			if (resultpath != null && gunpowder >= gunpowder_max && bulletn >= amount)
 				for(var/i=1;i<=amount;i++)
@@ -603,7 +603,7 @@
 			else
 				return
 		else
-			user << "<span class = 'notice'>The casing is not complete yet.</span>"
+			user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 			return
 /obj/item/stack/ammopart/attack_self(mob/user)
 	if (istype(src, /obj/item/stack/ammopart/bullet) || istype(src, /obj/item/stack/ammopart/casing/pistol) || istype(src, /obj/item/stack/ammopart/casing/rifle))
@@ -624,11 +624,11 @@
 
 	else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 		if (!user.r_hand.reagents.has_reagent("gunpowder",1))
-			user << "<span class = 'warning'>You need enough gunpowder in the container to make a cartridge.</span>"
+			user << "<span class = 'warning'>Você precisa de pólvora suficiente no recipiente para fazer um cartucho.</span>"
 			return
 		else if (user.r_hand.reagents.has_reagent("gunpowder",1))
 			user.r_hand.reagents.remove_reagent("gunpowder",1)
-			user << "You make a cartridge with the gunpowder and projectile."
+			user << "Você faz um cartucho com a pólvora e o projétil."
 			if (user.l_hand.amount>1)
 				user.l_hand.amount -= 1
 			else
@@ -637,7 +637,7 @@
 			return
 
 	else
-		user << "<span class = 'warning'>You need enough gunpowder in the container to make a cartridge.</span>"
+		user << "<span class = 'warning'>Você precisa de pólvora suficiente no recipiente para fazer um cartucho.</span>"
 		return
 
 
@@ -647,7 +647,7 @@
 	if (istype(W, /obj/item/weapon/reagent_containers) && gunpowder < gunpowder_max*amount)
 		if (istype(user.l_hand, /obj/item/weapon/reagent_containers))
 			if (!user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s).</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.l_hand.reagents.has_reagent("gunpowder",gunpowder_max*amount))
 				user.l_hand.reagents.remove_reagent("gunpowder",gunpowder_max*amount)
@@ -656,7 +656,7 @@
 				return
 		else if (istype(user.r_hand, /obj/item/weapon/reagent_containers))
 			if (!user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
-				user << "<span class = 'notice'>You need enough gunpowder in the container to fill the casing(s)</span>"
+				user << "<span class = 'notice'>Você precisa de pólvora suficiente no recipiente para encher o(s) invólucro(s).</span>"
 				return
 			else if (user.r_hand.reagents.has_reagent("gunpowder",gunpowder_max))
 				user.r_hand.reagents.remove_reagent("gunpowder",gunpowder_max)
@@ -665,10 +665,10 @@
 				return
 	if (istype(W, /obj/item/stack/ammopart/bullet))
 		if (!(gunpowder >= gunpowder_max*amount))
-			user << "<span class = 'notice'>You need to fill the casing(s) with gunpowder before putting the bullet on the casing.</span>"
+			user << "<span class = 'notice'>Você precisa encher o(s) invólucro(s) com pólvora antes de colocar a bala no invólucro.</span>"
 			return
 		else if (W.amount < amount)
-			user << "<span class = 'notice'>Not enough bullets. Reduce the casings stack or add more bullets.</span>"
+			user << "<span class = 'notice'>Não há balas suficientes. Reduza a pilha de cartuchos ou adicione mais balas.</span>"
 		else if (W.amount >= amount)
 			bulletn = amount
 			W.amount -= amount
@@ -681,7 +681,7 @@
 /obj/item/stack/ammopart/casing/tank/attack_self(mob/user)
 	if (gunpowder >= gunpowder_max && bulletn >= amount)
 		for(var/i=1;i<=amount;i++)
-			var/calibt = WWinput(user, "Which type of shell do you want to craft?", "Shell Crafting", "HE", list("HE", "AP", "APCR"))
+			var/calibt = WWinput(user, "Que tipo de shell você quer fazer?", "Shell Crafting", "HE", list("HE", "AP", "APCR"))
 			switch (calibt)
 				if ("HE")
 					var/obj/item/cannon_ball/shell/tank/TS = new/obj/item/cannon_ball/shell/tank(user.loc)
@@ -711,9 +711,9 @@
 					TS.name = "[caliber]mm [calibt] shell"
 					TS.update_icon()
 
-		user << "You produce [caliber]mm shells."
+		user << "Você produz shells de calibre [caliber]mm"
 		qdel(src)
 		return
 	else
-		user << "<span class = 'notice'>The casing is not complete yet.</span>"
+		user << "<span class = 'notice'>A carcaça ainda não está completa.</span>"
 		return

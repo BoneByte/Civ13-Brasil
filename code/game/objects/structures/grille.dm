@@ -122,23 +122,23 @@
 					else
 						dir_to_set = 4
 			else
-				user << "<span class='notice'>You can't reach.</span>"
+				user << "<span class='notice'>Você não pode alcançar</span>"
 				return //Only works for cardinal direcitons, diagonals aren't supposed to work like this.
 		for (var/obj/structure/window/WINDOW in loc)
 			if (WINDOW.dir == dir_to_set)
-				user << "<span class='notice'>There is already a window facing this way there.</span>"
+				user << "<span class='notice'>Já existe uma janela voltada para esse lado.</span>"
 				return
-		user << "<span class='notice'>You start placing the window.</span>"
+		user << "<span class='notice'>Você começa a colocar a janela.</span>"
 		if (do_after(user,20,src))
 			for (var/obj/structure/window/WINDOW in loc)
 				if (WINDOW.dir == dir_to_set)//checking this for a 2nd time to check if a window was made while we were waiting.
-					user << "<span class='notice'>There is already a window facing this way there.</span>"
+					user << "<span class='notice'>Já existe uma janela voltada para esse lado.</span>"
 					return
 
 			var/wtype = ST.material.created_window
 			if (ST.use(1))
 				var/obj/structure/window/WD = new wtype(loc, dir_to_set, TRUE)
-				user << "<span class='notice'>You place the [WD] on [src].</span>"
+				user << "<span class='notice'>Você coloca o [WD] em [src].</span>"
 				WD.update_icon()
 		return
 //window placing end
@@ -171,7 +171,7 @@
 		healthcheck()
 
 /obj/structure/grille/attack_generic(var/mob/user, var/damage, var/attack_verb)
-	visible_message("<span class='danger'>[user] [attack_verb] the [src]!</span>")
+	visible_message("<span class='danger'>[user] [attack_verb] o(a) [src]!</span>")
 	attack_animation(user)
 	health -= damage
 	spawn(1) healthcheck()
@@ -179,7 +179,7 @@
 
 /obj/structure/grille/hitby(AM as mob|obj)
 	..()
-	visible_message("<span class='danger'>[src] was hit by [AM].</span>")
+	visible_message("<span class='danger'>[src] foi acertado por [AM].</span>")
 	playsound(loc, hitsound, 80, TRUE)
 	var/tforce = FALSE
 	if (ismob(AM))

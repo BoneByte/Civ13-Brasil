@@ -199,10 +199,10 @@
 		switch(AM.mag_type)
 			if (MAGAZINE)
 				if (AM.ammo_mag != ammo_mag && ammo_mag != "default")
-					user << "<span class='warning'>[src] requires another magazine.</span>" //wrong magazine
+					user << "<span class='warning'>[src] precisa de outra munição</span>" //wrong magazine
 					return
 				if (ammo_magazine)
-					user << "<span class='warning'>[src] already has a magazine loaded.</span>" //already a magazine here
+					user << "<span class='warning'>[src] já tem uma munição</span>" //already a magazine here
 					return
 				user.remove_from_mob(AM)
 				if (src.is_laser_mg == TRUE)
@@ -216,7 +216,7 @@
 				cock_gun(user)
 			if (SPEEDLOADER)
 				if (loaded.len >= max_shells)
-					user << "<span class='warning'>[src] is full!</span>"
+					user << "<span class='warning'>[src] está cheio</span>"
 					return
 				var/count = FALSE
 				for (var/obj/item/ammo_casing/C in AM.stored_ammo)
@@ -228,7 +228,7 @@
 						AM.stored_ammo -= C //should probably go inside an ammo_magazine proc, but I guess less proc calls this way...
 						count++
 				if (count)
-					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into \the [src].</span>")
+					user.visible_message("[user] recarrega [src].", "<span class='notice'>Você recarrega [count] bala\s em [src].</span>")
 					if (reload_sound) playsound(loc, reload_sound, 75, TRUE)
 					cock_gun(user)
 		AM.update_icon()
@@ -236,19 +236,19 @@
 	else if (istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
 		if (!(load_method & SINGLE_CASING))
-			user << "<span class='warning'>You can't load \the [src] with a single casing!</span>"
+			user << "<span class='warning'>Você não pode recarregar [src] com uma unica bala!</span>"
 			return
 		if (caliber != C.caliber)
-			user << "<span class='warning'>\The [C] is of the wrong caliber!</span>"
+			user << "<span class='warning'>[C] é o calibre errado!</span>"
 			return //incompatible
 		if (loaded.len >= max_shells)
-			user << "<span class='warning'>[src] is full.</span>"
+			user << "<span class='warning'>[src] está cheio.</span>"
 			return
 
 		user.remove_from_mob(C)
 		C.loc = src
 		loaded.Insert(1, C) //add to the head of the list
-		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
+		user.visible_message("[user] insere [C] em [src].", "<span class='notice'>Você insere [C] em [src].</span>")
 		if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 
 	update_icon()
@@ -272,16 +272,16 @@
 					count++
 				loaded.Cut()
 			if (count)
-				user.visible_message("[user] unloads [src].", "<span class='notice'>You unload [count] round\s from [src].</span>")
+				user.visible_message("[user] descarrega [src].", "<span class='notice'>Você descarrega [count] bala\s de [src].</span>")
 				if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 		else if (load_method & SINGLE_CASING)
 			var/obj/item/ammo_casing/C = loaded[loaded.len]
 			loaded.len--
 			user.put_in_hands(C)
-			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+			user.visible_message("[user] remove [C] de [src].", "<span class='notice'>Você remove [C] de [src].</span>")
 			if (bulletinsert_sound) playsound(loc, bulletinsert_sound, 75, TRUE)
 	else
-		user << "<span class='warning'>[src] is empty.</span>"
+		user << "<span class='warning'>[src] está vázio.</span>"
 	update_icon()
 
 /obj/item/weapon/gun/projectile/attackby(var/obj/item/A as obj, mob/user)
@@ -322,14 +322,14 @@
 		..()
 
 /obj/item/weapon/gun/projectile/verb/set_gp()
-	set name = "Toggle Grenade Launcher"
+	set name = " Alternar Lançador de granadas"
 	set category = null
 	set src in usr
 
 	if(launcher)
 		if(do_after(usr, 5, src))
 			use_launcher = !use_launcher
-			to_chat(usr, "<span class='notice'>You [use_launcher ? "prepare the [launcher.name]." : "switch back to your gun."]</span>")
+			to_chat(usr, "<span class='notice'>Você [use_launcher ? "prepara o [launcher.name]." : "switch back to your gun."]</span>")
 			playsound(src, 'sound/weapons/guns/interact/launcher_select.ogg', 50, 1)
 
 /obj/item/weapon/gun/projectile/AltClick()
@@ -341,8 +341,8 @@
 	if (auto_eject && ammo_magazine && ammo_magazine.stored_ammo && !ammo_magazine.stored_ammo.len)
 		ammo_magazine.loc = get_turf(loc)
 		user.visible_message(
-			"[ammo_magazine] falls out and clatters on the floor!",
-			"<span class='notice'>[ammo_magazine] falls out and clatters on the floor!</span>"
+			"[ammo_magazine] cai e se espatifa no chão!",
+			"<span class='notice'>[ammo_magazine] cai e se espatifa no chão!</span>"
 			)
 		if (auto_eject_sound)
 			playsound(user, auto_eject_sound, 40, TRUE)
@@ -353,12 +353,12 @@
 /obj/item/weapon/gun/projectile/examine(mob/user)
 	..(user)
 	if (ammo_magazine)
-		user << "<span class='notice'>It has \a [ammo_magazine] loaded.</span>"
+		user << "<span class='notice'>tem uma [ammo_magazine] carregada.</span>"
 	if (!magazine_based)
 		user << "<span class='notice'>[inexactAmmo()]</span>"
 	if (!(istype(src, /obj/item/weapon/gun/projectile/bow)))
 		if (serial == "")
-			user << "<span class='warning'><b>The serial number has been filed out.</b></span>"
+			user << "<span class='warning'><b>O número de série foi apagado.</b></span>"
 		else
 			user << "<i>Serial no. <b>[serial]</b></i>"
 /obj/item/weapon/gun/projectile/proc/getAmmo()
@@ -379,13 +379,13 @@
 	if (istype(M))
 		if (M.l_hand == src || M.r_hand == src)//Gotta be holding it or this won't work.
 			if (ammo >= 6)
-				message = "It feels very heavy."
+				message = "parece muito pesado."
 			if (ammo > 3 && ammo < 6)
-				message = "It feels heavy."
+				message = "Parece pesado"
 			if (ammo <= 3 && ammo != FALSE)
-				message = "It feels light."
+				message = "Parece leve"
 			if (ammo == FALSE)
-				message = "It feels empty."
+				message = "Parece estar vázio"
 	return message
 
 /* Unneeded -- so far.

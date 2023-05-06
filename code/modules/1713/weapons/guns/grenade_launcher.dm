@@ -1,11 +1,11 @@
 /obj/item/weapon/gun/launcher/grenade
 	name = "grenade launcher"
-	desc = "A bulky pump-action grenade launcher. Holds up to 6 grenades in a revolving magazine."
+	desc = "Um lançador de granadas de ação de bomba volumoso. Comporta até 6 granadas em um carregador giratório."
 	icon_state = "grenade_launcher"
 	item_state = "grenade_launcher"
 	w_class = ITEM_SIZE_HUGE
 	force = 10
-	
+
 	fire_sound = 'sound/weapons/guns/fire/m79.ogg'
 	fire_sound_text = "a metallic thunk"
 	recoil = 0
@@ -36,7 +36,7 @@
 /obj/item/weapon/gun/launcher/grenade/examine(mob/user)
 	if (..(user, 2))
 		var/grenade_count = grenades.len + (chambered? 1 : 0)
-		to_chat(user, "Has [grenade_count] grenade\s remaining.")
+		to_chat(user, "[grenade_count] granadas restantes")
 		if (chambered)
 			to_chat(user, "\A [chambered] is chambered.")
 
@@ -44,7 +44,7 @@
 	if (!can_load_grenade_type(G, user))
 		return
 	if (grenades.len >= max_grenades)
-		to_chat(user, "<span class='warning'>\The [src] is full.</span>")
+		to_chat(user, "<span class='warning'>[src] está cheio.</span>")
 		return
 
 	user.drop_from_inventory(G, src)
@@ -57,7 +57,7 @@
 		grenades.len--
 		user.put_in_hands(G)
 	else
-		to_chat(user, "<span class='warning'>\The [src] is empty.</span>")
+		to_chat(user, "<span class='warning'>[src] está vázio.</span>")
 
 /obj/item/weapon/gun/launcher/grenade/attackby(obj/item/I, mob/user)
 	if ((istype(I, /obj/item/weapon/grenade)))
@@ -80,14 +80,14 @@
 	return chambered
 
 /obj/item/weapon/gun/launcher/grenade/handle_post_fire(mob/user)
-	message_admins("[key_name_admin(user)] fired a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
-	log_game("[key_name_admin(user)] used a grenade ([chambered.name]) from a grenade launcher ([src.name]).")
+	message_admins("[key_name_admin(user)] atirou uma granada ([chambered.name]) por um lançador de granadas ([src.name]).")
+	log_game("[key_name_admin(user)] usou uma granada ([chambered.name]) do lançador de granadas ([src.name]).")
 	chambered = null
 	..()
 
 /obj/item/weapon/gun/launcher/grenade/proc/can_load_grenade_type(obj/item/weapon/grenade/G, mob/user)
 	if (is_type_in_list(G, blacklisted_grenades) && ! is_type_in_list(G, whitelisted_grenades))
-		to_chat(user, "<span class='warning'>\The [G] doesn't seem to fit in \the [src]!</span>")
+		to_chat(user, "<span class='warning'>[G] parece não encaixar com [src]!</span>")
 		return FALSE
 	return TRUE
 
@@ -108,8 +108,8 @@
 
 //Underslung grenade launcher to be used with the Z8
 /obj/item/weapon/gun/launcher/grenade/underslung
-	name = "underslung grenade launcher"
-	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
+	name = "lançador de granadas suspenso"
+	desc = "Não muito mais do que um tubo e um mecanismo de disparo, esse lançador de granadas foi projetado para ser instalado em um rifle."
 	icon = 'icons/obj/gun_att.dmi'
 	icon_state = "grenade_launcher"
 	w_class = ITEM_SIZE_NORMAL
@@ -130,7 +130,7 @@
 	if (!can_load_grenade_type(G, user))
 		return
 	if (chambered)
-		to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")
+		to_chat(user, "<span class='warning'>[src] já está carregado.</span>")
 		return
 
 	user.drop_from_inventory(G, src)
@@ -142,7 +142,7 @@
 		user.put_in_hands(chambered)
 		chambered = null
 	else
-		to_chat(user, "<span class='warning'>\The [src] is empty.</span>")
+		to_chat(user, "<span class='warning'>[src] está vázio.</span>")
 
 ///////////////////////////////////////
 /////LAUNCHERS/////////////////////////
@@ -154,7 +154,7 @@
 	name = "M203 grenade launcher"
 	release_force = 2
 	throw_distance = 40
-	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
+	desc = "Não muito mais do que um tubo e um mecanismo de disparo, esse lançador de granadas foi projetado para ser instalado em um rifle."
 	whitelisted_grenades = list(
 		/obj/item/weapon/grenade/frag/ugl/shell40mm,
 		/obj/item/weapon/grenade/smokebomb/ugl/shell40mm,
@@ -172,7 +172,7 @@
 	name = "GP-25 'Koster' grenade launcher"
 	release_force = 2
 	throw_distance = 40
-	desc = "Not much more than a tube and a firing mechanism, this grenade launcher is designed to be fitted to a rifle."
+	desc = "Não muito mais do que um tubo e um mecanismo de disparo, esse lançador de granadas foi projetado para ser instalado em um rifle."
 	whitelisted_grenades = list(
 		/obj/item/weapon/grenade/frag/ugl/vog25,
 		/obj/item/weapon/grenade/smokebomb/ugl/vog25
@@ -187,8 +187,8 @@
 
 //Grenade Launcher
 /obj/item/weapon/gun/launcher/grenade/standalone
-	name = "Standalone Grenade Launcher"
-	desc = "A generic standalone grenade launcher"
+	name = "Lançador de Granadas Autônomo"
+	desc = "Um lançador de granadas autônomo genérico"
 	icon_state = "hk69"
 	item_state = "hk69"
 	w_class = ITEM_SIZE_LARGE
@@ -244,7 +244,7 @@
 			chambered = null
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>\The [src] is empty.</span>")
+			to_chat(user, "<span class='warning'>[src] está vázio.</span>")
 	else
 		to_chat(user, "<span class='warning'>\The [src] is closed.</span>")
 
@@ -270,7 +270,7 @@
 
 /obj/item/weapon/gun/launcher/grenade/standalone/hk69
 	name = "HK69A1 grenade launcher"
-	desc = "A German made multi-use 40mm grenade launcher."
+	desc = "Um lançador de granadas de 40 mm multiuso de fabricação alemã."
 	icon_state = "hk69"
 	item_state = "hk69"
 	whitelisted_grenades = list(
@@ -287,7 +287,7 @@
 
 /obj/item/weapon/gun/launcher/grenade/standalone/m79
 	name = "M79 Grenade Launcher"
-	desc = "An American multi-use 40mm grenade launcher."
+	desc = "Um lançador de granadas americano multiuso de 40 mm."
 	icon_state = "m79"
 	item_state = "m79"
 	whitelisted_grenades = list(
@@ -304,7 +304,7 @@
 
 /obj/item/weapon/gun/launcher/grenade/standalone/admin
 	name = "Grenade Launcher"
-	desc = "By the power of gods you can launch any grenade!"
+	desc = "Pelo poder dos deuses, você pode lançar qualquer granada!"
 	icon_state = "m79"
 	item_state = "m79"
 	whitelisted_grenades = list(

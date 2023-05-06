@@ -59,7 +59,7 @@
 	..()
 	if(atk_mode == SLASH)
 		atk_mode = STAB
-		user << "<span class='notice'</span>"Agora você vai perfurar.
+		user << "<span class='notice'</span>Agora você vai perfurar."
 		edge = FALSE
 		sharp = TRUE
 		attack_verb = list("perfurou")
@@ -421,7 +421,7 @@ obj/item/weapon/material/sword/sabre/iron
 	default_material = "iron"
 
 /obj/item/weapon/material/sword/longsword
-	name = espada longa"
+	name = "espada longa"
 	desc = "Uma espada com uma lâmina longa. Comumente usado na era medieval."
 	icon_state = "longsword"
 	item_state = "longsword"

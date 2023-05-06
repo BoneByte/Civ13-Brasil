@@ -1779,7 +1779,7 @@
 		else
 			folded = TRUE
 			base_icon = "akms_folded"
-			usr << "Você derruba o stock em [src]."
+			usr << "Você derruba o stock da(o)[src]."
 			equiptimer -= 5
 			set_stock()
 			update_icon()

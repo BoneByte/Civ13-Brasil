@@ -40,7 +40,7 @@
 
 /obj/item/weapon/melee/mace/kanabo
 	name = "kanabo de ferro"
-	desc = uma kanabo de ferro, esta grande arma contundente de origem japonesa destrói suas vítimas sob seu peso e forma"
+	desc = "uma kanabo de ferro, esta grande arma contundente de origem japonesa destrói suas vítimas sob seu peso e forma"
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "kanabo"
 	item_state = "kanabo"

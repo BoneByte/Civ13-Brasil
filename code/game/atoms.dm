@@ -174,7 +174,7 @@
 			f_name += "oil-stained [name][infix]."
 	if (!isobserver(user))
 		user.visible_message("<font size=1>[user.name] olha até [src].</font>")
-	user << "\icon[src] Isso é [f_name] [suffix]"
+	user << "\icon[src] Isso é um(a) [f_name] [suffix]"
 	user << desc
 
 	return distance == -1 || (get_dist(src, user) <= distance)
