@@ -1,6 +1,6 @@
 /obj/item/weapon/material/sword
 	name = "claymore"
-	desc = "What are you standing around staring at this for? Get to killing!"
+	desc = "Por que você está parado olhando para isso? Comece a matar!"
 	icon_state = "claymore"
 	item_state = "claymore"
 	slot_flags = SLOT_BELT
@@ -29,7 +29,7 @@
 	if (user.tactic == "defend")
 		isdefend = 1.2
 	if(default_parry_check(user, attacker, damage_source) && prob(isdefend*(min(block_chance * (H_user.getStatCoeff("swords")*modif),92))) && (user.get_active_hand() == src))//You gotta be holding onto that sheesh bro.
-		user.visible_message("<font color='#E55300'><big>\The [user] parries [attack_text] with \the [src]!</big></font>")
+		user.visible_message("<font color='#E55300'><big>\The [user] bloqueou [attack_text] com \the [src]!</big></font>")
 		var/mob/living/human/H = user
 		H.adaptStat("swords", 1*modif)
 		playsound(user.loc, pick('sound/weapons/blade_parry1.ogg', 'sound/weapons/blade_parry2.ogg', 'sound/weapons/blade_parry3.ogg'), 50, 1)
@@ -43,7 +43,7 @@
 		else if (istype(damage_source, /obj/item/weapon/melee) || istype(damage_source, /obj/item/weapon/material/hatchet))
 			health -= 5
 			if(prob(15))
-				user.visible_message("<font color='#E55300'><big>\The [src] flies out of \the [user]'s hand!</big></font>")
+				user.visible_message("<font color='#E55300'><big>\The [src] vôo da mão de \the [user]!</big></font>")
 				user.drop_from_inventory(src)
 				throw_at(get_edge_target_turf(src, pick(alldirs)), rand(1,3), throw_speed)//Throw that sheesh away
 		else
@@ -59,31 +59,31 @@
 	..()
 	if(atk_mode == SLASH)
 		atk_mode = STAB
-		user << "<span class='notice'>You will now stab.</span>"
+		user << "<span class='notice'</span>"Agora você vai perfurar.
 		edge = FALSE
 		sharp = TRUE
-		attack_verb = list("stabbed")
+		attack_verb = list("perfurou")
 		hitsound = "stab_sound"
 
 	else if(atk_mode == STAB)
 		atk_mode = BASH
-		user << "<span class='notice'>You will now bash.</span>"
+		user << "<span class='notice'>Agora você vai bater.</span>"
 		edge = FALSE
 		sharp = FALSE
-		attack_verb = list("bashed", "smacked")
+		attack_verb = list("bateu", "esbofetou")
 		hitsound = "swing_hit"
 
 	else if(atk_mode == BASH)
 		atk_mode = SLASH
-		user << "<span class='notice'>You will now slash.</span>"
+		user << "<span class='notice'>Agora você vai cortar.</span>"
 		edge = TRUE
 		sharp = TRUE
-		attack_verb = list("slashed", "diced")
+		attack_verb = list("Cortou")
 		hitsound = "slash_sound"
 
 /obj/item/weapon/material/sword/training
-	name = "training sword"
-	desc = "A wood sword used for nonlethal practice."
+	name = "espada de treino"
+	desc = "Uma espada de madeira não letal usada para treino."
 	icon_state = "wood_sword"
 	item_state = "wood_sword"
 	block_chance = 60
@@ -95,7 +95,7 @@
 	cooldownw = 8
 	sharpness = 0
 	flammable = TRUE
-	attack_verb = list("thwacked", "hit", "clonked", "batted", "tapped", "smacked", "poked", "slapped")
+	attack_verb = list("espancou", "acertou", "rebateu", "tocou", "cutucou", "bateu")
 	hitsound = 'sound/weapons/kick.ogg'
 	drawsound = 'sound/items/unholster_sword01.ogg'
 	sharp = FALSE
@@ -104,7 +104,7 @@
 
 /obj/item/weapon/material/sword/training/bamboo
 	name = "bokken"
-	desc = "A bamboo sword used for nonlethal practice."
+	desc = "Uma espada de bamboo não letal usada para treino."
 	icon_state = "bokken_sword"
 	item_state = "bokken_sword"
 	block_chance = 50
@@ -116,7 +116,7 @@
 	cooldownw = 8
 	sharpness = 0
 	flammable = TRUE
-	attack_verb = list("thwacked", "hit", "clonked", "batted", "tapped", "smacked", "poked", "slapped")
+	attack_verb = list("espancou", "acertou", "rebateu", "tocou", "cutucou", "bateu")
 	hitsound = 'sound/weapons/kick.ogg'
 	drawsound = 'sound/items/unholster_sword01.ogg'
 	sharp = FALSE
@@ -130,7 +130,7 @@
 
 /obj/item/weapon/material/sword/katana
 	name = "katana"
-	desc = "A sword used by the japanese for centuries. Made to slice and slash, not chop or saw."
+	desc = "Uma espada usada pelos japoneses há séculos. Feito para cortar, serrar."
 	icon_state = "katana"
 	item_state = "katana"
 	block_chance = 27
@@ -142,7 +142,7 @@
 
 obj/item/weapon/material/sword/wakazashi
 	name = "wakazashi"
-	desc = "A sword used by the japanese for centuries. Made to slice and slash, not chop or saw. Often paired with a katana."
+	desc = "Uma espada usada pelos japoneses há séculos. Feito para cortar, serrar. Muitas vezes emparelhado com uma katana."
 	icon_state = "wakazashi"
 	item_state = "wakazashi"
 	block_chance = 19
@@ -159,8 +159,8 @@ obj/item/weapon/material/sword/wakazashi/yakuza
 	default_material = "iron"
 
 /obj/item/weapon/material/sword/smallsword
-	name = "small sword"
-	desc = "A common european sword, with about one meter in length."
+	name = "espada pequena"
+	desc = "Uma espada europeia comum, com aproximadamente um metro de comprimento."
 	icon_state = "smallsword"
 	item_state = "smallsword"
 	throw_speed = 2
@@ -183,7 +183,7 @@ obj/item/weapon/material/sword/smallsword/bronze
 
 /obj/item/weapon/material/sword/spadroon
 	name = "spadroon"
-	desc = "A medium sword with a straight blade. Common among the military."
+	desc = "Uma espada média com uma lâmina reta. Comum entre os militares."
 	icon_state = "spadroon"
 	item_state = "longsword2"
 	throw_speed = 3
@@ -205,8 +205,8 @@ obj/item/weapon/material/sword/spadroon/bronze
 	default_material = "bronze"
 
 /obj/item/weapon/material/sword/armingsword
-	name = "arming sword"
-	desc = "A very common medieval medium-sized sword."
+	name = "espada arming"
+	desc = "Uma espada medieval média muito comum."
 	icon_state = "armingsword"
 	item_state = "longsword2"
 	throw_speed = 3
@@ -228,8 +228,8 @@ obj/item/weapon/material/sword/armingsword/bronze
 	default_material = "bronze"
 
 /obj/item/weapon/material/sword/vikingsword
-	name = "carolingian sword"
-	desc = "A medium-size sword with a rounded tip used by the vikings."
+	name = "espada carolingia"
+	desc = "Uma espada de tamanho médio com ponta arredondada usada pelos vikings.."
 	icon_state = "viking_sword"
 	item_state = "longsword2"
 	throw_speed = 3
@@ -252,8 +252,8 @@ obj/item/weapon/material/sword/vikingsword/bronze
 
 
 /obj/item/weapon/material/sword/mersksword
-	name = "mersks sword"
-	desc = "A very common medieval medium-sized sword."
+	name = "espada mersks"
+	desc = "Uma espada medieval média muito comum."
 	icon_state = "mersksword"
 	item_state = "longsword2"
 	throw_speed = 3
@@ -266,8 +266,8 @@ obj/item/weapon/material/sword/vikingsword/bronze
 	value = 50
 
 /obj/item/weapon/material/sword/vangar
-	name = "Vangar's sword"
-	desc = "A special, customized sword with 'Vangar' engraved on the hilt."
+	name = "espada Vangar's"
+	desc = "Uma espada especial personalizada com 'Vangar' gravado no cabo."
 	icon_state = "vangar"
 	item_state = "longsword2"
 	throw_speed = 4
@@ -280,7 +280,7 @@ obj/item/weapon/material/sword/vikingsword/bronze
 
 /obj/item/weapon/material/sword/bolo
 	name = "bolo"
-	desc = "A very common filipino machete like sword."
+	desc = "Um facão filipino muito comum como espada."
 	icon_state = "bolo"
 	item_state = "bolo"
 	throw_speed = 3
@@ -299,7 +299,7 @@ obj/item/weapon/material/sword/vikingsword/bronze
 
 /obj/item/weapon/material/sword/kukri
 	name = "kukri"
-	desc = "A very distinctly shaped machete originating in the outback for hacking through thick brush."
+	desc = "Um facão de formato muito distinto originário do interior para cortar através de arbustos grossos."
 	icon_state = "kukri"
 	item_state = "kukri"
 	throw_speed = 3
@@ -318,7 +318,7 @@ obj/item/weapon/material/sword/vikingsword/bronze
 
 /obj/item/weapon/material/sword/cutlass
 	name = "cutlass"
-	desc = "A medium-sized, curved sword, preferred by pirates."
+	desc = "Uma espada curvada de tamanho médio, preferida pelos piratas."
 	icon_state = "cutlass"
 	item_state = "cutlass"
 	throw_speed = 2
@@ -335,7 +335,7 @@ obj/item/weapon/material/sword/cutlass/iron
 
 /obj/item/weapon/material/sword/scimitar
 	name = "scimitar"
-	desc = "A medium-sized, curved sword, preferred by arabs."
+	desc = "Uma espada curvada de tamanho médio, preferida pelos árabes"
 	icon_state = "scimitar"
 	item_state = "sabre"
 	throw_speed = 2
@@ -352,7 +352,7 @@ obj/item/weapon/material/sword/scimitar/iron
 
 /obj/item/weapon/material/sword/longquan
 	name = "longquan"
-	desc = "A medium-sized oriental sword; preferred by chinese warriors & soldiers."
+	desc = "Uma espada oriental de tamanho médio; preferido por guerreiros e soldados chineses."
 	icon_state = "longquan"
 	item_state = "longquan"
 	throw_speed = 2
@@ -370,7 +370,7 @@ obj/item/weapon/material/sword/scimitar/iron
 
 /obj/item/weapon/material/sword/plasmaquan
 	name = "Plasmaquan"
-	desc = "A sword based on the longquan."
+	desc = "Uma espada baseada na longquan."
 	icon_state = "plasmaquan"
 	item_state = "plasmaquan"
 	throw_speed = 2
@@ -388,7 +388,7 @@ obj/item/weapon/material/sword/scimitar/iron
 
 /obj/item/weapon/material/sword/saif
 	name = "saif"
-	desc = "A medium sword, original from the arab peninsula."
+	desc = "uma espada média, originária da península árabe."
 	icon_state = "umar_sword"
 	item_state = "umar_sword"
 	throw_speed = 2
@@ -405,7 +405,7 @@ obj/item/weapon/material/sword/saif/iron
 
 /obj/item/weapon/material/sword/sabre
 	name = "sabre"
-	desc = "A small, slightly curved sword, favored by cavalry and light infantry units."
+	desc = "Uma espada pequena e ligeiramente curvada, preferida por unidades de cavalaria e infantaria leve."
 	icon_state = "sabre"
 	item_state = "sabre"
 	throw_speed = 2
@@ -421,8 +421,8 @@ obj/item/weapon/material/sword/sabre/iron
 	default_material = "iron"
 
 /obj/item/weapon/material/sword/longsword
-	name = "longsword"
-	desc = "A sword with a long blade. Commonly used in the medieval era."
+	name = espada longa"
+	desc = "Uma espada com uma lâmina longa. Comumente usado na era medieval."
 	icon_state = "longsword"
 	item_state = "longsword"
 	throw_speed = 2
@@ -445,7 +445,7 @@ obj/item/weapon/material/sword/longsword/diamond
 
 /obj/item/weapon/material/sword/zweihander
 	name = "Zweihander"
-	desc = "A German sword used by knights."
+	desc = "Uma espada longa alemã usada pelos cavaleiros."
 	icon_state = "zweihander"
 	item_state = "longsword"
 	throw_speed = 1
@@ -459,7 +459,7 @@ obj/item/weapon/material/sword/longsword/diamond
 
 /obj/item/weapon/material/sword/claymore
 	name = "claymore"
-	desc = "A Scottish longsword."
+	desc = "Uma espada longa escocesa."
 	icon_state = "claymore"
 	item_state = "longsword"
 	throw_speed = 1
@@ -477,7 +477,7 @@ obj/item/weapon/material/sword/claymore/iron
 
 /obj/item/weapon/material/sword/rapier
 	name = "rapier"
-	desc = "A light sword with a thin, stright blade. Commonly used by officers and nobility."
+	desc = "Uma espada leve com uma lâmina fina e reta. Comumente usado por oficiais e nobreza."
 	icon_state = "rapier"
 	item_state = "rapier"
 	throw_speed = 4
@@ -493,8 +493,8 @@ obj/item/weapon/material/sword/rapier/iron
 	default_material = "iron"
 
 /obj/item/weapon/material/sword/broadsword
-	name = "broadsword"
-	desc = "A sword with a long thick blade. Commonly used in the medieval era."
+	name = "espada larga"
+	desc = "Uma espada com uma lâmina longa e grossa. Comumente usado na era medieval."
 	icon_state = "broadsword"
 	item_state = "longsword"
 	throw_speed = 2
@@ -511,7 +511,7 @@ obj/item/weapon/material/sword/rapier/iron
 
 /obj/item/weapon/material/sword/gladius
 	name = "gladius"
-	desc = "A relatively small sword, used by Roman soldiers."
+	desc = "Uma espada relativamente pequena, usada por soldados romanos."
 	icon_state = "gladius"
 	item_state = "gladius"
 	throw_speed = 2
@@ -530,8 +530,8 @@ obj/item/weapon/material/sword/rapier/iron
 	default_material = "iron"
 
 /obj/item/weapon/material/sword/gaelic
-	name = "gaelic shortsword"
-	desc = "A relatively small sword with a dramatic hilt, used by Gaelic warriors."
+	name = "espada curta gaélica"
+	desc = "Uma espada relativamente pequena com um punho dramático, usada por guerreiros gaélicos."
 	icon_state = "gaelic_short"
 	item_state = "gaelic_short"
 	throw_speed = 2
@@ -551,7 +551,7 @@ obj/item/weapon/material/sword/rapier/iron
 
 /obj/item/weapon/material/sword/khopesh //template for multi-material crafting
 	name = "khopesh"
-	desc = "A curved sword, used by soldiers of egyptian dynasties & desert warriors."
+	desc = "Uma espada curvada, usada por soldados de dinastias egípcias e guerreiros do deserto."
 	icon_state = "khopesh"
 	item_state = "khopesh"
 	throw_speed = 2
@@ -571,7 +571,7 @@ obj/item/weapon/material/sword/rapier/iron
 
 /obj/item/weapon/material/sword/xiphos //template for multi-material crafting
 	name = "xiphos"
-	desc = "A small sword, used by hellenic soldiers."
+	desc = "Uma pequena espada, usada por soldados helênicos."
 	icon_state = "xiphos"
 	item_state = "gladius"
 	throw_speed = 2
@@ -591,8 +591,8 @@ obj/item/weapon/material/sword/rapier/iron
 
 //////////////////////////////////SKYRIM////////////////////////////////////////
 /obj/item/weapon/material/sword/tes13/twohanded
-	name = "twohanded steel sword"
-	desc = "A sword with a long blade and handle meant to be used with 2 hands."
+	name = "espada de aço de duas mãos"
+	desc = "Uma espada com lâmina longa e cabo feito para ser usado com 2 mãos."
 	icon_state = "twohanded"
 	item_state = "twohanded"
 	throw_speed = 2
@@ -605,8 +605,8 @@ obj/item/weapon/material/sword/rapier/iron
 	value = 60
 
 /obj/item/weapon/material/sword/tes13/steel
-	name = "imperial steel sword"
-	desc = "A sword with a steel blade commonly used by the empire."
+	name = "espada de aço imperial"
+	desc = "Uma espada com lâmina de aço comumente usada pelo império."
 	icon_state = "imperial"
 	item_state = "longsword"
 	throw_speed = 2
@@ -619,8 +619,8 @@ obj/item/weapon/material/sword/rapier/iron
 	value = 60
 
 /obj/item/weapon/material/sword/tes13/steel/balgruuf
-	name = "balgruuf's imperial steel sword"
-	desc = "A sword with a steel blade commonly used by the empire. This one was especially forged for balgruuf."
+	name = "espada de aço imperial de balgruuf"
+	desc = "Uma espada com uma lâmina de aço comumente usada pelo império. Esta foi especialmente forjada para balgruuf."
 	icon_state = "imperial"
 	item_state = "longsword"
 	throw_speed = 2
@@ -635,8 +635,8 @@ obj/item/weapon/material/sword/rapier/iron
 
 //////////////////////////////////GAME OF THRONES////////////////////////////////////////
 /obj/item/weapon/material/sword/longclaw
-	name = "longclaw"
-	desc = "The Longclaw is a ancestral Valyrian steel bastard sword from the house of mormont."
+	name = "garra longa"
+	desc = "A Longclaw é uma espada bastarda ancestral de aço valiriano da casa de mormont."
 	icon_state = "longclaw"
 	item_state = "longsword"
 	throw_speed = 2
