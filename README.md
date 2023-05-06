@@ -1,60 +1,62 @@
-# Civilization 13
+[![aqui tem tretas internas](http://svgur.com/i/_js.svg)](https://www.forthebadge.com) [![pelos melhores](https://svgur.com/i/_ij.svg)](https://www.forthebadge.com) [![huehueheurbrbrb](http://svgur.com/i/_kN.svg)](https://www.forthebadge.com) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
+
+# Civilization 13 Brasil
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/civ13/civ13.svg?style=flat)
 ![GitHub repo size](https://img.shields.io/github/repo-size/civ13/civ13.svg?style=flat)
 
-## WHAT IS THIS?
+## O QUE É ISSO?
 
-Civ13 (formerly 1713) is a game based on Space Station 13 code, which features several epochs of human history. It features both RP and Combat maps and gamemodes.
+O Civ13 (anteriormente 1713) é um jogo baseado no código do jogo Space Station 13, que apresenta várias épocas da história humana. Ele apresenta mapas e modos de jogo de RP e de combate, Civ-13 Brasil é uma Tradução & Mod feita por fãs brasileiros para fãs brasileiros sem o intuito de lucro.
 
 <kbd>
  <img src="https://i.imgur.com/napac0L.png">
 </kbd>
 
 
-## Civ13 Discord
+## Discord Oficial do Civ13 
 [![discord](https://discordapp.com/api/guilds/468979034571931648/widget.png)](https://civ13.com/discord)
 
 
-## Official Website
+## Website Oficial do Civ13
 https://civ13.com/
 
 
-## Trello
+## Trello do Civ13
 https://trello.com/b/DW0RQAEX
 
 
-## Playing the game
-You will need a windows machine or a virtual machine running it from another OS.
+## Jogando o jogo
+Você precisará de uma máquina Windows ou de uma máquina virtual que a execute a partir de outro sistema operacional.
 
-1. Download the latest BYOND distribution from http://www.byond.com/download/
+1. Faça o download da distribuição mais recente do BYOND em http://www.byond.com/download/
 
-2. Register a BYOND account at https://secure.byond.com/Join
+2. Registre uma conta BYOND em https://secure.byond.com/Join
 
-3. Launch BYOND from **BYOND/bin/Byond.exe** and login.
+3. Inicie o BYOND em **BYOND/bin/Byond.exe** e faça login.
 
-4. Navigate to **Space Station 13** and search for the **Civilization 13** server.
+4. Navegue até **Space Station 13** e procure o servidor **Civilization 13** ou **Civilization 13 - Brasil**.
 
-5. You will start playing in seconds!
+5. Você começará a jogar em segundos!
 
 
-## Setting up a Server
+## Configurando um servidor
 
 ### Windows
-1. Install both [BYOND](https://www.byond.com/download/) and [Python 3](https://www.python.org/downloads/windows/)
+1. Instale o [BYOND] (https://www.byond.com/download/) e o [Python 3] (https://www.python.org/downloads/windows/)
 
-2. Download this repository, preferably with GitHub or another git program if you want to keep it updated.
+2. Faça o download deste repositório, de preferência com o GitHub ou outro programa git se quiser mantê-lo atualizado.
 
-3. Open civ13.dme with BYOND DreamMaker and compile.
+3. Abra o civ13.dme com o BYOND DreamMaker e compile.
 
-4. Open civ13.dmb with BYOND DreamSeeker to launch the server.
+4. Abra o civ13.dmb com o BYOND DreamSeeker para iniciar o servidor.
 
 
 ### Linux
-1. You will need a linux machine for the automated install, preferably Ubuntu. Open the command line.
+1. Você precisará de uma máquina Linux para a instalação automatizada, de preferência o Ubuntu. Abra a linha de comando.
  
-2. Download the INSTALL file. You can use ***wget https://raw.githubusercontent.com/Civ13/Civ13/master/INSTALL*** for it. If you don't have wget installed, use ***sudo apt install wget*** first.
+2. Faça o download do arquivo INSTALL. Você pode usar o ***wget https://raw.githubusercontent.com/Civ13/Civ13/master/INSTALL*** para isso. Se você não tiver o wget instalado, use ***sudo apt install wget*** primeiro.
 
-3. Use **sudo bash INSTALL** and it should install everything you need.
+3. Use **sudo bash INSTALL** e ele deverá instalar tudo o que você precisa.
 
-4. You're all set! Run the **launch.py** file inside the **scripts/** folder. Use ***python3 launch.py***.
+4. Está tudo pronto! Execute o arquivo **launch.py** dentro da pasta **scripts/**. Use ***python3 launch.py***.
