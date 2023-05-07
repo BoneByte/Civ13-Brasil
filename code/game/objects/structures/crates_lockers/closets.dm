@@ -1,6 +1,6 @@
 /obj/structure/closet
-	name = "closet"
-	desc = "It's a basic storage unit."
+	name = "armário"
+	desc = "É uma unidade básica de armazenamento."
 	icon = 'icons/obj/closet.dmi'
 	icon_state = "closed"
 	density = TRUE
@@ -61,15 +61,15 @@
 				if (!I.anchored)
 					content_size += ceil(I.w_class/2)
 			if (!content_size)
-				user << "It is empty."
+				user << "Está Vazio."
 			else if (storage_capacity > content_size*4)
-				user << "It is barely filled."
+				user << "Mal está cheio."
 			else if (storage_capacity > content_size*2)
-				user << "It is less than half full."
+				user << "Está menos da metade cheio."
 			else if (storage_capacity > content_size)
-				user << "There is still some free space."
+				user << "Ainda há algum espaço livre."
 			else
-				user << "It is full."
+				user << "Está cheio."
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if (!istype(mover, /obj/item/projectile))
@@ -172,7 +172,7 @@
 
 /obj/structure/closet/proc/toggle(mob/user as mob)
 	if (!(opened ? close() : open()))
-		user << "<span class='notice'>It won't budge!</span>"
+		user << "<span class='notice'>não vai sair do lugar!</span>"
 		return
 	update_icon()
 
@@ -218,24 +218,24 @@
 		if (istype(W, /obj/item/weapon/key))
 			var/obj/item/weapon/key/K = W
 			if (custom_code == 0 && K.code != 0)
-				var/choice = WWinput(user, "Are you sure you want to assign this key to \the [src]?", "Lock", "No", list("Yes","No"))
+				var/choice = WWinput(user, "Você tem certeza que quer colocar a chave no \the [src]?", "Trancar", "Não", list("Sim","Não"))
 				if (choice == "No")
 					return
 				else
 					locked = TRUE
 					opened = FALSE
 					custom_code = K.code
-					visible_message("<span class = 'notice'>[user] locks \the [src].</span>")
+					visible_message("<span class = 'notice'>[user] trancou \the [src].</span>")
 					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
 					return
 			if (K.code == custom_code)
 				locked = !locked
 				if (locked == 1)
-					visible_message("<span class = 'notice'>[user] locks \the [src].</span>")
+					visible_message("<span class = 'notice'>[user] trancou \the [src].</span>")
 					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
 					return
 				else if (locked == 0)
-					visible_message("<span class = 'notice'>[user] unlocks \the [src].</span>")
+					visible_message("<span class = 'notice'>[user] destrancou \the [src].</span>")
 					playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
 					return
 		else if (istype(W, /obj/item/weapon/storage/belt/keychain) && custom_code != 0)
@@ -243,23 +243,23 @@
 				if (KK.code == custom_code)
 					locked = !locked
 					if (locked == 1)
-						visible_message("<span class = 'notice'>[user] locks the [src].</span>")
+						visible_message("<span class = 'notice'>[user] trancou o [src].</span>")
 						playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
 						return
 					else if (locked == 0)
-						visible_message("<span class = 'notice'>[user] unlocks the [src].</span>")
+						visible_message("<span class = 'notice'>[user] destrancou o [src].</span>")
 						playsound(get_turf(user), 'sound/effects/door_lock_unlock.ogg', 100)
 						return
-			user << "No key in this keychain matches the lock!"
+			user << "Nenhuma chave neste chaveiro corresponde à fechadura!"
 			return
 		if (istype(W, /obj/item/weapon/key) && W.code != custom_code)
-			user << "This key does not match this lock!"
+			user << "Esta chave não corresponde a esta fechadura!"
 			return
 	if (istype(W, /obj/item/weapon/hammer) && user.a_intent == I_HARM)
 		if (!opened)
-			user << "You need to open the crate first."
+			user << "Você precisa abrir a caixa primeiro."
 		else
-			visible_message("<span class='danger'>[user] begins to deconstruct the [src]!</span>")
+			visible_message("<span class='danger'>[user] começa a desconstruir o [src]!</span>")
 			playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
 			user.do_attack_animation(src)
 			if (do_after(user, 50, user.loc))
@@ -280,11 +280,11 @@
 					content_size += ceil(I.w_class/2)
 				if (content_size < storage_capacity)
 					W.forceMove(src)
-					user << "You throw \the [W] into \the [src]."
+					user << "Você Tacou \the [W] no \the [src]."
 					update_icon()
 					return
 				else
-					user << "<span class='warning'>\The [src] is too full!</span>"
+					user << "<span class='warning'>\The [src] está cheio!</span>"
 					return
 			else
 				W.forceMove(loc)
@@ -312,7 +312,7 @@
 		return
 	step_towards(O, loc)
 	if (user != O)
-		user.show_viewers("<span class='danger'>[user] stuffs [O] into [src]!</span>")
+		user.show_viewers("<span class='danger'>[user] enfia [O] no [src]!</span>")
 	add_fingerprint(user)
 	return
 
@@ -322,12 +322,12 @@
 			return
 
 		if (!open())
-			user << "<span class='notice'>It won't budge!</span>"
+			user << "<span class='notice'>não vai sair do lugar!</span>"
 
 /obj/structure/closet/attack_hand(mob/user as mob)
 	add_fingerprint(user)
 	if (locked && !opened)
-		user << "<span class='notice'>\The [src] is locked.</span>"
+		user << "<span class='notice'>\The [src] está trancado.</span>"
 		return
 	else
 		toggle(user)
@@ -343,14 +343,14 @@
 			return
 
 		if (locked)
-			usr << "<span class='warning'>\The [src]is locked!</span>"
+			usr << "<span class='warning'>\The [src] está trancado!</span>"
 			return
 
 		if (ishuman(usr))
 			add_fingerprint(usr)
 			toggle(usr)
 		else
-			usr << "<span class='warning'>This mob type can't use this verb.</span>"
+			usr << "<span class='warning'>Este tipo de mob não pode usar este verbo.</span>"
 	else
 		set src in oview(1)
 		set category = null
@@ -360,14 +360,14 @@
 			return
 
 		if (locked)
-			usr << "<span class='warning'>\The [src]is locked!</span>"
+			usr << "<span class='warning'>\The [src] Está trancado!</span>"
 			return
 
 		if (ishuman(usr))
 			add_fingerprint(usr)
-			usr << "<span class='warning'>you're gonna need to use something to open this</span>"
+			usr << "<span class='warning'>você vai precisar usar algo para abrir isso</span>"
 		else
-			usr << "<span class='warning'>This mob type can't use this verb.</span>"
+			usr << "<span class='warning'>Este tipo de mob não pode usar este verbo.</span>"
 
 /obj/structure/closet/update_icon()//Putting the welded stuff in updateicon() so it's easy to overwrite for special cases (Fridges, cabinets, and whatnot)
 	overlays.Cut()
@@ -382,7 +382,7 @@
 	if (!damage || !wallbreaker)
 		return
 	attack_animation(user)
-	visible_message("<span class='danger'>[user] [attack_message] the [src]!</span>")
+	visible_message("<span class='danger'>[user] [attack_message] o [src]!</span>")
 	dump_contents()
 	spawn(1) qdel(src)
 	return TRUE
@@ -403,9 +403,9 @@
 	escapee.setClickCooldown(100)
 
 	//okay, so the closet is either welded or locked... resist!!!
-	escapee << "<span class='warning'>You lean on the back of \the [src] and start pushing the door open. (this will take about [breakout_time] minutes)</span>"
+	escapee << "<span class='warning'>Você se apoia nas costas do \the [src] e começar a abrir a porta. (isso vai demorar cerca de [breakout_time] minutos)</span>"
 
-	visible_message("<span class='danger'>\The [src] begins to shake violently!</span>")
+	visible_message("<span class='danger'>\The [src] começa a tremer violentamente!</span>")
 
 	breakout = TRUE //can't think of a better way to do this right now.
 	for (var/i in TRUE to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
@@ -426,8 +426,8 @@
 
 	//Well then break it!
 	breakout = FALSE
-	escapee << "<span class='warning'>You successfully break out!</span>"
-	visible_message("<span class='danger'>\The [escapee] successfully broke out of \the [src]!</span>")
+	escapee << "<span class='warning'>Você saiu com sucesso!</span>"
+	visible_message("<span class='danger'>\The [escapee] rompeu com sucesso \the [src]!</span>")
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, TRUE)
 	break_open()
 	animate_shake()
@@ -448,8 +448,8 @@
 	anchored = TRUE
 
 /obj/structure/closet/safe
-	name = "safe"
-	desc = "A sturdy safe, with a keyslot."
+	name = "cofre"
+	desc = "Um cofre robusto, com um compartimento para chave."
 	icon = 'icons/obj/structures.dmi'
 	icon_state = "safe"
 	icon_closed = "safe"

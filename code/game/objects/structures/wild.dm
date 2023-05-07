@@ -152,7 +152,7 @@ var/list/seed_list_jungle
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if (istype(W,/obj/item/weapon/material/hatchet) ||istype(W,/obj/item/weapon/material/boarding_axe) || istype(W,/obj/item/weapon/material/machete) || istype(W,/obj/item/weapon/material/machete1) || istype(W,/obj/item/weapon/material/twohanded/fireaxe) || istype(W,/obj/item/weapon/material/sword/kukri) || istype(W,/obj/item/weapon/material/sword/bolo) || istype(W,/obj/item/weapon/material/thrown/tomahawk) || istype(W,/obj/item/weapon/material/thrown/throwing_axe))
 		var/obj/item/weapon/material/HT = W
-		visible_message("<span class='danger'>[user] begins to chop down \the [src]!</span>")
+		visible_message("<span class='danger'>[user] começa a cortar \the [src]!</span>")
 		playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
 		user.do_attack_animation(src)
 		if (do_after(user, 30*HT.chopping_speed, user.loc))
@@ -183,22 +183,22 @@ var/list/seed_list_jungle
 	if (health <= 0)
 		if (stored_unit)
 			release_stored()
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		qdel(src)
 		return
 
 /obj/structure/wild/bullet_act(var/obj/item/projectile/proj)
 	if (proj.damage > 200 && prob(33)) // makes shrapnel unable to take down trees
-		visible_message("<span class = 'danger'>[src] collapses!</span>")
+		visible_message("<span class = 'danger'>[src] colapsou!</span>")
 		qdel(src)
 	else if (istype(proj, /obj/item/projectile/shell))
-		visible_message("<span class = 'danger'>[src] is blown up!</span>")
+		visible_message("<span class = 'danger'>[src] está explodindo!</span>")
 		qdel(src)
 
 ///////////////////////Trees////////////////////////////
 
 /obj/structure/wild/tree
-	name = "small tree"
+	name = "árvore pequena"
 	icon_state = "tree"
 	deadicon = "icons/obj/flora/wild.dmi"
 	deadicon_state = "deadtree"
@@ -220,7 +220,7 @@ var/list/seed_list_jungle
 	if (istype(W, /obj/item/weapon/material/kitchen/utensil/knife))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		health -= 10
-		visible_message("<span class='danger'>[user] tries to chop down \the [src]!</span>")
+		visible_message("<span class='danger'>[user] tenta derrubar a \the [src]!</span>")
 		playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
 		user.do_attack_animation(src)
 		try_destroy()
@@ -228,7 +228,7 @@ var/list/seed_list_jungle
 		..()
 
 /obj/structure/wild/tree/cactus
-	name = "cactus"
+	name = "cacto"
 	icon = 'icons/obj/flora/bigtrees.dmi'
 	icon_state = "cactus"
 	deadicon = 'icons/obj/flora/bigtrees.dmi'
@@ -240,7 +240,7 @@ var/list/seed_list_jungle
 	pixel_x = -16
 
 /obj/structure/wild/tree/dead_tree
-	name = "dead tree"
+	name = "árvore morta"
 	icon = 'icons/obj/flora/deadtrees.dmi'
 	icon_state = "tree_1"
 	deadicon = 'icons/obj/flora/deadtrees.dmi'
@@ -258,7 +258,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/tree/dead_tree/try_destroy()
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
 		dropwood.amount = rand(4,7)
 		qdel(src)
@@ -282,7 +282,7 @@ var/list/seed_list_jungle
 	icon_state = "[rand(1,7)]"
 
 /obj/structure/wild/tree/live_tree
-	name = "tree"
+	name = "árvore"
 	icon = 'icons/obj/flora/bigtrees.dmi'
 	icon_state = "tree_1"
 	deadicon = 'icons/obj/flora/deadtrees.dmi'
@@ -331,7 +331,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/tree/live_tree/try_destroy()
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
 		dropwood.amount = 7
 		if (leaves>0)
@@ -342,7 +342,7 @@ var/list/seed_list_jungle
 		return
 
 /obj/structure/wild/tree/live_tree/snow
-	name = "tree"
+	name = "árvore"
 	icon = 'icons/obj/flora/bigtrees_winter.dmi'
 	icon_state = "tree_1"
 	deadicon = 'icons/obj/flora/deadtrees_winter.dmi'
@@ -362,7 +362,7 @@ var/list/seed_list_jungle
 	deadicon = 'icons/obj/flora/bigtrees_winter.dmi'
 
 /obj/structure/wild/tree/live_tree/pine
-	name = "pinetree"
+	name = "pinheiro"
 	icon = 'icons/obj/flora/pinetrees.dmi'
 	icon_state = "pine_1"
 	deadicon = 'icons/obj/flora/pinetrees_dead.dmi'
@@ -412,7 +412,7 @@ var/list/seed_list_jungle
 
 
 /obj/structure/wild/tree/live_tree/pine/snow
-	name = "pinetree"
+	name = "pinheiro"
 	icon = 'icons/obj/flora/pinetrees_snow.dmi'
 	icon_state = "pine_1"
 	sways = FALSE
@@ -426,13 +426,13 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/tree/fire_act(temperature)
 	if (prob(15 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] collapses.</span>")
+		visible_message("<span class = 'warning'>[src] colapsou.</span>")
 		qdel(src)
 
 ///////////////////////Palm Tree////////////////////////////
 
 /obj/structure/wild/palm
-	name = "palm tree"
+	name = "palmeira"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	deadicon = 'icons/misc/beach2.dmi'
@@ -451,17 +451,17 @@ var/list/seed_list_jungle
 	if(istype(W,/obj/item/weapon/material/kitchen/utensil/knife) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if (!istype(user.l_hand, /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/tribalpot) && !istype(user.r_hand, /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/tribalpot))
-			user << "<span class = 'warning'>You need to have a pot in one of your hands in order to extract palm sap.</span>"
+			user << "<span class = 'warning'>Você precisa ter um pote em uma das mãos para extrair a seiva da palmeira.</span>"
 			return
 		else
 			var/done = FALSE
 			if (cooldown_sap == TRUE)
-				user << "Sap was extracted from this palm recently, you need to wait before collecting it again."
+				user << "A seiva foi extraída desta palmeira recentemente, você precisa esperar antes de coletá-la novamente."
 				return
 			if (istype(user.l_hand, /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/tribalpot) && cooldown_sap == FALSE)
-				user << "You start extracting the palm sap..."
+				user << "Você começa a extrair a seiva da palmeira..."
 				if (do_after(user, 50, user.loc) && done == FALSE)
-					user << "You finish extracting the palm sap."
+					user << "Você termina de extrair a seiva da palmeira."
 					qdel(user.l_hand)
 					new/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/tribalpot/palmsap(user.loc)
 					cooldown_sap = TRUE
@@ -469,9 +469,9 @@ var/list/seed_list_jungle
 						cooldown_sap = FALSE
 				done = TRUE
 			else if (istype(user.r_hand, /obj/item/weapon/reagent_containers/food/drinks/drinkingglass/tribalpot) && cooldown_sap == FALSE)
-				user << "You start extracting the palm sap..."
+				user << "Você começa a extrair a seiva da palmeira,..."
 				if (do_after(user, 50, user.loc) && done == FALSE)
-					user << "You finish extracting the palm sap."
+					user << "Você termina de extrair a seiva da palmeira."
 					qdel(user.r_hand)
 					new/obj/item/weapon/reagent_containers/food/drinks/drinkingglass/tribalpot/palmsap(user.loc)
 					cooldown_sap = TRUE
@@ -483,12 +483,12 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/palm/fire_act(temperature)
 	if (prob(45 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] collapses.</span>")
+		visible_message("<span class = 'warning'>[src] colapsou.</span>")
 		qdel(src)
 
 /obj/structure/wild/tree/try_destroy()
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
 		dropwood.amount = 4
 		qdel(src)
@@ -496,7 +496,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/palm/try_destroy()
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
 		dropwood.amount = 3
 		new/obj/item/stack/material/leaf/palm(get_turf(src))
@@ -514,7 +514,7 @@ var/list/seed_list_jungle
 ///////////////////////Bushes////////////////////////////
 
 /obj/structure/wild/bush
-	name = "bush"
+	name = "arbusto"
 	icon_state = "small_bush"
 	deadicon = 'icons/obj/flora/wild.dmi'
 	deadicon_state = "burnedbush1"
@@ -525,19 +525,19 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/bush/fire_act(temperature)
 	if (prob(55 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] is burned away.</span>")
+		visible_message("<span class = 'warning'>[src] está queimado.</span>")
 		if (prob(18))
 			new/obj/structure/wild/burnedbush(src.loc)
 		qdel(src)
 
 /obj/structure/wild/bush/big
-	name = "large bush"
+	name = "arbusto"
 	icon_state = "big_bush"
 	deadicon = 'icons/obj/flora/wild.dmi'
 	deadicon_state = "burnedbush2"
 
 /obj/structure/wild/burnedbush
-	name = "dead twigs"
+	name = "galhos mortos"
 	icon_state = "burnedbush1"
 	deadicon = 'icons/obj/flora/wild.dmi'
 	deadicon_state = "burnedbush1"
@@ -548,7 +548,7 @@ var/list/seed_list_jungle
 	maxhealth = 20
 
 /obj/structure/wild/junglebush
-	name = "small vegetation"
+	name = "pequena vegetação"
 	icon = 'icons/obj/flora/jungleflora.dmi'
 	icon_state = "1"
 	deadicon = 'icons/obj/flora/dead_jungleflora.dmi'
@@ -564,11 +564,11 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/junglebush/fire_act(temperature)
 	if (prob(55 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] is burned away.</span>")
+		visible_message("<span class = 'warning'>[src] está queimado.</span>")
 		qdel(src)
 
 /obj/structure/wild/smallbush
-	name = "small bush"
+	name = "pequeno arbusto"
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "smallbush1"
 	deadicon = 'icons/obj/flora/wild.dmi'
@@ -583,19 +583,19 @@ var/list/seed_list_jungle
 	if(istype(W,/obj/item/weapon/material/kitchen/utensil/knife) && user.a_intent == I_HELP)
 		user.do_attack_animation(src)
 		if (seedtimer == 1)
-			user << "You harvest some seeds."
+			user << "Você colhe algumas sementes."
 			var/obj/item/stack/farming/seeds/NS = pickseed()
 			new NS(get_turf(user))
 			seedtimer = 0
 			seedtimer_proc()
 		else
-			user << "There are no seeds to collect here."
+			user << "Não há sementes para coletar aqui."
 	else
 		..()
 
 /obj/structure/wild/smallbush/fire_act(temperature)
 	if (prob(65 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] is burned away.</span>")
+		visible_message("<span class = 'warning'>[src] está queimado.</span>")
 		qdel(src)
 
 /obj/structure/wild/smallbush/New()
@@ -603,7 +603,7 @@ var/list/seed_list_jungle
 	icon_state = "smallbush[rand(1,42)]"
 
 /obj/structure/wild/smallbush/winter
-	name = "small bush"
+	name = "pequeno arbusto"
 	icon = 'icons/obj/flora/snowflora.dmi'
 	icon_state = "snowgrass1"
 	opacity = FALSE
@@ -613,7 +613,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/smallbush/winter/fire_act(temperature)
 	if (prob(15 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] is burned away.</span>")
+		visible_message("<span class = 'warning'>[src] está queimado.</span>")
 		qdel(src)
 
 /obj/structure/wild/smallbush/winter/New()
@@ -624,7 +624,7 @@ var/list/seed_list_jungle
 		icon_state = "snowbush[rand(1,6)]"
 
 /obj/structure/wild/burnedtree
-	name = "burned tree"
+	name = "árvore queimada"
 	icon_state = "burnedtree1"
 	deadicon = 'icons/obj/flora/wild.dmi'
 	deadicon_state = "burnedtree1"
@@ -641,7 +641,7 @@ var/list/seed_list_jungle
 	deadicon_state = "burnedtree[rand(1,5)]"
 
 /obj/structure/wild/tree_stump
-	name = "tree stump"
+	name = "toco de árvore"
 	icon_state = "tree_stump"
 	deadicon = 'icons/obj/flora/wild.dmi'
 	deadicon_state = "tree_stump"
@@ -652,7 +652,7 @@ var/list/seed_list_jungle
 	maxhealth = 50
 
 /obj/structure/wild/tallgrass
-	name = "tall grass"
+	name = "grama alta"
 	icon = 'icons/obj/flora/wild.dmi'
 	icon_state = "tall_grass_1"
 	deadicon = 'icons/obj/flora/wild.dmi'
@@ -664,7 +664,7 @@ var/list/seed_list_jungle
 	maxhealth = 20
 
 /obj/structure/wild/flowers
-	name = "flowers"
+	name = "flores"
 	icon = 'icons/obj/flora/ausflora.dmi'
 	icon_state = "flower1"
 	deadicon = 'icons/obj/flora/ausflora.dmi'
@@ -680,11 +680,11 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/tallgrass/fire_act(temperature)
 	if (prob(55 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] is burned away.</span>")
+		visible_message("<span class = 'warning'>[src] está queimado.</span>")
 		qdel(src)
 
 /obj/structure/wild/tallgrass2
-	name = "tall grass"
+	name = "grama alta"
 	icon = 'icons/obj/flora/wild.dmi'
 	icon_state = "tall_grass_6"
 	deadicon = 'icons/obj/flora/wild.dmi'
@@ -694,7 +694,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/tallgrass2/fire_act(temperature)
 	if (prob(55 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] is burned away.</span>")
+		visible_message("<span class = 'warning'>[src] está queimado.</span>")
 		qdel(src)
 
 /obj/structure/wild/tallgrass/New()
@@ -727,28 +727,28 @@ var/list/seed_list_jungle
 		user.do_attack_animation(src)
 		if (healthamount == 1)
 			if (prob(25) && radiation < 15)
-				user << "You harvest some medicinal leaves."
+				user << "Você colhe algumas folhas medicinais."
 				new /obj/item/stack/medical/advanced/herbs(get_turf(user))
 				healthamount = 0
 			else
-				user << "You couldn't find any good leaves in this plant."
+				user << "Você não conseguiu encontrar nenhuma folha boa nesta planta."
 				healthamount = 0
 			regrow()
 		else
-			user << "There are no leaves to harvest here."
+			user << "Não há folhas para colher aqui."
 			return
 	if (user.a_intent == I_GRAB && ishuman(user) && edible && leaves >= 1)
-		H << "You start foraging for fern leaves..."
+		H << "Você começa a procurar folhas de samambaia..."
 		if (do_after(user, 80, src))
 			if (src && leaves >= 1)
-				H << "You collect some fern leaves."
+				H << "Você coleta algumas folhas de samambaia."
 				new /obj/item/stack/material/leaf/fern(get_turf(src))
 				new /obj/item/stack/material/leaf/fern(get_turf(src))
 				leaves--
 			else
-				user << "You couldn't find any good leaves in this plant."
+				user << "Você não conseguiu encontrar nenhuma folha boa nesta planta."
 		else if (H.gorillaman)
-			H << "You start foraging for some edible fern leaves..."
+			H << "Você começa a procurar algumas folhas de samambaia comestíveis..."
 			if (do_after(user, 80, src))
 				if (src && leaves >= 1)
 					H << "You collect some edible fern leaves."
@@ -756,14 +756,14 @@ var/list/seed_list_jungle
 					new /obj/item/stack/material/leaf/fern(get_turf(src))
 					leaves--
 				else
-					user << "You couldn't find any good leaves in this plant."
+					user << "Você não conseguiu encontrar nenhuma folha boa nesta planta."
 		else
-			user << "You stop foraging."
+			user << "Você para de procurar."
 	else
 		..()
 
 /obj/structure/wild/jungle
-	name = "jungle tree"
+	name = "árvore da selva"
 	icon = 'icons/obj/flora/jungletreesmaller.dmi'
 	icon_state = "tree1"
 	deadicon = 'icons/obj/flora/deadtrees.dmi'
@@ -791,12 +791,12 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/jungle/fire_act(temperature)
 	if (prob(25 * (temperature/500)))
-		visible_message("<span class = 'warning'>[src] collapses.</span>")
+		visible_message("<span class = 'warning'>[src] colapsou.</span>")
 		qdel(src)
 
 //these are under the jungle subtype so they dont change sprites during the winter.
 /obj/structure/wild/jungle/acacia
-	name = "acacia tree"
+	name = "árvore de acácia"
 	icon = 'icons/obj/flora/bigtrees.dmi'
 	icon_state = "african_acacia"
 	deadicon = 'icons/obj/flora/deadtrees.dmi'
@@ -808,7 +808,7 @@ var/list/seed_list_jungle
 	max_branches = 2
 
 /obj/structure/wild/jungle/acacia/dead
-	name = "dead acacia tree"
+	name = "árvore de acácia morta"
 	icon = 'icons/obj/flora/deadtrees.dmi'
 	icon_state = "african_acacia_dead"
 	deadicon_state = "african_acacia_dead"
@@ -835,7 +835,7 @@ var/list/seed_list_jungle
 	deadicon_state = "tree_[rand(1,5)]"
 
 /obj/structure/wild/jungle/medpine
-	name = "mediterranean pine tree"
+	name = "pinheiro mediterrâneo"
 	icon = 'icons/obj/flora/bigtrees.dmi'
 	icon_state = "med_pine"
 	deadicon = 'icons/obj/flora/deadtrees.dmi'
@@ -847,7 +847,7 @@ var/list/seed_list_jungle
 	max_branches = 2
 
 /obj/structure/wild/jungle/medpine/dead
-	name = "dead mediterranean pine tree"
+	name = "pinheiro mediterrâneo morto"
 	icon = 'icons/obj/flora/deadtrees.dmi'
 	icon_state = "med_pine_dead"
 	deadicon = 'icons/obj/flora/deadtrees.dmi'
@@ -872,7 +872,7 @@ var/list/seed_list_jungle
 	if (health <= 0)
 		if (stored_unit)
 			release_stored()
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/wood(get_turf(src))
 		dropwood.amount = 7
 		if (leaves>0)
@@ -889,7 +889,7 @@ var/list/seed_list_jungle
 	if (istype(W, /obj/item/weapon/material/kitchen/utensil/knife))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		health -= 10
-		visible_message("<span class='danger'>[user] tries to chop down \the [src]!</span>")
+		visible_message("<span class='danger'>[user] tenta derrubar \the [src]!</span>")
 		playsound(get_turf(src), 'sound/effects/wood_cutting.ogg', 100)
 		user.do_attack_animation(src)
 		try_destroy()
@@ -897,7 +897,7 @@ var/list/seed_list_jungle
 		..()
 
 /obj/structure/wild/largejungle
-	name = "large jungle bush"
+	name = "grande arbusto da selva"
 	icon = 'icons/obj/flora/largejungleflora.dmi'
 	icon_state = "bush1"
 	deadicon = "none"
@@ -911,17 +911,17 @@ var/list/seed_list_jungle
 /obj/structure/wild/largejungle/attackby(obj/item/W as obj, mob/user as mob)
 	var/mob/living/human/H = user
 	if (user.a_intent == I_GRAB && ishuman(user) && edible && leaves >= 1)
-		H << "You start foraging for fern leaves..."
+		H << "Você começa a procurar folhas de samambaia..."
 		if (do_after(user, 80, src))
 			if (src && leaves >= 1)
-				H << "You collect some fern leaves."
+				H << "Você coleta algumas folhas de samambaia."
 				new /obj/item/stack/material/leaf/fern(get_turf(src))
 				new /obj/item/stack/material/leaf/fern(get_turf(src))
 				leaves--
 			else
-				user << "You couldn't find any good leaves in this plant."
+				user << "Você não conseguiu encontrar nenhuma folha boa nesta planta."
 		else if (H.gorillaman)
-			H << "You start foraging for some edible fern leaves..."
+			H << "Você começa a procurar algumas folhas de samambaia comestíveis..."
 			if (do_after(user, 80, src))
 				if (src && leaves >= 1)
 					H << "You collect some edible fern leaves."
@@ -929,9 +929,9 @@ var/list/seed_list_jungle
 					new /obj/item/stack/material/leaf/fern(get_turf(src))
 					leaves--
 				else
-					user << "You couldn't find any good leaves in this plant."
+					user << "Você não conseguiu encontrar nenhuma folha boa nesta planta."
 		else
-			user << "You stop foraging."
+			user << "Você para de procurar."
 	else
 		..()
 
@@ -944,7 +944,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/junglebush/chinchona
 	name = "chinchona"
-	desc = "you can extract quinine from it."
+	desc = "você pode extrair quinina dele."
 	icon = 'icons/obj/flora/plants.dmi'
 	icon_state = "chinchona1"
 	opacity = FALSE
@@ -960,14 +960,14 @@ var/list/seed_list_jungle
 	if(istype(W,/obj/item/weapon/material/kitchen/utensil/knife))
 		user.do_attack_animation(src)
 		if (healthamount == 1)
-			user << "You harvest some of the chinchona."
+			user << "Você colhe um pouco da chinchona."
 			new /obj/item/weapon/reagent_containers/food/snacks/grown/chinchona(get_turf(user))
 			healthamount = 0
 			regrow()
 			update_icon()
 			return
 		else
-			user << "There are no good parts to harvest. Wait for it to regrow."
+			user << "Não há partes boas para colher. Espere ele crescer novamente."
 			return
 	..()
 
@@ -985,10 +985,10 @@ var/list/seed_list_jungle
 	if (user.a_intent == I_GRAB && ishuman(user) && edible && leaves >= 1)
 		var/mob/living/human/H = user
 		if (H.gorillaman)
-			H << "You start foraging for some edible leaves..."
+			H << "Você começa a procurar algumas folhas comestíveis..."
 			if (do_after(user, 80, src))
 				if (src && leaves >= 1)
-					H << "You collect some edible leaves."
+					H << "Você coleta algumas folhas comestíveis."
 					new /obj/item/stack/material/leaf(get_turf(src))
 					new /obj/item/stack/material/leaf(get_turf(src))
 					leaves--
@@ -996,14 +996,14 @@ var/list/seed_list_jungle
 						icon = 'icons/obj/flora/deadtrees.dmi'
 					return
 				else
-					user << "There are no leaves to harvest here."
+					user << "Não há folhas para colher aqui."
 			else
-				user << "You stop foraging."
+				user << "Você para de procurar."
 	else if (user.a_intent == I_HARM && branches >= 1)
-		user << "You start breaking a branch from \the [src]..."
+		user << "Você começa a quebrar um galho de \the [src]..."
 		if (do_after(user, 80, src))
 			if (src && branches >= 1)
-				user << "You take a branch from the tree."
+				user << "Você pega um galho da árvore."
 				if (icon == 'icons/obj/flora/deadtrees.dmi' || icon == 'icons/obj/flora/deadtrees_winter.dmi' || icon == 'icons/obj/flora/pinetrees_dead.dmi' || findtext(icon_state, "dead"))
 					new /obj/structure/branch/cleared(get_turf(src))
 				else
@@ -1012,7 +1012,7 @@ var/list/seed_list_jungle
 				grow_branch()
 				return
 			else
-				user << "There are no useful branches in this tree."
+				user << "Não há galhos úteis nesta árvore."
 				return
 		return
 	else
@@ -1028,9 +1028,9 @@ var/list/seed_list_jungle
 			return
 		var/mob/living/human/H = user
 		if (H.faction_text == "VIETNAMESE")
-			user << "You start hiding in \the [src]..."
+			user << "Você começa a se esconder em \the [src]..."
 			if (do_after(user,100,src))
-				user << "You finish hiding in \the [src]."
+				user << "Você termina de se esconder em \the [src]."
 				stored_unit = user
 				if (user.client)
 					user.client.perspective = EYE_PERSPECTIVE
@@ -1076,7 +1076,7 @@ var/list/seed_list_jungle
 
 /obj/structure/wild/bamboo/try_destroy()
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] is broken into pieces!</span>")
+		visible_message("<span class='danger'>[src] está quebrado em pedaços!</span>")
 		var/obj/item/stack/material/wood/dropwood = new /obj/item/stack/material/bamboo(get_turf(src))
 		dropwood.amount = 5
 		qdel(src)
