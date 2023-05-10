@@ -4,21 +4,21 @@
 #define WEST_EDGING		"west"
 
 /turf/floor/wood
-	name = "floor"
+	name = "chão"
 	icon_state = "wood"
 	stepsound = "wood"
 
 /turf/floor/wood/ship
-	name = "floor"
+	name = "chão"
 	icon_state = "wood_ship"
 	stepsound = "wood"
 
 /turf/floor/wood/fancywood
-	name = "floor"
+	name = "chão"
 	icon_state = "fancywood"
 
 /turf/floor/blackslateroof
-	name = "roof"
+	name = "telhado"
 	icon = 'icons/turf/roofs.dmi'
 	icon_state = "black_slateroof_dm"
 
@@ -26,7 +26,7 @@
  * not sure why right now - kachnov */
 
 /turf/floor/wood_broken
-	name = "floor"
+	name = "chão"
 	icon = 'icons/turf/flooring/wood.dmi'
 	icon_state = "broken0"
 	stepsound = "wood"
@@ -35,7 +35,7 @@
 	..()
 	icon_state = "broken[rand(0,6)]"
 /turf/floor/plating
-	name = "plating"
+	name = "chapeamento"
 	icon_state = "plating"
 	floor_type = null
 	intact = FALSE
@@ -51,7 +51,7 @@
 	return
 
 /turf/floor/grass
-	name = "Grass patch"
+	name = "canteiro de grama"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "grass0"
 	var/deadicon = 'icons/turf/floors.dmi'//Rad stuff what to turn into
@@ -70,7 +70,7 @@
 						FF.update_icon() //so siding get updated properly
 
 /turf/floor/carpet
-	name = "Carpet"
+	name = "Tapete"
 	icon_state = "carpet"
 	icon = 'icons/turf/flooring/carpet.dmi'
 	flooring = null
@@ -89,69 +89,70 @@
 //Carpets - To be Expanded Upon
 
 /turf/floor/carpet/pinkcarpet
-	name = "Pink Carpet"
+	name = "Tapete rosa"
 	icon_state = "gaycarpet"
 
 /turf/floor/carpet/redcarpet
-	name = "Red Carpet"
+	name = "Tapete vermelho"
 	icon_state = "carpet"
 
 /turf/floor/carpet/orangecarpet
-	name = "Orange Carpet"
+	name = "Tapete laranja"
 	icon_state = "oracarpet"
 
 /turf/floor/carpet/purplecarpet
-	name = "Purple Carpet"
+	name = "Tapete roxo"
 	icon_state = "purcarpet"
 
 /turf/floor/carpet/bluecarpet
-	name = "Blue Carpet"
+	name = "Tapete azul"
 	icon_state = "blucarpet"
 
 /turf/floor/carpet/tealcarpet
-	name = "Teal Carpet"
+	name = "Tapete azul-petróleo"
 	icon_state = "sblucarpet"
 
 /turf/floor/carpet/greencarpet
-	name = "Green Carpet"
+	name = "Tapete verde"
 	icon_state = "turcarpet"
 
 /turf/floor/carpet/blackcarpet
-	name = "Black Carpet"
+	name = "Tapete preto"
 	icon_state = "bcarpet"
 
 /turf/floor/carpet/whitecarpet
-	name = "White Carpet"
+	name = "Tapete branco"
 	icon_state = "wcarpet"
 //Continue
 
 /turf/floor/plating/ironsand/New()
 	..()
 	icon = 'icons/turf/floors.dmi'
-	name = "Iron Sand"
+	name = "Areia de ferro"
 	icon_state = "ironsand[rand(1,15)]"
 
 /turf/floor/grass/jungle
-	name = "jungle grass"
+	name = "grama de selva"
+	
 	overlay_priority = 0
 	is_diggable = TRUE
 	may_become_muddy = TRUE
 	initial_flooring = null
 
 /turf/floor/grass/edge
-	name = "grass edge"
+	name = "borda da grama"
 	icon_state = "grass_edges"
 	is_diggable = FALSE
 	may_become_muddy = FALSE
 
 /turf/floor/grass/edge/dead
-	name = "dead grass edge"
+	name = "borda de grama morta"
 	icon_state = "dead_grass_edges"
 	is_diggable = FALSE
 	may_become_muddy = FALSE
 
 /turf/floor/grass/jungle/savanna
-	name = "dry grass"
+	name = "grama seca"
 	icon_state = "dry_grass"
 	initial_flooring = null
 
@@ -161,7 +162,7 @@
 	deadicon_state = "dead_grass[pick("0","1","2","3")]"//Rad stuff what to turn into
 
 /turf/floor/winter
-	name = "snow"
+	name = "neve"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 	is_diggable = TRUE
@@ -172,7 +173,7 @@
 	return
 
 /turf/floor/winter/grass
-	name = "snowy grass"
+	name = "grama nevada"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "grass2"
 	is_diggable = TRUE
@@ -188,40 +189,40 @@
 	initial_flooring = null
 
 /turf/floor/beach
-	name = "beach"
+	name = "praia"
 	icon = 'icons/misc/beach.dmi'
 	initial_flooring = null
 
 /turf/floor/beach/drywater
-	name = "dry riverbed"
+	name = "leito de rio seco"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "sand1"
 	is_diggable = FALSE
 	initial_flooring = null
 
 /turf/floor/beach/drywater2
-	name = "dry riverbed"
+	name = "leito de rio seco"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "sand1"
 	is_diggable = FALSE
 	initial_flooring = null
 
 /turf/floor/beach/sand
-	name = "sand"
+	name = "areia"
 	icon_state = "sand"
 	is_diggable = TRUE
 	available_sand = 22
 	initial_flooring = /decl/flooring/sand_beach
 
 /turf/floor/beach/sand/edges
-	name = "sand"
+	name = "areia"
 	icon_state = "sand_edges"
 	is_diggable = TRUE
 	available_sand = 11
 	initial_flooring = /decl/flooring/sand_beach
 
 /turf/floor/beach/sand/dark
-	name = "dark sand"
+	name = "areia negra"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "darksand"
 	is_diggable = TRUE
@@ -229,15 +230,15 @@
 	initial_flooring = null
 
 /turf/floor/beach/coastline
-	name = "coastline"
+	name = "litoral"
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "sandwater"
 	watertile = TRUE
 //water level is measured in centimeters. the maximum is 200 (2 meters). up to 1.5 will make movement progressively slower, up from that you will drown if you stay for too long.
 
 /turf/floor/beach/water
-	name = "shallow water"
-	desc = "Water. Seems to be shallow."
+	name = "águas rasas"
+	desc = "Água. Parece ser rasa."
 	icon_state = "seashallow"
 	move_delay = 3
 	water_level = 30 // in centimeters
@@ -256,29 +257,29 @@
 		water_overlay.layer= 10
 
 /turf/floor/beach/water/coastwater
-	name = "coast water"
-	desc = "lovely water hitting the coast line"
+	name = "água da costa"
+	desc = "água adorável atingindo a linha costeira"
 	icon_state = "beach"
 
 /turf/floor/beach/water/coastwater/corner
-	name = "coast water corner"
-	desc = "lovely water hitting the coast line"
+	name = "canto da água costeira"
+	desc = "água adorável atingindo a linha costeira"
 	icon_state = "beachcorner"
 
 /turf/floor/beach/water/coastwater/layer
-	name = "coast water"
-	desc = "lovely water hitting the coast line"
+	name = "água da costa"
+	desc = "água adorável atingindo a linha costeira"
 	icon_state = "seashallow_edgesX"
 
 /turf/floor/beach/water/shallowsaltwater
-	name = "saltwater"
+	name = "água salgada"
 	salty = TRUE
 	initial_flooring = /decl/flooring/water_salt
 
 /turf/floor/beach/water/deep
-	name = "deep water"
+	name = "águas profundas"
 	icon_state = "seadeep"
-	desc = "Water. Seems to be very deep, you cant see the bottom."
+	desc = "Água. Parece ser muito profundo, você não pode ver o fundo."
 	water_level = 200
 	density = FALSE
 	initial_flooring = /decl/flooring/water_deep
@@ -316,28 +317,28 @@
 				if (A && A.loc == src)
 					qdel(A)
 /turf/floor/beach/water/deep/jungle
-	name = "deep jungle river"
+	name = "rio da selva profunda"
 	icon_state = "seashallow_jungle3"
-	desc = "Water. Seems to be very deep, you cant see the bottom."
+	desc = "Água. Parece ser muito profundo, você não pode ver o fundo."
 	water_level = 200
 	density = FALSE
 	initial_flooring = /decl/flooring/water_jungle3
 
 /turf/floor/beach/water/deep/swamp
-	name = "deep swamp"
+	name = "pântano profundo"
 	icon_state = "seashallow_swamp"
-	desc = "Water. Seems to be very deep, you cant see the bottom."
+	desc = "Água. Parece ser muito profundo, você não pode ver o fundo."
 	water_level = 200
 	density = FALSE
 	initial_flooring = /decl/flooring/water_swamp
 
 /turf/floor/beach/water/deep/saltwater
-	name = "deep saltwater"
+	name = "água salgada profunda"
 	salty = TRUE
 	initial_flooring = /decl/flooring/water_deep_salt
 
 /turf/floor/beach/water/deep/saltwater/underwater
-	name = "deep saltwater"
+	name = "água salgada profunda"
 	salty = TRUE
 	initial_flooring = /decl/flooring/water_deep_salt
 
@@ -387,21 +388,21 @@
 		return TRUE
 	return FALSE
 /turf/floor/beach/water/swamp
-	name = "swamp"
+	name = "pântano"
 	move_delay = 3
 	icon_state = "seashallow_swamp"
 	sickness = 3
 	initial_flooring = /decl/flooring/water_swamp
 
 /turf/floor/beach/water/jungle
-	name = "jungle river"
+	name = "rio da selva"
 	move_delay = 5
 	icon_state = "seashallow_jungle1"
 	sickness = 2
 	initial_flooring = /decl/flooring/water_jungle1
 
 /turf/floor/beach/water/flooded
-	name = "flooded riverbed"
+	name = "leito do rio inundado"
 	move_delay = 5
 	icon_state = "seashallow_jungle2"
 	sickness = 2
@@ -416,16 +417,16 @@
 	return
 
 /turf/floor/beach/water/ice
-	name = "ice"
+	name = "gelo"
 	icon_state = "seashallow_frozen"
 	move_delay = 0
 	initial_flooring = null
 
 /turf/floor/beach/water/ice/salty
-	name = "saltwater ice"
+	name = "gelo de água salgada"
 
 /turf/floor/beach/sand/desert
-	name = "desert sand"
+	name = "areia do deserto"
 	icon = 'icons/misc/beach.dmi'
 	icon_state = "desert1"
 	interior = FALSE
@@ -439,74 +440,74 @@
 	icon_state = "desert[rand(0,4)]"
 
 /turf/floor/plating/concrete
-	name = "concrete"
+	name = "concreto"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "concrete6"
 	interior = FALSE
 
 /turf/floor/plating/marble
-	name = "raw marble floor"
+	name = "chão de mármore cru"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "raw_marble0"
 	interior = FALSE
 
 /turf/floor/plating/marble/ornate
-	name = "ornate marble floor"
+	name = "piso de mármore ornamentado"
 	icon_state = "ornate_marble"
 
 /turf/floor/plating/marble/grid
-	name = "marble grid floor"
+	name = "chão de grade de mármore"
 	icon_state = "marble_grid"
 
 /turf/floor/plating/marble/raw
-	name = "raw marble floor"
+	name = "chão de mármore cru"
 	icon_state = "raw_marble0"
 	New()
 		..()
 		icon_state = "raw_marble[rand(0,2)]"
 
 /turf/floor/plating/marble/pink
-	name = "pink marble floor"
+	name = "piso de mármore rosa"
 	icon_state = "pink_marble0"
 	New()
 		..()
 		icon_state = "pink_marble[rand(0,2)]"
 
 /turf/floor/plating/marble/black
-	name = "black marble floor"
+	name = "chão de mármore preto"
 	icon_state = "black_marble0"
 	New()
 		..()
 		icon_state = "black_marble[rand(0,3)]"
 
 /turf/floor/plating/marble/tile
-	name = "marble tile floor"
+	name = "piso de mármore"
 	icon_state = "marble_tile0"
 	New()
 		..()
 		icon_state = "marble_tile[rand(0,2)]"
 
 /turf/floor/plating/marble/decorative_tile
-	name = "decorative marble tile floor"
+	name = "piso de mármore decorativo"
 	icon_state = "decorative_marble_tile0"
 	New()
 		..()
 		icon_state = "decorative_marble_tile[rand(0,2)]"
 
 /turf/floor/plating/metro
-	name = "Metro floor"
+	name = "chão do metrô"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "metro"
 	interior = FALSE
 
 /turf/floor/plating/metroline
-	name = "Metro floor"
+	name = "chão do metrô"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "metroline"
 	interior = FALSE
 
 /turf/floor/plating/tiled
-	name = "tiled floor"
+	name = "chão de ladrilhos"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "wooden_floor_s1"
 	interior = TRUE
@@ -523,7 +524,7 @@
 	icon_state = "wooden_floor_s5"
 
 /turf/floor/plating/road
-	name = "road"
+	name = "rua"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "road_1"
 	interior = FALSE
@@ -554,31 +555,31 @@
 		return
 
 /turf/floor/plating/steel
-	name = "steel plated floor"
+	name = "piso laminado de aço"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "floor"
 	interior = TRUE
 
 /turf/floor/plating/dark
-	name = "dark plating"
+	name = "chapeamento escuro"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "dark"
 	interior = TRUE
 
 /turf/floor/plating/white
-	name = "white plated floor"
+	name = "piso laminado branco"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "white"
 	interior = TRUE
 
 /turf/floor/plating/cobblestone
-	name = "road"
+	name = "rua"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "cobble_horizontal"
 	interior = FALSE
 
 /turf/floor/plating/stone_old
-	name = "stone floor"
+	name = "chão de pedra"
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "stone_old"
 	interior = FALSE
