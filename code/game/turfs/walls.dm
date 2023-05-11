@@ -29,12 +29,12 @@ var/list/global/wall_cache = list()
 	tank_destroyable = FALSE
 
 /turf/wall/rockwall
-	name = "cave wall"
+	name = "parede de caverna"
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock"
 	tank_destroyable = FALSE
 	layer = TURF_LAYER + 0.02 // above lifts
-	desc = "A massive slab of rock in the shape of a wall."
+	desc = "Uma enorme laje de rocha em forma de parede."
 
 /turf/wall/rockwall/lavaspawner
 
@@ -43,59 +43,59 @@ var/list/global/wall_cache = list()
 	if(istype(W, /obj/item/weapon/chisel))
 		var design = "smooth"
 		if (!istype(H.l_hand, /obj/item/weapon/hammer) && !istype(H.r_hand, /obj/item/weapon/hammer))
-			user << "<span class = 'warning'>You need to have a hammer in one of your hands to use a chisel.</span>"
+			user << "<span class = 'warning'>você precisa de um martelo em uma de suas mãos para usar um cinzel.</span>"
 			return
 		else
-			var/display = list("Smooth", "Cave", "Underground Cave", "Brick", "Cobbled", "Tiled", "Cancel")
-			var/input =  WWinput(user, "What design do you want to carve?", "Carving", "Cancel", display)
-			if (input == "Cancel")
+			var/display = list("Liso", "Caverna", "Caverna subterrânea", "Tijolo", "Paralelepípedo", "Ladrilho", "Cancelar")
+			var/input =  WWinput(user, "Que desenho você quer esculpir?", "escultura", "Cancelar", display)
+			if (input == "Cancelar")
 				return
-			else if  (input == "Smooth")
-				user << "<span class='notice'>You will now carve the smooth design!</span>"
+			else if  (input == "Liso")
+				user << "<span class='notice'>Agora você vai esculpir o design liso!</span>"
 				design = "smooth"
-			else if  (input == "Cave")
-				user << "<span class='notice'>You will now carve the cave design!</span>"
+			else if  (input == "Caverna")
+				user << "<span class='notice'>Agora você vai esculpir o desenho da caverna!</span>"
 				design = "cave"
-			else if  (input == "Underground Cave")
-				user << "<span class='notice'>You will now carve the cave design!</span>"
+			else if  (input == "Caverna subterrânea")
+				user << "<span class='notice'>Agora você vai esculpir o desenho da caverna!</span>"
 				design = "undercave"
-			else if  (input == "Brick")
-				user << "<span class='notice'>You will now carve the brick design!</span>"
+			else if  (input == "Tijolo")
+				user << "<span class='notice'>Agora você vai esculpir o desenho do tijolo!</span>"
 				design = "brick"
-			else if  (input == "Cobbled")
-				user << "<span class='notice'>You will now carve the cobbled design!</span>"
+			else if  (input == "Paralelepípedo")
+				user << "<span class='notice'>Agora você vai esculpir o desenho de paralelepípedos!</span>"
 				design = "cobbled"
-			else if  (input == "Tiled")
-				user << "<span class='notice'>You will now carve the tiled design!</span>"
+			else if  (input == "Ladrilho")
+				user << "<span class='notice'>Agora você vai esculpir o desenho Ladrilho!</span>"
 				design = "tiled"
-			visible_message("<span class='danger'>[user] starts to chisel a design!</span>", "<span class='danger'>You start chiseling a design.</span>")
+			visible_message("<span class='danger'>[user] começa a esculpir um desenho!</span>", "<span class='danger'>Você começa a esculpir um desenho.</span>")
 			playsound(src,'sound/effects/pickaxe.ogg',60,1)
 			if (do_after(user, 60, src))
-			//Designs possible are "smooth", "cave", "brick", "cobbled", "tiled"
-				if(design == "smooth")
+			//Designs possible are "liso", "caverna", "tijolo", "paralelepípedo", "ladrilho"
+				if(design == "liso")
 					src.icon_state = "b_stone_wall"
-					src.name = "stone wall"
-					src.desc = "A cave wall carved smooth."
-				else if(design == "cave")
+					src.name = "parede de pedra"
+					src.desc = "Uma parede de caverna esculpida lisa."
+				else if(design == "caverna")
 					src.icon_state = "rocky"
-					src.name = "underground cave wall"
-					src.desc = "A cave wall."
-				else if(design == "undercave")
+					src.name = "parede da caverna subterrânea"
+					src.desc = "Uma parede de caverna."
+				else if(design == "caverna subterrânea")
 					src.icon_state = "rock"
-					src.name = "cave wall"
-					src.desc = "A cave wall."
-				else if(design == "brick")
+					src.name = "parede de caverna"
+					src.desc = "Uma parede de caverna."
+				else if(design == "tijolo")
 					src.icon_state = "b_brick_stone_wall"
-					src.name = "stone brick wall"
-					src.desc = "A cave wall carved to look like its made of stone bricks."
-				else if(design == "cobbled")
+					src.name = "parede de tijolo de pedra"
+					src.desc = "Uma parede de caverna esculpida para parecer feita de tijolos de pedra."
+				else if(design == "paralelepípedo")
 					src.icon_state = "b_cobbled_stone_wall"
-					src.name = "cobbled stone wall"
-					src.desc = "A cave wall carved to look like piled up stones."
-				else if(design == "tiled")
+					src.name = "parede de paralelepípedo de pedra"
+					src.desc = "Uma parede de caverna esculpida para parecer pedras empilhadas."
+				else if(design == "ladrilho")
 					src.icon_state = "b_tiled_stone_wall"
-					src.name = "tiled stone wall"
-					src.desc = "A cave wall carved to have a tiled stone pattern."
+					src.name = "parede de pedra ladrilhada"
+					src.desc = "Uma parede de caverna esculpida para ter um padrão de pedra ladrilhada."
 				return
 	..()
 
@@ -151,16 +151,16 @@ var/list/global/wall_cache = list()
 	. = ..(user)
 
 	if (!damage && material)
-		user << "<span class='notice'>It looks fully intact.</span>"
+		user << "<span class='notice'>Parece totalmente intacto.</span>"
 	else
 		if (material)
 			var/dam = damage / material.integrity
 			if (dam <= 0.3)
-				user << "<span class='warning'>It looks slightly damaged.</span>"
+				user << "<span class='warning'>Parece um pouco danificado.</span>"
 			else if (dam <= 0.6)
-				user << "<span class='warning'>It looks moderately damaged.</span>"
+				user << "<span class='warning'>Parece moderadamente danificado.</span>"
 			else
-				user << "<span class='danger'>It looks heavily damaged.</span>"
+				user << "<span class='danger'>Parece muito danificado.</span>"
 //Damage
 
 /turf/wall/proc/take_damage(dam)
