@@ -13,11 +13,6 @@ O Civ13 (anteriormente 1713) é um jogo baseado no código do jogo Space Station
  <img src="https://i.imgur.com/napac0L.png">
 </kbd>
 
-
-## Discord Oficial do Civ13 
-[![discord](https://discordapp.com/api/guilds/468979034571931648/widget.png)](https://civ13.com/discord)
-
-
 ## Website Oficial do Civ13
 https://civ13.com/
 
