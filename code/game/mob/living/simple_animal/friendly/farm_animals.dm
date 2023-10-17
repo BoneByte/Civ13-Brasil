@@ -29,26 +29,26 @@
 				qdel(src)
 
 /mob/living/simple_animal/cattle/cow
-	name = "cow"
+	name = "vaca"
 	cattle_gender = "female"
-	desc = "Known for their milk, just don't tip them over."
+	desc = "Conhecida por seu leite, apenas não as derrube."
 	icon_state = "cow"
 	icon_living = "cow"
 	icon_dead = "cow_dead"
 	icon_gib = "cow_gib"
 	speak = list("moo?","moo","MOOOOOO")
-	speak_emote = list("moos","moos hauntingly")
-	emote_hear = list("brays")
-	emote_see = list("shakes its head")
+	speak_emote = list("moos","moos assombrosamente")
+	emote_hear = list("zurra")
+	emote_see = list("balança a cabeça")
 	speak_chance = TRUE
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 6
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
-	attacktext = "kicked"
+	response_help  = "acaricia"
+	response_disarm = "empurra suavemente"
+	response_harm   = "chuta"
+	attacktext = "chutou"
 	health = 50
 	var/datum/reagents/udder = null
 	var/pregnant = FALSE
@@ -59,26 +59,26 @@
 	wandersounds = list('sound/animals/cow/cow_1.ogg','sound/animals/cow/cow_2.ogg','sound/animals/cow/cow_3.ogg')
 
 /mob/living/simple_animal/cattle/bull
-	name = "bull"
+	name = "boi"
 	cattle_gender = "male"
-	desc = "Good for meat."
+	desc = "Bom para carne, eles não fazer leite, eu acho."
 	icon_state = "bull"
 	icon_living = "bull"
 	icon_dead = "bull_dead"
 	icon_gib = "cow_gib"
 	speak = list("moo?","moo","MOOOOOO")
-	speak_emote = list("moos","moos hauntingly")
-	emote_hear = list("brays")
-	emote_see = list("shakes its head")
+	speak_emote = list("moos","moos assombrosamente")
+	emote_hear = list("zurra")
+	emote_see = list("balança a cabeça")
 	speak_chance = TRUE
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 6
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
-	attacktext = "kicked"
+	response_help  = "acaricia"
+	response_disarm = "empurra suavemente"
+	response_harm   = "chuta"
+	attacktext = "chutou"
 	health = 65
 	mob_size = MOB_LARGE
 	herbivore = 1
@@ -153,12 +153,12 @@
 /mob/living/simple_animal/cattle/cow/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if (stat == CONSCIOUS && istype(G) && G.is_open_container())
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] ordenha [src] usando \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if (G.reagents.total_volume >= G.volume)
-			user << "<span class = 'red'>The [O] is full.</span>"
+			user << "<span class = 'red'>O [O] está cheio.</span>"
 		if (!transfered)
-			user << "<span class = 'red'>The udder is dry. Wait a bit.</span>"
+			user << "<span class = 'red'>está seco. Espere um pouco.</span>"
 	else
 		..()
 									// \/ port the ploughting for the whole cattle family
@@ -175,16 +175,16 @@
 				if(plough)
 					return
 				var/obj/item/stack/material/rope/NR
-				user << "You try to attach the Plough to the cattle."
+				user << "Você tenta prender o arador ao gado."
 				if(istype(user.l_hand, /obj/item/stack/material/rope/))	//Check in which hand is the rope to not mess up
 					NR = user.l_hand
 					if (NR.amount < 2)
-						user << "<span class = 'warning'>You need at least a stack of 2 ropes on one of your hands in order to do this.</span>"
+						user << "<span class = 'warning'>Você precisa de pelo menos de 2 cordas em uma das mãos para fazer isso.</span>"
 						return
 				else if(istype(user.r_hand, /obj/item/stack/material/rope/))
 					NR = user.r_hand
 					if (NR.amount < 2)
-						user << "<span class = 'warning'>You need at least a stack of 2 ropes on one of your hands in order to do this.</span>"
+						user << "<span class = 'warning'>Você precisa de pelo menos de 2 cordas em uma das mãos para fazer isso.</span>"
 						return
 				if (do_after(user,35,src))
 					NR.amount -= 2
@@ -216,9 +216,9 @@
 			road_status = "Adjust to stop making Roads"
 		else
 			road_status = "Adjust to make Roads"
-		var/choice1 = WWinput(usr, "What would you like to do with the Cow's Plough?", "Cattle Pulled Plough", "Remove", list("Remove", road_status, plough_status, "Cancel"))
+		var/choice1 = WWinput(usr, "O que você gostaria de fazer com o Arador de Vaca?", "Arador puxado para gado", "Remove", list("Remove", road_status, plough_status, "Cancel"))
 		if (choice1 == "Remove")
-			user << "You try to detach the Plough from the Cow."
+			user << "Você tenta separar o arador da vaca."
 			if (do_after(user,35,src))
 				if(cattle_gender == "female")
 					icon_state = "cow"
@@ -267,7 +267,7 @@
 					else
 						new/obj/covers/roads/dirt(O.loc)
 					simplehunger -= 65		//The hunger rates regenerates after doing brute damage, thats why it can take more than 1000 simplehunger
-					visible_message("[src] [pick("ploughs the field","runs the plough into the field","begins ploughing the field.","plows.")]")
+					visible_message("[src] [pick("ara o campo","usa o arador para o campo","começa a arar o campo.","arado.")]")
 		else if (istype(T, /turf/floor/dirt/underground) || locate(/obj/covers/roads/dirt) in get_turf(O))
 			return										//I hate these double checks and same looking code
 		else											//But its needed unless we rework the ploughing or turf
@@ -278,7 +278,7 @@
 					else
 						new/obj/covers/roads/dirt(O.loc)
 					simplehunger -= 65
-					visible_message("[src] [pick("ploughs the field","runs the plough into the field","begins ploughing the field.","plows.")]")
+					visible_message("[src] [pick("ara o campo","usa o arado para o campo","começa a arar o campo.","arado.")]")
 
 /mob/living/simple_animal/cattle/Life()
 	. = ..()
@@ -338,11 +338,11 @@
 			else
 				var/mob/living/simple_animal/cattle/bull/B = new/mob/living/simple_animal/cattle/bull(loc)
 				B.calf = TRUE
-			visible_message("A calf has been born!")
+			visible_message("Nasceu um bezerro!")
 
 /mob/living/simple_animal/cattle/cow/attack_hand(mob/living/human/M as mob)
 	if (!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
-		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
+		M.visible_message("<span class='warning'>[M] derruba [src].</span>","<span class='notice'>Você derruba [src].</span>")
 		Weaken(30)
 		icon_state = icon_dead
 		spawn(rand(20,50))
@@ -351,31 +351,31 @@
 					icon_state = "cow_plough"
 				else								//For some reason, updating the cow_work to icon_living doesnt work properly
 					icon_state = icon_living
-				var/list/responses = list(	"[src] looks at you imploringly.",
-											"[src] looks at you pleadingly",
-											"[src] looks at you with a resigned expression.",
-											"[src] seems resigned to its fate.")
+				var/list/responses = list(	"[src] olha para você implorando.",
+											"[src] olha para você suplicante",
+											"[src] olha para você com uma expressão resignada.",
+											"[src] parece resignado com seu destino.")
 				M << pick(responses)
 	else
 		..()
 
 //pig
 /mob/living/simple_animal/pig_boar
-	name = "pig boar"
-	desc = "A small Mammal, with a stocky Body, Flat snout and small eyes they are a member of the Suidae Family."
+	name = "porco"
+	desc = “Um mamífero pequeno, de corpo atarracado, focinho achatado e olhos pequenos, é membro da família Suidae."
 	icon_state = "pig_boar"
 	icon_living = "pig_boar"
 	icon_dead = "pig_boar_dead"
 	speak = list("OINK!","SQWEEEL!")
-	emote_see = list("rolls on the ground", "lays with it's belly up", "snorts")
+	emote_see = list("rola no chão", "deita com a barriga para cima", "bufa")
 	speak_chance = 1
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 5
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
+	response_help  = "acaricia"
+	response_disarm = "empurra suavemente"
+	response_harm   = "chuta"
 	faction = list("neutral")
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 60
@@ -393,22 +393,22 @@
 	fat_extra = 2
 
 /mob/living/simple_animal/pig_gilt
-	name = "pig gilt"
-	desc = "A small Mammal, with a stocky Body, Flat snout and small eyes they are a member of the Suidae Family."
+	name = "porca"
+	desc = "Pequeno mamífero, de corpo atarracado, focinho achatado e olhos pequenos, é membro da família Suidae."
 	icon_state = "pig_gilt"
 	icon_living = "pig_gilt"
 	icon_dead = "pig_gilt_dead"
 	speak = list("OINK!","SQWEEEL!")
-	emote_see = list("rolls on the ground", "lays with it's belly up", "snorts")
+	emote_see = list("rola no chão", "deita com a barriga para cima", "bufa")
 	speak_chance = 1
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 6
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
-	attacktext = "kicked"
+	response_help  = "acaricia"
+	response_disarm = "empurra suavemente"
+	response_harm   = "chuta"
+	attacktext = "chutou"
 	health = 60
 	var/piglet = FALSE
 	var/datum/reagents/udder = null
@@ -479,12 +479,12 @@
 /mob/living/simple_animal/pig_gilt/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if (stat == CONSCIOUS && istype(G) && G.is_open_container())
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] ordenha [src] usando \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if (G.reagents.total_volume >= G.volume)
-			user << "<span class = 'red'>The [O] is full.</span>"
+			user << "<span class = 'red'>O [O] está cheio.</span>"
 		if (!transfered)
-			user << "<span class = 'red'>The udder is dry. Wait a bit.</span>"
+			user << "<span class = 'red'>está seco. Espere um pouco.</span>"
 	else
 		..()
 
@@ -536,21 +536,21 @@
 			visible_message("A piglet has been born!")
 
 /mob/living/simple_animal/boar_boar
-	name = "boar"
-	desc = "A small Wooly Mammal, with a stocky Body, Long snout and small eyes they are a member of the Suidae Family."
+	name = "javali"
+	desc = "Pequeno mamífero lanoso, de corpo atarracado, focinho comprido e olhos pequenos, é membro da família Suidae."
 	icon_state = "boar_boar"
 	icon_living = "boar_boar"
 	icon_dead = "boar_dead"
 	speak = list("Gweeeeiiirrr!","Ghhhhhhh!","Oeerrrrhhh!")
-	emote_see = list("rolls on the ground", "lays with it's belly up", "snorts")
+	emote_see = list("rola no chão", "deita com a barriga para cima", "bufa")
 	speak_chance = 1
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 3
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
+	response_help  = "acaricia"
+	response_disarm = "empurra suavemente"
+	response_harm   = "chuta"
 	faction = list("neutral")
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 150
@@ -570,22 +570,22 @@
 	fat_extra = 2
 
 /mob/living/simple_animal/boar_gilt
-	name = "boar gilt"
-	desc = "A small Wooly Mammal, with a stocky Body, Long snout and small eyes they are a member of the Suidae Family."
+	name = "javali fêmea"
+	desc = "Pequeno mamífero lanoso, de corpo atarracado, focinho comprido e olhos pequenos, é membro da família Suidae."
 	icon_state = "boar_gilt"
 	icon_living = "boar_gilt"
 	icon_dead = "boar_dead"
-	speak = list("Gweeeeiiirrr!","Ghhhhhhh!","Oeerrrrhhh!")
-	emote_see = list("rolls on the ground", "lays with it's belly up", "snorts")
+	speak = list("Gweeeiiiirrr!","Ghhhhhhh!","Oeerrrrhhh!")
+	emote_see = list("rola no chão", "deita com a barriga para cima", "bufa")
 	speak_chance = 1
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 3
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
-	attacktext = "kicked"
+	response_help  = "acaricia"
+	response_disarm = "empurra suavemente"
+	response_harm   = "chuta"
+	attacktext = "chutado"
 	health = 60
 	var/piglet = FALSE
 	var/datum/reagents/udder = null
@@ -657,12 +657,12 @@
 /mob/living/simple_animal/boar_gilt/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if (stat == CONSCIOUS && istype(G) && G.is_open_container())
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] ordenha [src] usando \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if (G.reagents.total_volume >= G.volume)
-			user << "<span class = 'red'>The [O] is full.</span>"
+			user << "<span class = 'red'>O [O] está cheio.</span>"
 		if (!transfered)
-			user << "<span class = 'red'>The udder is dry. Wait a bit.</span>"
+			user << "<span class = 'red'>está seco. Espere um pouco.</span>"
 	else
 		..()
 
@@ -716,25 +716,25 @@
 
 //goat
 /mob/living/simple_animal/goat
-	name = "goat ram"
-	desc = "A male goat. Not known for their pleasant disposition."
+	name = "cabrito"
+	desc = "Um bode macho. Não são conhecidos por sua disposição agradável."
 	icon_state = "goat_ram"
 	icon_living = "goat_ram"
 	icon_dead = "goat_ram_dead"
 	speak = list("EHEHEHEHEH","eh?")
-	speak_emote = list("brays")
-	emote_hear = list("brays")
-	emote_see = list("shakes its head", "stamps a foot", "glares around")
+	speak_emote = list("zurra")
+	emote_hear = list("zurra")
+	emote_see = list("balança a cabeça", "bate o pé", "olha ao redor")
 	speak_chance = 1
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 3
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
+	response_help  = "acaricia"
+	response_disarm = "empurra gentilmente"
+	response_harm   = "chuta"
 	faction = list("neutral")
-	attacktext = "kicks"
+	attacktext = "chuta"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 40
 	maxHealth = 40
@@ -767,8 +767,8 @@
 				wandersounds = list('sound/animals/goat/goat_1.ogg','sound/animals/goat/goat_2.ogg','sound/animals/goat/goat_3.ogg')
 
 /mob/living/simple_animal/goat/female
-	name = "goat ewe"
-	desc = "A female goat. You can milk it."
+	name = "cabrita"
+	desc = "Uma cabra fêmea. Você pode ordenhar."
 	icon_state = "goat_ewe"
 	icon_living = "goat_ewe"
 	icon_dead = "goat_ewe_dead"
@@ -805,12 +805,12 @@
 /mob/living/simple_animal/goat/female/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	var/obj/item/weapon/reagent_containers/glass/G = O
 	if (stat == CONSCIOUS && istype(G) && G.is_open_container())
-		user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+		user.visible_message("<span class='notice'>[user] ordenha [src] usando \the [O].</span>")
 		var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 		if (G.reagents.total_volume >= G.volume)
-			user << "<span class = 'red'>The [O] is full.</span>"
+			user << "<span class = 'red'>O [O] está cheio.</span>"
 		if (!transfered)
-			user << "<span class = 'red'>The udder is dry. Wait a bit.</span>"
+			user << "<span class = 'red'>está seco. Espere um pouco.</span>"
 		return
 	else
 		..()
@@ -855,29 +855,29 @@
 			else
 				var/mob/living/simple_animal/goat/female/B = new/mob/living/simple_animal/goat/female(loc)
 				B.lamb = TRUE
-			visible_message("A goat lamb has been born!")
+			visible_message("Nasceu um cabritinho!")
 
 //sheep
 /mob/living/simple_animal/sheep
-	name = "sheep ram"
-	desc = "A male sheep. Good for wool."
+	name = "carneiro"
+	desc = "Uma ovelha macho. Bom para lã."
 	icon_state = "sheep_ram"
 	icon_living = "sheep_ram"
 	icon_dead = "sheep_ram_dead"
 	speak = list("EHEHEHEHEH","eh?")
-	speak_emote = list("brays")
-	emote_hear = list("brays")
-	emote_see = list("shakes its head", "stamps a foot", "glares around")
+	speak_emote = list("zurra")
+	emote_hear = list("zurra")
+	emote_see = list("balança a cabeça", "bate o pé", "olha ao redor")
 	speak_chance = 1
 	move_to_delay = 5
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 3
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
+	response_help  = "acaricia"
+	response_disarm = "empurra gentilmente"
+	response_harm   = "chuta"
 	faction = list("neutral")
-	attacktext = "kicks"
+	attacktext = "chuta"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	health = 40
 	maxHealth = 40
@@ -914,8 +914,8 @@
 		icon_dead = "sheep_ewe_dead"
 
 /mob/living/simple_animal/sheep/female
-	name = "sheep ewe"
-	desc = "A female sheep. You can milk it."
+	name = "cabra"
+	desc = "Uma ovelha. Você pode ordenhar."
 	icon_state = "sheep_ewe"
 	icon_living = "sheep_ewe"
 	icon_dead = "sheep_ewe_dead"
@@ -975,17 +975,17 @@
 	if (istype(O, /obj/item/weapon/reagent_containers/glass))
 		var/obj/item/weapon/reagent_containers/glass/G = O
 		if (stat == CONSCIOUS && istype(G) && G.is_open_container())
-			user.visible_message("<span class='notice'>[user] milks [src] using \the [O].</span>")
+			user.visible_message("<span class='notice'>[user] ordenha [src] usando \the [O].</span>")
 			var/transfered = udder.trans_id_to(G, "milk", rand(5,10))
 			if (G.reagents.total_volume >= G.volume)
-				user << "<span class = 'red'>The [O] is full.</span>"
+				user << "<span class = 'red'>O [O] está cheio.</span>"
 			if (!transfered)
-				user << "<span class = 'red'>The udder is dry. Wait a bit.</span>"
+				user << "<span class = 'red'>está seco. Espere um pouco.</span>"
 			return
 	else if (istype(O, /obj/item/weapon/shears) && sheared == FALSE)
-		user << "You start shearing \the [src]..."
+		user << "Você começa a tosquiar \the [src]..."
 		if (do_after(user, 150, src) && sheared == FALSE)
-			user << "You finish shearing \the [src]."
+			user << "Você termina de tosquiar \the [src]."
 			sheared = TRUE
 			update_icons()
 			regrowth()
@@ -995,9 +995,9 @@
 		..()
 /mob/living/simple_animal/sheep/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (istype(O, /obj/item/weapon/shears) && sheared == FALSE)
-		user << "You start shearing \the [src]..."
+		user << "Você começa a tosquiar \the [src]..."
 		if (do_after(user, 150, src) && sheared == FALSE)
-			user << "You finish shearing \the [src]."
+			user << "Você termina de tosquiar \the [src]."
 			sheared = TRUE
 			update_icons()
 			regrowth()
@@ -1046,28 +1046,28 @@
 			else
 				var/mob/living/simple_animal/sheep/female/B = new/mob/living/simple_animal/sheep/female(loc)
 				B.lamb = TRUE
-			visible_message("A sheep lamb has been born!")
+			visible_message("Nasceu um cordeiro!")
 /mob/living/simple_animal/camel
-	name = "camel"
-	desc = "Good for meat."
+	name = "camelo"
+	desc = "Bom para carne."
 	icon = 'icons/mob/animal_64.dmi'
 	icon_state = "camel"
 	icon_living = "camel"
 	icon_dead = "camel_dead"
 	icon_gib = "camel_dead"
 	speak = list("MMMMMHM","brooo","BRBRBRBRR!")
-	speak_emote = list("grunts")
-	emote_hear = list("grunts")
-	emote_see = list("shakes its head")
+	speak_emote = list("grunhidos")
+	emote_hear = list("grunhidos")
+	emote_see = list("balança a cabeça")
 	speak_chance = TRUE
 	move_to_delay = 8
 	see_in_dark = 6
 	meat_type = /obj/item/weapon/reagent_containers/food/snacks/meat
 	meat_amount = 6
-	response_help  = "pets"
-	response_disarm = "gently pushes aside"
-	response_harm   = "kicks"
-	attacktext = "kicked"
+	response_help  = "acaricia"
+	response_disarm = "empurra gentilmente"
+	response_harm   = "chuta"
+	attacktext = "chutou"
 	var/packed = FALSE
 	health = 110
 	mob_size = MOB_LARGE
@@ -1080,11 +1080,11 @@
 /mob/living/simple_animal/camel/attackby(var/obj/item/O as obj, var/mob/user as mob)
 	if (!stat && user.a_intent == I_HELP && icon_state != icon_dead && !istype(O, /obj/item/weapon/leash))
 		if (content_size + O.w_class > max_content_size)
-			user << "The camel is too burdened already!"
+			user << "O camelo já está muito sobrecarregado!"
 			return
 		else
 			content_size += O.w_class
-			visible_message("[user] places \the [O] on the camel's back.","You put \the [O] on the camel's back.")
+			visible_message("[user] coloca \the [O] nas costas do camelo.","Você coloca \the [O] nas costas do camelo.")
 			packed_items += O
 			user.drop_from_inventory(O)
 			O.forceMove(locate(0,0,0))
@@ -1104,21 +1104,21 @@
 	set name = "Remove Pack"
 	set src in range(2, usr)
 	if (!content_size)
-		usr << "The camel is not carrying anything."
+		usr << "O camelo não está carregando nada."
 		return
 	else
 		var/list/choicelist = list("Cancel")
 		for (var/obj/item/IT in packed_items)
 			choicelist += IT.name
-		var/choice1 = WWinput(usr, "What do you want to remove from the camel's pack?", "Camel Pack", "Cancel", choicelist)
-		if (choice1 == "Cancel")
+		var/choice1 = WWinput(usr, "O que você deseja remover da costas do camelo?", "Pacote Camelo", "Cancelar", choicelist)
+		if (choice1 == "Cancelar")
 			return
 		else
 			for (var/obj/item/ITS in packed_items)
 				if (ITS.name == choice1)
 					ITS.loc = locate(usr.x,usr.y,usr.z)
 					packed_items -= ITS
-					visible_message("[usr] removes \the [ITS] from the camel's back.","You remove \the [ITS] from the camel's back.")
+					visible_message("[usr] remove \the [ITS] das costas do camelo.","Você remove \the [ITS] das costas do camelo.")
 					content_size -= ITS.w_class
 					if (!content_size)
 						packed = FALSE
